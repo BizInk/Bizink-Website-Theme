@@ -1,0 +1,42 @@
+@import "theme/child_theme_variables"; // <------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "assets/bootstrap5/bootstrap"; // <------- Loads Bootstrap4
+@import "assets/understrap/theme/understrap"; // <------- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
+@import "assets/understrap/theme/woocommerce"; // <------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+
+// Optional files - If you don´t use the corresponding scripts/fonts comment em out
+@import "assets/fontawesome/font-awesome"; // <------- Font Awesome Icon font
+@import "assets/underscores"; // <------- Underscores media styles
+
+@import "assets/slick/slick-theme";
+@import "assets/slick/slick";
+
+// Any additional imported files //
+@import "assets/understrap/theme/colors"; // <-------- This creates the necessary bootstrap color classes.
+@import "assets/understrap/theme/blocks"; // <-------- This adds Bootstrap styles to blocks.
+@import "assets/understrap/theme/contact-form7"; // <-------- Contact Form 7 - Bootstrap 4 support
+
+@import "theme/mixin";
+@import "theme/common";
+@import "theme/header";
+@import "theme/footer";
+@import "theme/button";
+@import "theme/typography";
+@import "theme/elements";
+
+// Templates
+@import "theme/templates/hero";
+@import "theme/templates/service-icons";
+@import "theme/templates/services";
+@import "theme/templates/cta-section";
+@import "theme/templates/two-columns.scss";
+@import "theme/templates/404.scss";
+@import "theme/templates/search-result.scss";
+@import "theme/templates/logo-slider.scss";
+@import "theme/templates/business-list.scss";
+@import "theme/templates/states.scss";
+@import "theme/templates/image-text-grid.scss";
+@import "theme/templates/page-title.scss";
+@import "theme/templates/story.scss";
+@import "theme/templates/feature-story.scss";
+@import "theme/templates/story-nav.scss";
+@import "theme/templates/pricing-table.scss";

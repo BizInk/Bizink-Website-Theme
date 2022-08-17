@@ -1,0 +1,88 @@
+.hero-section {
+	padding: 100px 0 150px;
+	margin-bottom: -50px;
+	background-size: cover;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	@include media-breakpoint-down(sm) {
+		padding: 40px 0 80px;
+	}
+	h2 {
+		max-width: 480px;
+	}
+	h3 {
+		max-width: 475px;
+	}
+	.btn {
+		margin-top: 20px;
+	}
+	.tags {
+		list-style: none;
+		padding: 0;
+		margin: 30px 0 0 0;
+		max-width: 300px;
+		li {
+			color: $navyblue;
+			padding: 8px 10px 5px;
+			display: inline-block;
+			margin-bottom: 5px;
+			border: 1px solid $navyblue;
+			border-radius: 30px;
+			h6 {
+				text-transform: uppercase;
+				font-size: 1.2rem;
+				font-family: $font-avenir-lt;
+				font-weight: bold;
+				margin: 0;
+			}
+		}
+
+		a {
+		}
+	}
+	&.hero-section-style2 {
+		h2 {
+			font-family: $font-mercury-display;
+			font-size: 5.4rem;
+			@include media-breakpoint-down(sm) {
+				font-size: 4rem;
+			}
+		}
+		h3 {
+			font-family: $font-avenir-lt;
+			font-weight: $font-weight-heavy;
+		}
+	}
+	&.white-text {
+		color: $white;
+		h2 {
+			color: $white;
+		}
+		h3 {
+			color: $white;
+		}
+		.tags {
+			li {
+				border: 1px solid $white;
+				color: $white;
+			}
+		}
+	}
+	&.dark-text {
+		color: $primary;
+		h2 {
+			color: $primary;
+		}
+		h3 {
+			color: $primary;
+		}
+	}
+}
+
+.hero-slider {
+	.container {
+		@include media-breakpoint-down(sm) {
+			max-width: 90%;
+		}
+	}
+}

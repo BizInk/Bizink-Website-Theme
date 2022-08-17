@@ -1,0 +1,45 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
+
+// Colors
+$navyblue: #333b61;
+$yellow: #fcb813;
+$lightblue: #75a8da;
+$purple: #b665a8;
+$darkpurple: #805fa9;
+$gray: #858aa0;
+$lightblue2: #90bae2;
+$lightgray: #f6f6f6;
+$lightpurple: #cc7eb6;
+
+$primary: $navyblue;
+
+// Fonts
+$font-mercury-display: "Mercury Display";
+$font-avenir-lt: "Avenir LT Std";
+$font-avenir-roman: "Avenir Roman";
+$font-roboto: "Roboto", sans-serif;
+
+// Fonts Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-heavy: 900;
+
+// Alignments
+$align-right: right;
+$align-center: center;
+$align-left: left;
+
+// Display
+$display-flex: flex;
+$display-block: block;
+$display-grid: grid;
+
+// Text Transform
+$text-transform-capitalize: capitalize;
+$text-transform-uppercase: uppercase;
+$text-transform-lowercase: lowercase;
+$text-transform-lowercase: lowercase;

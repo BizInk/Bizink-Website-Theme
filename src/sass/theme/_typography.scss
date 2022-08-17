@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@font-face {
+    font-family: "Mercury Display";
+    src: url("../fonts/MercuryDisplay-Bold.woff2") format("woff2"),
+        url("../fonts/MercuryDisplay-Bold.woff") format("woff"),
+        url("../fonts/MercuryDisplay-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Avenir LT Std";
+    src: url("../fonts/AvenirLTStd-Black.woff2") format("woff2"), url("../fonts/AvenirLTStd-Black.woff") format("woff"),
+        url("../fonts/AvenirLTStd-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Avenir LT Std";
+    src: url("../fonts/AvenirLTStd-Book.woff2") format("woff2"), url("../fonts/AvenirLTStd-Book.woff") format("woff"),
+        url("../fonts/AvenirLTStd-Book.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Avenir Roman";
+    src: url("../fonts/AvenirLTStd-Roman.woff2") format("woff2"), url("../fonts/AvenirLTStd-Roman.woff") format("woff"),
+        url("../fonts/AvenirLTStd-Roman.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-size: 1.8rem;
+    color: $primary;
+    font-family: $font-avenir-lt;
+}
+h1 {
+    font-size: 5.2rem;
+    font-family: $font-mercury-display;
+    @include media-breakpoint-down(lg) {
+    }
+}
+h2 {
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: $purple;
+    font-family: $font-avenir-roman;
+}
+h3 {
+    font-size: 2.2rem;
+    font-family: $font-mercury-display;
+}

@@ -1,0 +1,156 @@
+/*Common CSS START*/
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-size: 62.5%;
+	// 10px = 1rem
+}
+img {
+	max-width: 100%;
+}
+a {
+	cursor: pointer;
+	@include transition(all 0.4s ease-in-out);
+	&:hover {
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.slick-slide {
+	outline: none;
+}
+iframe {
+	max-width: 100%;
+}
+
+// background
+.bg {
+	padding: 80px 0;
+	@include media-breakpoint-down(lg) {
+		padding: 40px 0;
+	}
+}
+.navyblue-bg {
+	background-color: $primary;
+	color: $white;
+}
+.yellow-bg {
+	background-color: $yellow;
+}
+.lightblue-bg {
+	background-color: $lightblue;
+}
+.purple-bg {
+	background-color: $purple;
+	color: $white;
+}
+.gray-bg {
+	background-color: $gray;
+}
+.light-gray-bg {
+	background-color: $lightgray;
+}
+.lightblue2-bg {
+	background-color: $lightblue2;
+}
+.darkpurple-bg {
+	background-color: $darkpurple;
+	color: $white;
+}
+.navyblue {
+	color: $primary;
+}
+.yellow {
+	color: $yellow;
+}
+.lightblue {
+	color: $lightblue;
+}
+.purple {
+	color: $purple;
+}
+.gray {
+	color: $gray;
+}
+.lightblue2 {
+	color: $lightblue2;
+}
+
+/*Scroll */
+.scrollTop {
+	position: fixed;
+	bottom: 60px;
+	right: 20px;
+	width: 35px;
+	height: 35px;
+	z-index: 99;
+	text-align: center;
+	line-height: 35px;
+	cursor: pointer;
+	display: none;
+	background: $yellow;
+	border-radius: 5px;
+	&:hover {
+		background: $primary;
+	}
+	&:before {
+		content: "";
+		border-top: 3px solid $white;
+		border-right: 3px solid $white;
+		display: inline-block;
+		margin: auto;
+		width: 10px;
+		height: 10px;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		vertical-align: middle;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: -1;
+	}
+	@include media-breakpoint-down(sm) {
+		bottom: 30px;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+	}
+}
+
+/* Default Content */
+
+.default-content {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			padding: 12px 0 0 40px;
+			position: relative;
+			&:before {
+				content: "\f00c";
+				font-family: FontAwesome;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-30%);
+				background-color: $yellow;
+				color: $white;
+				border-radius: 100%;
+				width: 27px;
+				height: 27px;
+				text-align: center;
+				line-height: 27px;
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+.states-section {
+	position: relative;
+	h2 {
+		margin-bottom: 50px;
+	}
+	.title {
+		font-size: 16px;
+		color: $primary;
+		text-transform: $text-transform-uppercase;
+		margin-bottom: 30px;
+		font-weight: $font-weight-heavy;
+		letter-spacing: 0.5px;
+	}
+	.inner-wrap {
+		margin: 0 auto;
+		border-left: 1px solid;
+		padding: 0px 25%;
+		@include media-breakpoint-down(lg) {
+			border-left: none;
+			padding-bottom: 20px;
+		}
+		h2 {
+			color: $primary;
+			font-family: $font-avenir-lt;
+			font-weight: $font-weight-heavy;
+			margin-bottom: 0;
+			font-size: 5rem;
+		}
+		p {
+			margin-bottom: 0;
+			font-size: 16px;
+		}
+	}
+	.row {
+		div {
+			&:first-child {
+				.inner-wrap {
+					border-left: none;
+				}
+			}
+		}
+	}
+	&.white-text {
+		h2 {
+			color: $white;
+		}
+		.title {
+			color: $lightblue2;
+		}
+	}
+}

@@ -1,0 +1,53 @@
+.bussiness-list-section {
+    padding: 15px 0;
+    @include media-breakpoint-down(lg) {
+        padding: 80px 0 50px;
+    }
+    .success-list {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            width: 48px;
+            height: 21px;
+            background-image: url(../images/wave.png);
+            @include media-breakpoint-down(sm) {
+                left: 0;
+            }
+        }
+    }
+    h2 {
+        color: $white;
+        margin-bottom: 50px;
+    }
+    ul {
+        @include reset-list;
+        font-size: 25px;
+        column-count: 2;
+        margin-bottom: -28px;
+        position: relative;
+        @include media-breakpoint-down(sm) {
+            column-count: 1;
+        }
+        &::after {
+            content: "";
+            width: 100%;
+            height: 26px;
+            position: absolute;
+            background-color: inherit;
+            bottom: 0;
+            left: 0;
+        }
+        li {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #c39bbe;
+            max-width: 230px;
+            @include media-breakpoint-down(sm) {
+                max-width: 100%;
+            }
+        }
+    }
+}

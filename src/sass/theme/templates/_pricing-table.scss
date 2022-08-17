@@ -1,0 +1,175 @@
+.pricing-table-section {
+	position: relative;
+	padding-bottom: 80px;
+	.table-responsive {
+		overflow-x: visible;
+		@include media-breakpoint-down(lg) {
+			overflow-x: auto;
+		}
+	}
+	.nav-tabs {
+		justify-content: center;
+		border-bottom: 1px solid #000;
+		button {
+			font-size: 24px;
+			padding: 22px 60px;
+			color: #858aa0;
+			background-color: $primary;
+			border-radius: 0;
+			@include media-breakpoint-down(md) {
+				font-size: 18px;
+				padding: 10px 30px;
+			}
+		}
+		.nav-link {
+			&:hover {
+				border-color: $primary;
+			}
+		}
+		.nav-link.active {
+			color: $lightblue;
+			border-color: #000 #000 #fff;
+		}
+	}
+	.tab-content {
+		padding-top: 100px;
+	}
+	.table-main {
+		position: relative;
+		padding-top: 40px;
+	}
+	.offer-text {
+		position: absolute;
+		right: -177px;
+		top: 47%;
+		color: $purple;
+		font-size: 16px;
+		font-weight: $font-weight-heavy;
+		text-align: center;
+		max-width: 108px;
+		transform: translate(-50%, -50%);
+		img {
+			display: block;
+			position: relative;
+			right: 50px;
+			top: 9px;
+		}
+		.btn {
+			background-color: $white;
+			color: $purple;
+			border-color: $purple;
+			padding: 2px 10px;
+			font-size: 14px;
+		}
+	}
+	.table {
+		margin-bottom: 0;
+		color: $primary;
+		.title {
+			color: $lightblue;
+			font-size: 24px;
+			margin-bottom: 0;
+			@include media-breakpoint-down(lg) {
+				font-size: 18px;
+			}
+		}
+		.price {
+			color: $lightblue;
+			font-size: 40px;
+			font-weight: $font-weight-heavy;
+			margin-bottom: 0;
+			@include media-breakpoint-down(lg) {
+				font-size: 24px;
+			}
+		}
+		.time {
+			color: $lightblue;
+			font-size: 16px;
+			margin-bottom: 10px;
+			@include media-breakpoint-down(lg) {
+				font-size: 14px;
+			}
+		}
+		.popular {
+			margin-top: -34px;
+			color: #ced0d9;
+			font-size: 15px;
+			font-weight: $font-weight-heavy;
+			@include media-breakpoint-down(lg) {
+				font-size: 12px;
+			}
+		}
+		.desc {
+			font-size: 14px;
+			padding: 0 15px;
+			margin-bottom: 15px;
+			@include media-breakpoint-down(lg) {
+				font-size: 12px;
+			}
+		}
+		i {
+			color: $gray;
+		}
+		th {
+			font-weight: normal;
+			border-bottom: 0;
+			vertical-align: top;
+		}
+		h2 {
+			max-width: 250px;
+		}
+		h3 {
+			font-family: $font-avenir-roman;
+			color: $lightblue2;
+			padding-top: 30px;
+		}
+		tr {
+			td {
+				text-align: center;
+				font-weight: $font-weight-heavy;
+				width: 18%;
+				&:first-child {
+					text-align: left;
+					font-weight: normal;
+					width: 33%;
+				}
+				&:nth-child(3) {
+					background-color: $lightgray;
+				}
+			}
+			th {
+				text-align: center;
+				&:first-child {
+					text-align: left;
+					padding-bottom: 80px;
+				}
+				&:nth-child(3) {
+					background-color: $lightgray;
+				}
+			}
+		}
+	}
+	.btn {
+		padding: 10px 25px;
+		font-size: 12px;
+		@include media-breakpoint-down(lg) {
+			padding: 5px 8px;
+			font-size: 12px;
+		}
+	}
+	.table > :not(caption) > * > *,
+	.wp-block-table table > :not(caption) > * > * {
+		padding: 0.8rem 0.5rem;
+	}
+	.note {
+		text-align: right;
+		margin-top: 30px;
+		padding-right: 120px;
+		@include media-breakpoint-down(lg) {
+			text-align: center;
+			padding-right: 0;
+			font-size: 14px;
+			padding-bottom: 20px;
+		}
+	}
+}

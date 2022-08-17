@@ -1,0 +1,11 @@
+.page-title-section {
+	padding: 120px 0;
+	@include media-breakpoint-down(sm) {
+		padding: 60px 0;
+	}
+	&.lightbluehead {
+		h2 {
+			color: $lightblue;
+		}
+	}
+}

@@ -1,0 +1,82 @@
+footer {
+    padding: 70px 0;
+    color: $white;
+    background-color: $primary;
+    font-size: 16px;
+    @include media-breakpoint-down(sm) {
+        text-align: $align-center;
+    }
+    @include media-breakpoint-down(sm) {
+        padding: 50px 0;
+    }
+    a {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            color: $yellow;
+        }
+    }
+    h5 {
+        font-size: 16px;
+        font-weight: $font-weight-heavy;
+        margin-bottom: 25px;
+    }
+    .contact-info {
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 28px;
+        }
+    }
+    .footer-menu {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            li {
+                a {
+                    font-weight: $font-weight-heavy;
+                    display: $display-block;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+    .bottom-link {
+        margin-top: 40px;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        a {
+            font-size: 13px;
+            display: $display-block;
+        }
+    }
+
+    .social-media-wrap {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            @include media-breakpoint-down(sm) {
+                justify-content: center;
+            }
+            li {
+                margin-right: 25px;
+                @include media-breakpoint-down(sm) {
+                    margin: 0 12px;
+                }
+            }
+        }
+    }
+    .privacy-policy-wrap {
+        margin-top: 30px;
+        text-align: $align-right;
+        font-size: 13px;
+        @include media-breakpoint-down(sm) {
+            text-align: $align-center;
+        }
+    }
+}
