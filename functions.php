@@ -110,6 +110,7 @@ function wpb_custom_new_menu() {
   register_nav_menu('my-custom-menu-one',__( 'Footer Menu One' ));
   register_nav_menu('my-custom-menu-two',__( 'Footer Menu Two' ));
   register_nav_menu('our-playbook-menu',__( 'Our Playbook' ));
+  register_nav_menu('my-account-menu',__( 'My Account Menu' ));
 
 }
 add_action( 'init', 'wpb_custom_new_menu' );
