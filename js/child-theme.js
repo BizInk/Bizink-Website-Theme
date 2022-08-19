@@ -10098,14 +10098,10 @@
 	      fixedtop.removeClass('fixed');
 	    }
 	  });
-	  $('aside nav ul li a').click(function () {
-	    $('aside nav ul li a').removeClass('selected');
-	    $(this).addClass('selected');
-	  });
 	});
 
 	if (window.matchMedia("(max-width: 991px)").matches) {
-	  jQuery(".offcanvas-body").append('<a href="#" class="inner-my-account">MY ACCOUNT</a>');
+	  $(".navbar-nav").append(".my-account");
 	}
 
 	jQuery('.logo-slider').slick({

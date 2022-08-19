@@ -21,7 +21,7 @@ if(has_nav_menu('my-account-menu')){
 			'theme_location'  => 'my-account-menu',
 			'container_class' => 'header-top',
 			'container_id'    => '',
-			'menu_class'      => 'container',
+			'menu_class'      => 'container my-account-menu',
 			'fallback_cb'     => '',
 			'menu_id'         => 'my-account-menu',
 			'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
