@@ -1,0 +1,121 @@
+<?php
+   /**
+    * Single Resource Content Type page
+    */
+$tax = $wp_query->get_queried_object();
+?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.bootstrap_4.min.css" integrity="sha512-2C6AmJKgt4B+bQc08/TwUeFKkq8CsBNlTaNcNgUmsDJSU1Fg+R6azDbho+ZzuxEkJnCjLZQMozSq3y97ZmgwjA==" crossorigin="anonymous" />
+<div class="section section-grayLight">
+   <div class="container">
+      <div class="jumbo jumbo-centered">
+         <h2 class="jumbo_heading jumbo_heading-lg">
+            <span>Content Type: <?= $tax->name; ?></span>
+         </h2>
+         <!-- /.jumbo_heading -->
+      </div>
+      <!-- /.jumbo --> 
+   </div>
+   <!-- /.container -->
+</div>
+<div class="section section-white">
+   <div class="container">
+   	 <div class="basicContent">
+      <h2><?= $tax->name; ?></h2>
+      <div>
+         <div>
+            <table id="myTable" class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Title</th>
+                  <th>Topics</th>
+                  <th>Published Date</th>
+                  <?php if($tax->name == "Social Posts") : ?>
+                  <th>Social Post Topic</th>
+                  <?php endif; ?>
+                </tr>
+              </thead>
+              <tbody>
+                  <?php 
+                    $args = array(
+                    'post_type' => 'marketing_content',
+                    'posts_per_page' => -1,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'types',
+                            'field' => 'slug',
+                            'terms' => $tax->name,
+                        ),
+                    ),
+                );
+                $loop = new WP_Query($args);
+
+                if($loop->have_posts()) {
+                  while($loop->have_posts()) : $loop->the_post();
+                    ?>
+                            <tr>
+                              <td><a href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>">
+                                <?= get_the_title(); ?>
+                                </a></td>
+                              <td>
+                                 <?php 
+                                  $terms = get_the_terms( $post->ID , 'topics' );
+
+                                  if ( $terms != null ){
+                                     foreach( $terms as $term ) {
+                                      if( !next( $terms ) ) {
+                                        echo $term->name;
+                                      }
+                                      else{
+                                        echo $term->name. ", ";
+                                      }
+                                     
+                                     unset($term);
+                                     }
+                                  }
+                                ?>
+                              </td>
+                              <td><?= get_the_date( 'M d, Y' ); ?></td>
+                              <?php if($tax->name == "Social Posts") : 
+                              ?>
+                                <td>
+                                  <?php 
+                                  $social_tax = get_field('social_post_type', $post->ID);
+                                  if ( $social_tax != null ){
+                                     foreach( $social_tax as $term_id ) {
+                                      $term = get_term( $term_id );
+
+                                      if( !next( $social_tax ) ) {
+                                        echo $term->name;
+                                      }
+                                      else{
+                                        echo $term->name. ", ";
+                                      }
+                                     
+                                     unset($term_id);
+                                     }
+                                  }
+                                ?>
+                                </td>
+                              <?php endif; ?>
+                            </tr>
+                            <?php
+                            endwhile;
+                        }
+                  ?>
+              </tbody>
+            </table>
+         </div>
+      </div>
+ 	 </div>
+      <aside class="sidebar" role="complementary">
+        <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px;">Marketing Content Pack >></a>
+      </aside><!-- /.sidebar -->
+   </div>
+</div>
+
+<script type="text/javascript">
+  jQuery(function() {
+  jQuery("#myTable").tablesorter();
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous"></script>
