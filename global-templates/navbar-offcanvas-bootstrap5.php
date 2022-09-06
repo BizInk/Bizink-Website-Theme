@@ -12,34 +12,13 @@ defined('ABSPATH') || exit;
 $container = get_theme_mod('understrap_container_type');
 ?>
 
-<?php
-// IF has a menu there show the menu - otherwise show the default
-if(has_nav_menu('my-account-menu')){
-	// my-account-menu
-	wp_nav_menu(
-		array(
-			'theme_location'  => 'my-account-menu',
-			'container_class' => 'header-top',
-			'container_id'    => '',
-			'menu_class'      => 'container my-account-menu',
-			'fallback_cb'     => '',
-			'menu_id'         => 'my-account-menu',
-			'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-		)
-	);
-}
-else{
-?>
 <div class="header-top">
 	<div class="container">
 		<div class="my-account">
-			<a href="/my-account">MY ACCOUNT</a>
+			<a href="#">MY ACCOUNT</a>
 		</div>
 	</div>
 </div>
-<?php
-}
-?>
 
 <nav id="main-nav" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
 

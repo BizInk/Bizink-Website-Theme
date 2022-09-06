@@ -1,6 +1,32 @@
-# Bizink Wordpress Theme
+[![Build Status](https://api.travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
+[![Wordpress Theme Version](https://img.shields.io/wordpress/theme/v/understrap.svg)](https://wordpress.org/themes/understrap)
+[![Wordpress Theme Active Installs](https://img.shields.io/wordpress/theme/installs/understrap.svg)](https://wordpress.org/themes/understrap/)
+[![Github Last Commit](https://img.shields.io/github/last-commit/understrap/understrap)](https://github.com/understrap/understrap/commits/master)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0)
 
-The theme for the bizink website created with understrap
+#### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
+
+# UnderStrap WordPress Theme Framework
+
+Website: [https://understrap.com](https://understrap.com)
+
+Child Theme Project: [https://github.com/understrap/understrap-child](https://github.com/understrap/understrap-child)
+
+OverStrap Child Themes: [https://understrap.com/overstrap/](https://understrap.com/overstrap/)
+
+## About
+
+I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework? That’s what UnderStrap is. You can use it as a starter theme and build your own theme on top of it. Or you can use it as a parent theme and create your own child theme for UnderStrap.
+
+## License
+UnderStrap WordPress Theme, Copyright 2013-2018 Holger Koenemann
+UnderStrap is distributed under the terms of the GNU GPL version 2
+
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+
+## Changelog
+See [changelog](CHANGELOG.md)
+
 
 ## Basic Features
 
@@ -13,6 +39,11 @@ The theme for the bizink website created with understrap
 - Contact Form 7 support.
 - [Child Theme](https://github.com/understrap/understrap-child) ready.
 - Translation ready.
+
+## Starter Theme + HTML Framework = WordPress Theme Framework
+
+The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme. That means it outputs all the WordPress stuff correctly but without any layout or design.
+Why not add a well known and supported layout framework to have a solid, clean and responsive foundation? That’s where Bootstrap comes in.
 
 ## Confused by All the CSS and Sass Files?
 
@@ -109,3 +140,13 @@ The `empty.php` template displays a header and a footer only. A good starting po
 ### Full Width Template
 
 The `fullwidthpage.php` template has full width layout without a sidebar.
+
+## Footnotes
+
+[1] Visit [http://browsersync.io](http://browsersync.io) for more information on Browser Sync
+
+Licenses & Credits
+=
+- Font Awesome: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT)
+- Bootstrap: http://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (MIT)
+- WP Bootstrap Navwalker by Edward McIntyre & William Patton: https://github.com/wp-bootstrap/wp-bootstrap-navwalker (GNU GPLv3)
