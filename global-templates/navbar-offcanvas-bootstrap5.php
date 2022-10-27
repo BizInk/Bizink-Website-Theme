@@ -14,9 +14,24 @@ $container = get_theme_mod('understrap_container_type');
 
 <div class="header-top">
 	<div class="container">
-		<div class="my-account">
-			<a href="#">MY ACCOUNT</a>
-		</div>
+		<?php
+			if(has_nav_menu('my-account-menu')){
+				wp_nav_menu(array(
+					'theme_location' => 'my-account-menu',
+					'container_class' => 'my-account-menu',
+					'menu_class' => 'my-account'
+				));
+			}
+			else{
+				?>
+				<div class="my-account">
+					<a href="/marketing-content-home" style="margin-right: 20px;">CONTENT PACK</a>
+					<a href="/my-account">MY ACCOUNT</a>
+				</div>
+				<?php
+			}
+		?>
+		
 	</div>
 </div>
 

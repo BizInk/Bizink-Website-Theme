@@ -24,7 +24,6 @@ function understrap_remove_scripts() {
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 
-
 /**
  * Enqueue our stylesheet and javascript file
  */
@@ -110,7 +109,7 @@ function wpb_custom_new_menu() {
   register_nav_menu('my-custom-menu-one',__( 'Footer Menu One' ));
   register_nav_menu('my-custom-menu-two',__( 'Footer Menu Two' ));
   register_nav_menu('our-playbook-menu',__( 'Our Playbook' ));
-
+  register_nav_menu('my-account-menu',__( 'My Account' ));
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 

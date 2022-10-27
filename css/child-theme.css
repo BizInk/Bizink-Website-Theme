@@ -16638,7 +16638,7 @@ header .navbar .navbar-nav .dropdown .dropdown-menu li .dropdown-menu {
   display: block;
 }
 header .navbar .navbar-nav li .nav-link {
-  font-size: 1rem;
+  font-size: 1.52rem;
   letter-spacing: 0.16px;
   font-weight: 900;
   padding-left: 10px;
@@ -16654,9 +16654,9 @@ header .navbar .navbar-nav li .nav-link {
     display: block;
   }
 }
-@media (min-width: 768px) {
+@media (max-width: 767.98px) {
   header .navbar .navbar-nav li .nav-link {
-    font-size: 0.85rem;
+    font-size: 1rem;
     padding-left: 5px;
     padding-right: 5px;
   }

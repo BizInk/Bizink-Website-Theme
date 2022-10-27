@@ -160,7 +160,7 @@ header {
             }
             li {
                 .nav-link {
-                    font-size: 1rem;
+                    font-size: 1.52rem;
                     letter-spacing: 0.16px;
                     font-weight: $font-weight-heavy;
                     padding-left: 10px;
@@ -173,8 +173,8 @@ header {
                         padding-bottom: 10px;
                         display: block;
                     }
-                    @include media-breakpoint-up(md){
-                        font-size: 0.85rem;
+                    @include media-breakpoint-down(md){
+                        font-size: 1rem;
                         padding-left: 5px;
                         padding-right: 5px;
                     }
