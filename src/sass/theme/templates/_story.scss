@@ -31,6 +31,12 @@
 	@include media-breakpoint-down(sm) {
 		padding: 60px 0;
 		text-align: center;
+		.slick-prev {
+			left: -30px;
+		}
+		.slick-next {
+			right: -30px;
+		}
 	}
 	.round-logo {
 		right: 30%;

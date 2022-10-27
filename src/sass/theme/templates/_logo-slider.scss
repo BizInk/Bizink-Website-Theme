@@ -1,5 +1,8 @@
 .logo-section {
 	margin: 100px 0;
+	.container {
+		max-width: 1440px;
+	}
 	@include media-breakpoint-down(sm) {
 		margin: 40px 0;
 	}
@@ -13,6 +16,9 @@
 		align-items: center;
 		.logo {
 			padding: 0 30px;
+			display: flex;
+			align-items: center;
+			height: 90px;
 			@include media-breakpoint-down(sm) {
 				padding: 0 15px;
 			}

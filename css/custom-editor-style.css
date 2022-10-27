@@ -217,7 +217,7 @@ a > code {
 kbd {
   padding: 0.2rem 0.4rem;
   font-size: 0.875em;
-  color: #ffffff;
+  color: #fff;
   background-color: #212529;
   border-radius: 0.2rem;
 }
@@ -428,12 +428,12 @@ progress {
   --bs-purple: #b665a8;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
-  --bs-orange: #f18221;
+  --bs-orange: #fd7e14;
   --bs-yellow: #fcb813;
   --bs-green: #198754;
   --bs-teal: #20c997;
   --bs-cyan: #0dcaf0;
-  --bs-white: #ffffff;
+  --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
   --bs-gray-100: #f8f9fa;
@@ -473,7 +473,7 @@ progress {
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #ffffff;
+  --bs-body-bg: #fff;
 }
 
 .table, .wp-block-table table {
@@ -628,12 +628,12 @@ progress {
 .table-dark {
   --bs-table-bg: #212529;
   --bs-table-striped-bg: #2c3034;
-  --bs-table-striped-color: #ffffff;
+  --bs-table-striped-color: #fff;
   --bs-table-active-bg: #373b3e;
-  --bs-table-active-color: #ffffff;
+  --bs-table-active-color: #fff;
   --bs-table-hover-bg: #323539;
-  --bs-table-hover-color: #ffffff;
-  color: #ffffff;
+  --bs-table-hover-color: #fff;
+  color: #fff;
   border-color: #373b3e;
 }
 
@@ -679,7 +679,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -863,12 +863,12 @@ progress {
 
 .has-orange-color,
 .has-orange-color:visited {
-  color: #f18221;
+  color: #fd7e14;
 }
 
 .has-orange-background-color {
-  background-color: #f18221;
-  border-color: #f18221;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
 }
 
 .has-yellow-color,
@@ -913,12 +913,12 @@ progress {
 
 .has-white-color,
 .has-white-color:visited {
-  color: #ffffff;
+  color: #fff;
 }
 
 .has-white-background-color {
-  background-color: #ffffff;
-  border-color: #ffffff;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .has-gray-color,

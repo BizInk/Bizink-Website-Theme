@@ -1,5 +1,8 @@
 .states-section {
 	position: relative;
+	.round-logo {
+		filter: brightness(1.5);
+	}
 	h2 {
 		margin-bottom: 50px;
 	}

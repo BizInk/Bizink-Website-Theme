@@ -243,11 +243,36 @@ function filter_posts_callback() {
   $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 3;
   $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
 	// Slug of Location
-	$location = $_REQUEST['keyword'];
-	$category = $_POST['category'];
-	$location = $_POST['location'];
-	$partner = $_POST['partner'];
-	$typeofwork = $_POST['typeofwork'];
+  if(!empty($_REQUEST['keyword'])){
+    $location = $_REQUEST['keyword'];
+  }
+  else{
+    $location = null;
+  }
+  if(!empty($_POST['keyword'])){
+    $category = $_POST['category'];
+  }
+  else{
+    $category = null;
+  }
+  if(!empty($_POST['location'])){
+    $location = $_POST['location'];
+  }
+  else{
+    $location = null;
+  }
+  if(!empty($_POST['partner'])){
+    $partner = $_POST['partner'];
+  }
+  else{
+    $partner = null;
+  }
+  if(!empty($_POST['typeofwork'])){
+    $typeofwork = $_POST['typeofwork'];
+  }
+  else{
+    $typeofwork = null;
+  }
 
   
 	// Arguments
@@ -315,7 +340,7 @@ function filter_posts_callback() {
 			
 			// Get Title
 			$title = get_the_title( $post->ID );
-            $url = get_the_permalink($post->ID );
+      $url = get_the_permalink($post->ID );
 			
 			// tags
       //$postid = $post->ID;
@@ -715,3 +740,60 @@ add_shortcode('gp130428_link_pages','gp130428_paginate_parent_children');
 //     if ($link == 'before' || $link == 'after') { echo $closest[$link]; } else { return $closest; }
 // }
 
+
+function custom_post_type_playbook() {
+
+	$labels = array(
+		'name'                  => _x( 'Playbooks', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Playbook', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Playbook', 'text_domain' ),
+		'name_admin_bar'        => __( 'Playbook', 'text_domain' ),
+		'archives'              => __( 'Item Playbooks', 'text_domain' ),
+		'attributes'            => __( 'Item Playbooks', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+		'all_items'             => __( 'All Playbooks', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Playbook', 'text_domain' ),
+		'add_new'               => __( 'Add New', 'text_domain' ),
+		'new_item'              => __( 'New Playbook', 'text_domain' ),
+		'edit_item'             => __( 'Edit Playbook', 'text_domain' ),
+		'update_item'           => __( 'Update Playbook', 'text_domain' ),
+		'view_item'             => __( 'View Playbook', 'text_domain' ),
+		'view_items'            => __( 'View Playbooks', 'text_domain' ),
+		'search_items'          => __( 'Search Playbook', 'text_domain' ),
+		'not_found'             => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this playbook', 'text_domain' ),
+		'items_list'            => __( 'Playbooks list', 'text_domain' ),
+		'items_list_navigation' => __( 'Playbooks list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter playbooks list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Playbook', 'text_domain' ),
+		'description'           => __( 'Post Type Description', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 25,
+		'menu_icon'             => 'dashicons-book',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'playbook', $args );
+
+}
+add_action( 'init', 'custom_post_type_playbook', 0 );

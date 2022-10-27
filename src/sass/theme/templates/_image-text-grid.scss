@@ -13,13 +13,20 @@
 	img {
 		width: 100%;
 		margin-bottom: 15px;
+		height: 230px;
+		-o-object-fit: cover;
+		object-fit: cover;
+		-o-object-position: top;
+		object-position: top;
 	}
 	p {
 		max-width: 350px;
 	}
 	a {
 		text-decoration: none;
-		display: inline-block;
+		display: block;
+  		padding: 0 10px;
+  		margin-bottom: 40px;
 		@include media-breakpoint-down(sm) {
 			margin-bottom: 15px;
 		}

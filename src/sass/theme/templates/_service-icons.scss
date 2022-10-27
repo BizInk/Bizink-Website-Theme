@@ -31,5 +31,12 @@
 	.icons-inner {
 		max-width: 850px;
 		margin: 0 auto;
+		a{
+			&:hover{
+				h4, .h4{
+					color: #b665a8;
+				}
+			}
+		}
 	}
 }

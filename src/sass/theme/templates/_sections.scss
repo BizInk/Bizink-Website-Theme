@@ -1,0 +1,111 @@
+.guide-sec {
+    padding: 100px 0;
+    h2, .h2{
+        font-size: 3.4375em;
+        line-height: 1;
+        @include media-breakpoint-down(md) {
+            font-size: 4.5rem;
+            line-height: 1.2;
+        }
+    }
+    p{
+        font-weight: bold;
+        color: #4B4B9F;
+        font-size: 24px;
+        line-height: 1.25;
+        font-family: "Avenir Roman";
+    }
+}
+.included-sec {
+    padding-bottom: 100px;
+    .content{
+        p{
+            font-family: "Avenir Roman";
+            font-size: 20px;
+            font-weight: 600;
+            color: #333b61;
+        }
+    }
+    .middle-img {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .content-2{
+        span{
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            font-family: "Avenir Roman";
+        }
+        ul{
+            li{
+                font-family: "Avenir Roman";
+                font-size: 25px;
+            }
+        }
+        p{
+            font-family: "Avenir Roman";
+            font-size: 20px;
+            font-weight: 600;
+            color: #333b61;
+        }
+    }
+}
+.newsletter-sec {
+    padding-bottom: 100px;
+    .content {
+        margin-bottom: 30px;
+        p{
+            font-family: "Avenir Roman";
+            font-size: 20px;
+            font-weight: 600;
+            color: #333b61;
+        }
+    }
+    h3, .h3{
+        font-family: "Avenir Roman";
+        font-size: 32px;
+        font-weight: 600;
+        color: #333b61;
+    }
+    span{
+        font-family: "Avenir Roman";
+        font-size: 25px;
+        font-weight: 600;
+        color: #333b61;
+        @include media-breakpoint-down(md) {
+            font-size: 20px;
+        }
+    }
+    form {
+        margin-top: 25px;
+        margin-bottom: 80px;
+        input {
+            width: 100%;
+            margin-bottom: 35px;
+            padding: 5px 10px;
+            font-size: 25px;
+            font-family: "Avenir Roman";
+            outline: none;
+        }
+        .button {
+            font-size: 22px;
+            font-family: "Avenir Roman";
+            text-transform: uppercase;
+            position: relative;
+            line-height: normal;
+            border-radius: 35px;
+            background: #333b61;
+            color: #fff;
+            padding: 15px 35px;
+            border: none;
+            font-weight: bold;
+            outline: none;
+        }
+    }
+}
+.single-webinars .purple-bg {
+    background-color: #805fa9;
+}
+  

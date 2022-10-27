@@ -1,0 +1,32 @@
+.testimonial {
+    margin: 80px 0;
+    .testimonial-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media-breakpoint-down(sm) {
+            flex-wrap: wrap;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            margin-right: 28px;
+            @include media-breakpoint-down(sm) {
+                margin: 0 auto;
+            }
+        }
+        p {
+            max-width: 500px;
+            line-height: 24px;
+            margin-bottom: 0;
+            @include media-breakpoint-down(sm) {
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    }
+}

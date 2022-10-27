@@ -7,3 +7,22 @@
 		margin: 0 auto;
 	}
 }
+.cta-section-left {
+	text-align: left !important;
+	.default-content {
+		max-width: 100%;
+		h3, .h3{
+			max-width: 60%;
+			@include media-breakpoint-down(lg) {
+				max-width: 70%;
+			}
+			@include media-breakpoint-down(sm) {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+.white-bg {
+	background: #fff;
+}

@@ -26,6 +26,9 @@ footer {
             font-size: 16px;
             margin-bottom: 20px;
             line-height: 28px;
+            @include media-breakpoint-down(md){
+                font-size: 15px;
+            }
         }
     }
     .footer-menu {
@@ -60,7 +63,7 @@ footer {
             padding: 0;
             margin: 0;
             display: flex;
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(md) {
                 justify-content: center;
             }
             li {
@@ -69,6 +72,10 @@ footer {
                     margin: 0 12px;
                 }
             }
+        }
+        @include media-breakpoint-up(md) {
+            max-width: 200px;
+            margin-left: auto;
         }
     }
     .privacy-policy-wrap {

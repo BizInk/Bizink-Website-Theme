@@ -43,13 +43,13 @@ body {
     font-family: $font-avenir-lt;
 }
 h1 {
-    font-size: 5.2rem;
+    font-size: 3.5rem;
     font-family: $font-mercury-display;
     @include media-breakpoint-down(lg) {
     }
 }
 h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 25px;
     color: $purple;
     font-family: $font-avenir-roman;

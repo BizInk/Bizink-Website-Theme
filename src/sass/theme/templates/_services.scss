@@ -1,7 +1,7 @@
 .services-section {
 	padding: 100px 0 100px;
 	@include media-breakpoint-down(sm) {
-		padding: 50px 0 50px;
+		padding: 50px 0 25px;
 	}
 	.btn {
 		@include media-breakpoint-down(sm) {
@@ -16,7 +16,7 @@
 	}
 	p {
 		margin-bottom: 20px;
-		max-width: 247px;
+		max-width: 258px;
 		@include media-breakpoint-down(sm) {
 			max-width: 100%;
 		}
@@ -26,6 +26,103 @@
 		margin: 0 auto;
 		.default-content {
 			height: calc(100% - 100px);
+			word-wrap: break-word;
 		}
 	}
+}
+.services-box {
+	margin: 80px 0;
+	h2, .h2{
+		font-size: 48px;
+		@include media-breakpoint-down(md) {
+			font-size: 40px;
+    		padding: 0 10px;
+		}
+		&.sm-font{
+			font-size: 3rem;
+  			line-height: 1.2;
+		}
+	}
+	p{
+		max-width: 50%;
+  		margin: 0 auto;
+		@include media-breakpoint-down(xl) {
+			max-width: 70%;
+		}
+		@include media-breakpoint-down(lg) {
+			max-width: 90%;
+		}
+	}
+	.services-inner-row {
+		margin-top: 50px;
+		justify-content: center;
+		.services-inner {
+			width: 20%;
+			padding: 0 60px;
+			@include media-breakpoint-down(xl) {
+				width: 25%;
+    			margin-bottom: 60px;
+			}
+			@include media-breakpoint-down(lg) {
+				width: 50%;
+			}
+			@include media-breakpoint-down(sm) {
+				width: 100%;
+			}
+			img{
+				width: 100%;
+				height: 200px;
+				-o-object-fit: cover;
+				object-fit: cover;
+				@include media-breakpoint-down(lg) {
+					height: 180px;
+				}
+				@include media-breakpoint-down(md) {
+					height: 200px;
+				}
+			}
+			h3,.h3{
+				margin-top: 50px;
+  				margin-bottom: 30px;
+			}
+			p {
+				max-width: 100%;
+				margin-bottom: 20px;
+			}
+			&:last-child{
+				@include media-breakpoint-down(md) {
+					margin-bottom: 0;
+				}
+			}
+			&.sm-img{
+				img{
+					width: 10rem;
+					height: 10rem;
+					-o-object-fit: contain;
+					object-fit: contain;
+				}
+			}
+			&.lg-img{
+				img{
+					width: 100%;
+					height: 20rem;
+					-o-object-fit: contain;
+					object-fit: contain;
+				}
+			}
+		}
+		&.use-fourcolumn{
+			.services-inner {
+				width: 25%;
+			}
+		}
+		&.use-fivecolumn{
+			.services-inner {
+				width: 20%;
+			}
+		}
+	}
+}
+.bg-margin-remove {
+	margin: 0;
 }

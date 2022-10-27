@@ -1,10 +1,23 @@
 .bussiness-list-section {
     padding: 15px 0;
+    background-position: 79% 98%;
+    background-repeat: no-repeat;
+    
+    @include media-breakpoint-down(sm) {
+        background-size: 30%;
+        background-position: bottom right;
+    }
     @include media-breakpoint-down(lg) {
         padding: 80px 0 50px;
     }
+    @include media-breakpoint-down(xl) {
+        .container {
+            max-width: 1040px;
+        }
+    }
     .success-list {
         position: relative;
+        margin: 50px 0;
         &::before {
             content: "";
             position: absolute;
@@ -49,5 +62,15 @@
                 max-width: 100%;
             }
         }
+    }
+}
+.bussiness-list-section.right-image {
+    background-position: 0 50%;
+    .row{
+        flex-direction: row-reverse;
+    }
+    .success-list {
+      position: relative;
+      margin: 50px 0;
     }
 }

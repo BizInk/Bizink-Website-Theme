@@ -79,7 +79,24 @@ iframe {
 .lightblue2 {
 	color: $lightblue2;
 }
+.title-purple {
+	color: #b665a8;
+}
 
+.title-white {
+	color: #ffffff;
+}
+
+.xl-font {
+	font-size: 4.8rem;
+	line-height: 1.2;
+}
+
+.sm-font {
+	font-size: 3rem;
+	line-height: 1.2;
+}
+  
 /*Scroll */
 .scrollTop {
 	position: fixed;
@@ -92,7 +109,8 @@ iframe {
 	line-height: 35px;
 	cursor: pointer;
 	display: none;
-	background: $yellow;
+	border: 2px solid #ffffff;
+  	background-color: #333b61;
 	border-radius: 5px;
 	&:hover {
 		background: $primary;
@@ -126,13 +144,70 @@ iframe {
 	}
 }
 
+.dark-overlay,
+.white-overlay {
+  position: relative;
+}
+
+.white-overlay:before,
+.dark-overlay:before {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.55);
+  position: absolute;
+}
+
+.dark-overlay:before {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.white-overlay .container,
+.dark-overlay .container {
+  position: relative;
+  z-index: 1;
+}
+
+.extra-padding {
+  padding: 100px 0;
+  margin: 0 !important;
+}
+@media (max-width: 991.98px) {
+  .extra-padding {
+    padding: 40px 0;
+  }
+}
+
 /* Default Content */
 
 .default-content {
+	u {
+		text-decoration: none;
+		background-image: url(https://bizinkonline.betatesting87.com/wp-content/uploads/2022/07/wave.png);
+		background-repeat: no-repeat;
+		background-position: bottom;
+		padding-bottom: 8px;
+		background-size: 280px;
+	}
+
+	blockquote {
+		padding-left: 20px;
+		border-left: 2px solid #333b61;
+		font-style: italic;
+		text-align: left;
+	}
+
+	ol {
+		text-align: left;
+	}
 	ul {
 		margin: 0;
 		padding: 0;
+		text-align: left;
 		li {
+			
 			list-style: none;
 			padding: 12px 0 0 40px;
 			position: relative;
@@ -153,4 +228,15 @@ iframe {
 			}
 		}
 	}
+}
+
+article{
+    .entry-footer{
+        background: transparent;
+		color: #333b61;
+		a{
+			color: #333b61;
+		}
+    }
+    
 }

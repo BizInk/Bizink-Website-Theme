@@ -16,6 +16,18 @@
 	p {
 		max-width: 350px;
 	}
+	&::before{
+		@include media-breakpoint-down(lg) {
+			position: absolute;
+			content: "";
+			background-image: url(../images/bzik.png);
+			height: 180px;
+			width: 180px;
+			background-repeat: no-repeat;
+			top: -110px;
+			right: 20%;
+		}
+	}
 	.story-nav-inner {
 		position: relative;
 		max-width: 1000px;
@@ -23,6 +35,7 @@
 		@include media-breakpoint-down(md) {
 			max-width: 100%;
 			padding: 0 30px;
+			max-width: 650px;
 		}
 		.nav-left {
 			position: absolute;

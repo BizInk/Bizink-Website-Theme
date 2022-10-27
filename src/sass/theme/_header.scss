@@ -25,7 +25,10 @@ header {
                 }
             } 
             @include media-breakpoint-up(lg) {
-                margin-right:10px; 
+                margin-right:15px; 
+            }
+            @media (max-width: 991.98px) {
+                display: none;
             }
         }
     }
@@ -64,6 +67,7 @@ header {
                                 display: block;
                                 z-index: -1;
                                 height: 290%;
+                                box-shadow: 0px 10px 3px -9px #ccc;
                             }
                             &.show {
                                 @include media-breakpoint-down(lg) {
@@ -82,7 +86,7 @@ header {
                     width: 100%;
                     min-width: auto;
                     border: none;
-                    height: 210%;
+                    height: 160%;
                     .dropdown-item {
                         font-size: 2rem;
                         @include media-breakpoint-down(lg) {
@@ -118,6 +122,8 @@ header {
                         border-top: 1px solid $gray;
                         @include media-breakpoint-down(xl) {
                             padding: 35px 8% 0;
+                            overflow-x: hidden;
+                            height: 300px;
                         }
                         @include media-breakpoint-down(lg) {
                             padding: 0 10px 10px;
@@ -154,16 +160,23 @@ header {
             }
             li {
                 .nav-link {
-                    font-size: 16px;
+                    font-size: 1rem;
                     letter-spacing: 0.16px;
                     font-weight: $font-weight-heavy;
                     padding-left: 10px;
                     padding-right: 10px;
                     position: relative;
                     padding-bottom: 25px;
+                    display: inline-flex;
                     @include media-breakpoint-down(lg) {
                         margin-bottom: 10px;
                         padding-bottom: 10px;
+                        display: block;
+                    }
+                    @include media-breakpoint-up(md){
+                        font-size: 0.85rem;
+                        padding-left: 5px;
+                        padding-right: 5px;
                     }
                     &:hover {
                         color: $purple;
@@ -189,6 +202,7 @@ header {
                         padding: 9px 20px 8px;
                         margin-left: 8px;
                         text-align: center;
+                        margin-top: -5px;
                         @include media-breakpoint-down(lg) {
                             margin-left: 0;
                             display: inline-block;
@@ -199,11 +213,22 @@ header {
                         }
                     }
                 }
+                ul{
+                    li{
+                        a{
+                            @include media-breakpoint-down(md){
+                                min-height: 70px;
+                            }
+                            
+                        }
+                    }
+                }
             }
         }
         .navbar-toggler {
             box-shadow: none;
             position: relative;
+            position: -wekit-relative;
             top: -5px;
             &:focus {
                 box-shadow: none;
@@ -211,6 +236,9 @@ header {
         }
         .navbar-toggler-icon {
             background-image: none;
+            @include media-breakpoint-down(md) {
+                margin-right: 5px;
+            }
         }
         .navbar-toggler-icon::before {
             font-family: FontAwesome;
@@ -223,12 +251,67 @@ header {
             opacity: 1;
         }
     }
-    &:fixed{
+    &:fixed, &.fixed{
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         z-index: 99;
         background: #fff;
-    }    
+    }
+    .inner-my-account {
+        color: #9da1b3;
+        text-decoration: none;
+        font-size: 16px;
+        font-family: "Avenir Roman";
+        padding-left: 10px;
+    }
+    .offcanvas-header {
+        padding: 1rem 2rem;
+    }
+    
 }
+
+/** General Header Css */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+    header .navbar .navbar-nav .dropdown.menu-item-has-children:hover .dropdown-toggle + .dropdown-menu {
+      padding-left: 10%;
+    }
+  
+    header .navbar .navbar-nav .dropdown .dropdown-menu.show {
+      overflow-x: hidden;
+      height: 300px;
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1600px) {
+    .navbar-nav > li > ul > li > a {
+      min-height: 70px;
+    }
+  
+    header .navbar .navbar-nav li .nav-link {
+      font-size: 13px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  
+    header .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      width: 150px;
+      word-break: break-word;
+      white-space: break-spaces;
+    }
+  
+    header .navbar .navbar-nav .dropdown.menu-item-has-children:hover .dropdown-toggle + .dropdown-menu {
+      padding: 35px 8% 0;
+      overflow-x: hidden;
+      height: 300px;
+    }
+  
+    header .navbar .navbar-nav .dropdown .dropdown-menu li {
+      flex: 0 0 23%;
+      max-width: 20%;
+      margin-right: 11px;
+    }
+  }
