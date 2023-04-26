@@ -123,8 +123,122 @@ $container = get_theme_mod('understrap_container_type');
 </footer>
 
 <a href="javascript:" id="return-to-top" class="<?php if(get_field('scroll_to_top_button', 'option') == 'No') { echo "no-scroll"; } elseif(get_field('scroll_to_top_button', 'option') == 'Yes') { echo "yes-scroll";  } ?> scrollTop" style="display: none;"></a>
-</div><!-- #page we need this extra closing tag here --> 
-
+</div>
+<!-- #page we need this extra closing tag here --> 
+<div class="modal fade" id="talktous" tabindex="-1" role="dialog" aria-labelledby="talktous" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="select-demo-picker" style="display:none;">
+             <div class="video-demo">
+                 <span>Pre Recorded</span>
+                 Watch an instant demo of Bizink
+                 <a href="#" class="demo-button">Watch An INSTANT Demo</a>
+             </div>
+             <div class="live-demo">
+                  <span>Live with an expert</span>
+                  Schedule a live demo of Bizink
+                  <button class="live-button">Schedule A LIVE Demo</button>
+             </div>
+        </div>
+        <div class="select-country-picker" style="width: 70%;margin: 0 auto;padding: 25px 0px;display:block;">
+          <div class="form-group">
+            <h3 style="text-align:center;margin-bottom: 30px;font-family: 'MONTSERRAT';">Select a Region</h3>
+            <button class="btn btn-primary" id="btnausnz">Australia, New Zealand & Asia</button>
+            <button class="btn btn-primary" id="btnusacn">USA and Canada</button>
+            <button class="btn btn-primary" id="btnukir">UK, Ireland & Europe</button>
+            <button class="btn btn-primary" id="btnmideast">Africa & Middle East</button>
+          </div>
+        </div>
+        
+        <div class="ausnz-container booking-container">
+          <h3>Australia, New Zealand & Asia</h3>
+          <button class="btn btn-primary back">Select a different region</button>
+          <!-- Start of Meetings Embed Script -->
+			<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
+          <!-- End of Meetings Embed Script -->
+        </div>
+        <div class="usacn-container booking-container">
+          <h3>USA and Canada</h3>
+          <button class="btn btn-primary back">Select a different region</button>
+            <!-- Start of Meetings Embed Script -->
+			  <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+              <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
+            <!-- End of Meetings Embed Script -->
+        </div>
+        <div class="ukir-container booking-container">
+          <h3>UK, Ireland & Europe</h3>
+          <button class="btn btn-primary back">Select a different region</button>
+          <!-- Start of Meetings Embed Script -->
+			<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/anthea-bizink/product-demo?embed=true"></div>
+          <!-- End of Meetings Embed Script -->
+        </div>
+        <div class="mideast-container booking-container">
+          <h3>Africa & Middle East</h3>
+          <button class="btn btn-primary back">Select a different region</button>
+          <!-- Start of Meetings Embed Script -->
+			<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
+          <!-- End of Meetings Embed Script -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    jQuery(document).ready(function(){
+	jQuery("body").on('click', '.talk-to-us a, .talk-to-us', function(){jQuery('#talktous').modal('show');});
+        jQuery("body").on('click', '.live-demo a, .live-demo', function(){jQuery('.select-demo-picker').hide();jQuery('.select-country-picker').fadeIn( "slow" ).show();});
+        jQuery("#btnausnz").click(function(){jQuery('.select-country-picker').hide();jQuery('.ausnz-container').fadeIn( "slow" ).show();});
+      	jQuery("#btnusacn").click(function(){jQuery('.select-country-picker').hide();jQuery('.usacn-container').fadeIn( "slow" ).show();});
+      	jQuery("#btnukir").click(function(){jQuery('.select-country-picker').hide();jQuery('.ukir-container').fadeIn( "slow" ).show();});
+        jQuery("#btnmideast").click(function(){jQuery('.select-country-picker').hide();jQuery('.mideast-container').fadeIn( "slow" ).show();});
+      	jQuery(".booking-container .back").click(function(){
+          jQuery('.select-country-picker').fadeIn( "slow" ).show();jQuery('.booking-container').hide();
+        });
+        jQuery('#talktous').on('hidden.bs.modal', function () {
+          jQuery('.select-demo-picker').hide();
+          jQuery('.select-country-picker').show();
+          jQuery('.ausnz-container').hide();
+          jQuery('.usacn-container').hide();
+          jQuery('.ukir-container').hide();
+        });
+        jQuery("body").on('click', '#talktous .modal-header .close', function(){jQuery('#talktous').modal('toggle');});
+        jQuery("body").on('click', '.collapseBlock a.collapseBlock_header', function(){
+            if(jQuery(this).next().hasClass('showBlock')){
+              jQuery(this).next().removeClass('showBlock');
+              jQuery(this).find( ".transformIconPlus_icon-minus" ).css("opacity", "0");
+              jQuery(this).find( ".transformIconPlus_icon-plus" ).css("opacity", "1");
+              jQuery(this).next().slideUp().hide();
+              jQuery(this).next().css('height', '0px');
+            }
+            else{
+              jQuery(this).next().addClass('showBlock');
+              jQuery(this).next().css('height', 'auto');
+              jQuery(this).find( ".transformIconPlus_icon-minus" ).css("opacity", "1");
+              jQuery(this).find( ".transformIconPlus_icon-plus" ).css("opacity", "0");
+              jQuery(this).next().slideDown( "fast" ).show();
+            }
+        });
+        jQuery("#accordion .panel-heading .panel-title a").click(function(){
+	      var collapseID = jQuery(this).attr("href");
+	      if(jQuery(collapseID).css("display") == "none"){
+          jQuery(collapseID).show().animate({height: "100%"}, 500);
+	      }
+	      else{
+	        jQuery(collapseID).hide().animate({height: "0px"}, 500);
+	      }
+        });
+    });
+    
+</script>
 <?php wp_footer(); ?>
 
 </body>

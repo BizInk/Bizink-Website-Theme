@@ -29,7 +29,7 @@
 		<section class="states-section text-center bg <?php echo $feature_background_color.' '.$white_text; ?>">
 			<?php if(get_sub_field('show_marketing_logo_on_right_side_of_section') == 'yes' ){ ?>
 			<div class="round-logo">
-				<img src="https://bizinkonline.betatesting87.com/wp-content/themes/understrap-child-main/images/bzik.png">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/bzik.png">
 			</div>
 			<?php } ?>
 			<div class="container">
