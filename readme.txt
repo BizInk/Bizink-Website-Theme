@@ -14,5 +14,11 @@ The Bizink Theme
 
 == Changelog ==
 
+= 1.3 =
+* CPT Update
+
+= 1.2 =
+* General Update
+
 = 1.0 =
-* Bizpress launch
+* Bizink launch
