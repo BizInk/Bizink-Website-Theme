@@ -2,7 +2,7 @@
 
 use Roots\Sage\Config;
 use Roots\Sage\Wrapper;
-
+//get_header();
 ?>
 
 <div class="section section-white ">
@@ -43,3 +43,7 @@ use Roots\Sage\Wrapper;
   </div><!-- /.container -->
 
 </div><!-- /.section.section-white -->
+
+<?php
+//get_footer();
+?>

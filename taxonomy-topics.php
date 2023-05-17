@@ -1,7 +1,8 @@
 <?php
-   /**
-    * Single Resource Content Type page
-    */
+/**
+* Single Resource Content Type page
+*/
+get_header();
 $tax = $wp_query->get_queried_object();
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.bootstrap_4.min.css" integrity="sha512-2C6AmJKgt4B+bQc08/TwUeFKkq8CsBNlTaNcNgUmsDJSU1Fg+R6azDbho+ZzuxEkJnCjLZQMozSq3y97ZmgwjA==" crossorigin="anonymous" />
@@ -85,6 +86,7 @@ $tax = $wp_query->get_queried_object();
  	 </div>
       <aside class="sidebar" role="complementary">
         <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px">Marketing Content Pack >></a>
+        <br>
       </aside><!-- /.sidebar -->
    </div>
 </div>
@@ -95,3 +97,6 @@ $tax = $wp_query->get_queried_object();
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous"></script>
+<?php
+get_footer();
+?>
