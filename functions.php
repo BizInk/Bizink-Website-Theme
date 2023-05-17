@@ -975,3 +975,12 @@ function custom_post_type_playbook()
   register_post_type('playbook', $args);
 }
 add_action('init', 'custom_post_type_playbook', 0);
+
+// Plugin Updater
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+$myUpdateChecker = PucFactory::buildUpdateChecker('https://github.com/BizInk/Bizink-Website-Theme',__FILE__,'Bizink-Website-Theme');
+// Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+// Using a private repository, specify the access token 
+$myUpdateChecker->setAuthentication('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');
