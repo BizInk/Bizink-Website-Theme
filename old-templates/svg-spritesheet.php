@@ -1,7 +1,7 @@
 <script>
   // SVG spritesheet include
   var ajax = new XMLHttpRequest();
-  ajax.open("GET", "<?php echo get_template_directory_uri(); ?>/dist/images/svg-sprites.svg", true);
+  ajax.open("GET", "<?php echo get_template_directory_uri(); ?>/images/svg-sprites.svg", true);
   ajax.send();
   ajax.onload = function(e) {
     if (ajax.status !== 200) {

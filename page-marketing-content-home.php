@@ -1,6 +1,10 @@
-<?php /* Template Name: Marketing Resources Home */ ?>
+<?php 
+/* Template Name: Marketing Resources Home */
+?>
 
-<?php while (have_posts()) : the_post(); ?>
+<?php 
+get_header();
+while (have_posts()) : the_post(); ?>
 
   <?php if( have_rows('sections') ): ?>
 
@@ -282,7 +286,7 @@ foreach($custom_terms as $key=>$custom_term) {
 <script>
   // SVG spritesheet include
   var ajax = new XMLHttpRequest();
-  ajax.open("GET", "https://bizinkonline.com/app/themes/bizink/dist/images/svg-sprites.svg", true);
+  ajax.open("GET", "<?php echo get_template_directory_uri(); ?>/images/svg-sprites.svg", true);
   ajax.send();
   ajax.onload = function(e) {
     var div = document.createElement("div");
@@ -291,3 +295,7 @@ foreach($custom_terms as $key=>$custom_term) {
     document.body.insertBefore(div, document.body.childNodes[0]);
   }
 </script>
+
+<?php
+get_footer();
+?>
