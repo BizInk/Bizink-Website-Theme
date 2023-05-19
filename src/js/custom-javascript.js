@@ -1,14 +1,13 @@
 // Add your custom JS here.
 
 jQuery(document).ready(function ($) {
-
   $(window).scroll(function () {
-    var fixedtop = $('header');
+    var fixedtop = $("header");
 
     if ($(this).scrollTop() > 100) {
-      fixedtop.addClass('fixed');
+      fixedtop.addClass("fixed");
     } else {
-      fixedtop.removeClass('fixed');
+      fixedtop.removeClass("fixed");
     }
   });
 });
@@ -16,29 +15,29 @@ jQuery(document).ready(function ($) {
 if (window.matchMedia("(max-width: 991px)").matches) {
   $(".navbar-nav").append(".my-account");
 } else {
-  
 }
 
-
-jQuery('.logo-slider').slick({
+jQuery(".logo-slider").slick({
   dots: true,
   arrows: false,
   infinite: false,
   speed: 300,
   slidesToShow: 5,
   slidesToScroll: 1,
-  responsive: [{
-    breakpoint: 767,
-    settings: {
-      slidesToShow: 2,
-      slidesToScroll: 2,
-      infinite: true,
-      dots: true
-    }
-  }]
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true,
+      },
+    },
+  ],
 });
 
-jQuery('.hero-slider').slick({
+jQuery(".hero-slider").slick({
   arrows: true,
   infinite: true,
   speed: 300,
@@ -46,7 +45,7 @@ jQuery('.hero-slider').slick({
   slidesToScroll: 1,
 });
 
-jQuery('.story-slider').slick({
+jQuery(".story-slider").slick({
   arrows: true,
   infinite: true,
   speed: 300,
@@ -56,16 +55,87 @@ jQuery('.story-slider').slick({
 
 jQuery(window).scroll(function () {
   if (jQuery(this).scrollTop() > 100) {
-    jQuery('.scrollTop').fadeIn();
+    jQuery(".scrollTop").fadeIn();
   } else {
-    jQuery('.scrollTop').fadeOut();
+    jQuery(".scrollTop").fadeOut();
   }
 });
 
 // Scroll To
-jQuery('.scrollTop').click(function () {
-  jQuery('html, body').animate({
-    scrollTop: 0
-  }, 800);
+jQuery(".scrollTop").click(function () {
+  jQuery("html, body").animate(
+    {
+      scrollTop: 0,
+    },
+    800
+  );
   return false;
+});
+
+// Model JS
+jQuery(document).ready(function () {
+  jQuery("body").on("click", ".talk-to-us a, .talk-to-us", function () {
+    jQuery("#talktous").modal("show");
+  });
+  jQuery("body").on("click", ".live-demo a, .live-demo", function () {
+    jQuery(".select-demo-picker").hide();
+    jQuery(".select-country-picker").fadeIn("slow").show();
+  });
+  jQuery("#btnausnz").click(function () {
+    jQuery(".select-country-picker").hide();
+    jQuery(".ausnz-container").fadeIn("slow").show();
+  });
+  jQuery("#btnusacn").click(function () {
+    jQuery(".select-country-picker").hide();
+    jQuery(".usacn-container").fadeIn("slow").show();
+  });
+  jQuery("#btnukir").click(function () {
+    jQuery(".select-country-picker").hide();
+    jQuery(".ukir-container").fadeIn("slow").show();
+  });
+  jQuery("#btnmideast").click(function () {
+    jQuery(".select-country-picker").hide();
+    jQuery(".mideast-container").fadeIn("slow").show();
+  });
+  jQuery(".booking-container .back").click(function () {
+    jQuery(".select-country-picker").fadeIn("slow").show();
+    jQuery(".booking-container").hide();
+  });
+  jQuery("#talktous").on("hidden.bs.modal", function () {
+    jQuery(".select-demo-picker").hide();
+    jQuery(".select-country-picker").show();
+    jQuery(".ausnz-container").hide();
+    jQuery(".usacn-container").hide();
+    jQuery(".ukir-container").hide();
+  });
+  jQuery("body").on("click", "#talktous .modal-header .close", function () {
+    jQuery("#talktous").modal("toggle");
+  });
+  jQuery("body").on(
+    "click",
+    ".collapseBlock a.collapseBlock_header",
+    function () {
+      if (jQuery(this).next().hasClass("showBlock")) {
+        jQuery(this).next().removeClass("showBlock");
+        jQuery(this).find(".transformIconPlus_icon-minus").css("opacity", "0");
+        jQuery(this).find(".transformIconPlus_icon-plus").css("opacity", "1");
+        jQuery(this).next().slideUp().hide();
+        jQuery(this).next().css("height", "0px");
+      } else {
+        jQuery(this).next().addClass("showBlock");
+        jQuery(this).next().css("height", "auto");
+        jQuery(this).find(".transformIconPlus_icon-minus").css("opacity", "1");
+        jQuery(this).find(".transformIconPlus_icon-plus").css("opacity", "0");
+        jQuery(this).next().slideDown("fast").show();
+      }
+    }
+  );
+  jQuery("#accordion .panel-heading .panel-title a").click(function () {
+    var collapseID = jQuery(this).attr("href");
+    if (jQuery(collapseID).css("display") == "none") {
+      jQuery(collapseID).show().animate({ height: "100%" }, 500);
+    } else {
+      jQuery(collapseID).hide().animate({ height: "0px" }, 500);
+    }
+  });
 });
