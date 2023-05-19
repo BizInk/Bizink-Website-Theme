@@ -6635,15 +6635,15 @@ textarea.form-control-lg {
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 500px;
-    margin: 3rem auto;
+    margin: 4rem auto;
   }
 
   .modal-dialog-scrollable {
-    height: calc(100% - 6rem);
+    height: calc(100% - 8rem);
   }
 
   .modal-dialog-centered {
-    min-height: calc(100% - 6rem);
+    min-height: calc(100% - 8rem);
   }
 
   .modal-sm {
@@ -19025,6 +19025,10 @@ a {
   padding: 15px;
 }
 
+.model-title {
+  font-size: 2rem;
+}
+
 .modal-body .select-country-picker {
   display: block;
 }
@@ -19047,6 +19051,49 @@ a {
 }
 .modal-body .booking-container h3, .modal-body .booking-container .h3 {
   text-align: center;
+}
+
+.page-template-page-marketing-content-home .iconTile {
+  padding: 1rem;
+}
+.page-template-page-marketing-content-home .iconTile .iconTile_icon {
+  font-size: 10rem;
+  text-align: center;
+}
+.page-template-page-marketing-content-home .iconTile .iconTile_title {
+  text-align: center;
+}
+
+.collapseBlock {
+  border-radius: 10px;
+  margin: 1rem;
+}
+.collapseBlock .collapseBlock_header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333b61;
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+.collapseBlock .collapseBlock_header h3, .collapseBlock .collapseBlock_header .h3 {
+  color: #fff;
+}
+.collapseBlock .collapseBlock_collapse {
+  padding: 1rem;
+}
+.collapseBlock .collapseBlock_transformIcon {
+  color: #fff;
+}
+.collapseBlock .collapseBlock_transformIcon i {
+  color: #fff;
+}
+.collapseBlock .collapseBlock_transformIcon .transformIconPlus {
+  position: relative;
+}
+.collapseBlock .collapseBlock_transformIcon .transformIconPlus .transformIconPlus_icon {
+  float: right;
+  position: absolute;
+  right: 0;
 }
 
 /*# sourceMappingURL=child-theme.css.map */

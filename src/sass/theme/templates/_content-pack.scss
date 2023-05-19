@@ -1,0 +1,43 @@
+.page-template-page-marketing-content-home{
+    .iconTile{
+        padding:1rem;
+        .iconTile_icon{
+            font-size: 10rem;
+            text-align: center;
+        }
+        .iconTile_title{
+            text-align: center;
+        }
+    }
+}
+.collapseBlock{
+    border-radius: 10px;
+    margin:1rem;
+    .collapseBlock_header{
+        display: flex;
+        justify-content: space-between;
+        background-color: $primary;
+        border-radius: 10px;
+        padding:1.2rem;
+        h3{
+            color: $white;
+        }
+    }
+    .collapseBlock_collapse{
+        padding: 1rem;
+    }
+    .collapseBlock_transformIcon{
+        color: $white;
+        i{
+            color: $white;
+        }
+        .transformIconPlus{
+            position: relative;
+            .transformIconPlus_icon{
+                float: right;
+                position: absolute;
+                right:0;
+            }
+        }
+    }
+}

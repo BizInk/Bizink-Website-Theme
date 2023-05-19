@@ -156,7 +156,7 @@ $container = get_theme_mod('understrap_container_type');
             <button class="btn btn-primary" id="btnmideast"><?php _e('Africa & Middle East','bizink'); ?></button>
           </div>
         </div>
-        <div class="ausnz-container booking-container">
+        <div class="ausnz-container booking-container" style="display: none;">
           <h3><?php _e('Australia, New Zealand & Asia','bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region','bizink'); ?></button>
           <!-- Start of Meetings Embed Script -->
@@ -164,7 +164,7 @@ $container = get_theme_mod('understrap_container_type');
             <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
           <!-- End of Meetings Embed Script -->
         </div>
-        <div class="usacn-container booking-container">
+        <div class="usacn-container booking-container" style="display: none;">
           <h3><?php _e('USA and Canada','bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region','bizink'); ?></button>
             <!-- Start of Meetings Embed Script -->
@@ -172,7 +172,7 @@ $container = get_theme_mod('understrap_container_type');
               <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
             <!-- End of Meetings Embed Script -->
         </div>
-        <div class="ukir-container booking-container">
+        <div class="ukir-container booking-container" style="display: none;">
           <h3><?php _e('UK, Ireland & Europe','bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region','bizink'); ?></button>
           <!-- Start of Meetings Embed Script -->
@@ -180,7 +180,7 @@ $container = get_theme_mod('understrap_container_type');
             <div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/anthea-bizink/product-demo?embed=true"></div>
           <!-- End of Meetings Embed Script -->
         </div>
-        <div class="mideast-container booking-container">
+        <div class="mideast-container booking-container" style="display: none;">
           <h3><?php _e('Africa & Middle East','bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region','bizink'); ?></button>
           <!-- Start of Meetings Embed Script -->

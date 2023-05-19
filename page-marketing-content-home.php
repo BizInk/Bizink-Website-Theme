@@ -5,11 +5,8 @@
 <?php
 get_header();
 while (have_posts()) : the_post(); ?>
-
   <?php if (have_rows('sections')) : ?>
-
     <?php while (have_rows('sections')) : the_row();
-
       // Build classes for section
       $sectionClasses = array();
       $sectionClasses[] = "section";
@@ -32,113 +29,76 @@ while (have_posts()) : the_post(); ?>
       if ($bgImageArray) {
         $bgImageUrl = $bgImageArray['sizes']['full_bg_image'];
       }
-
     ?>
-
       <div <?php if ($bgImageUrl) : ?> style="background: url('<?= $bgImageUrl ?>') center / cover no-repeat;" <?php endif; ?> class="<?= $sectionClassesString; ?>">
-
         <div class="<?= $containerClassesString; ?>">
-
           <?php if (have_rows('components')) : ?>
-
             <?php while (have_rows('components')) : the_row(); ?>
 
-
               <?php if (get_row_layout() == 'basic_text_content') : ?>
-
                 <?php get_template_part('templates/components/basic-text-content'); ?>
-
               <?php endif; ?>
 
-
               <?php if (get_row_layout() == 'jumbo') : ?>
-
                 <?php get_template_part('templates/components/jumbo'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'filler') : ?>
-
                 <?php get_template_part('templates/components/filler'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'heading') : ?>
-
                 <?php get_template_part('templates/components/heading'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'form_panel') : ?>
-
                 <?php get_template_part('templates/components/form-panel'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'content_panel') : ?>
-
                 <?php get_template_part('templates/components/content-panel'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'cta') : ?>
-
                 <?php get_template_part('templates/components/cta'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'quote_block') : ?>
-
                 <?php get_template_part('templates/components/quote-block'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'content_boxes') : ?>
-
                 <?php get_template_part('templates/components/content-boxes'); ?>
-
               <?php endif; ?>
 
               <?php if (get_row_layout() == 'blog_posts_in_content_boxes') : ?>
-
                 <?php get_template_part('templates/components/blog-posts-in-content-boxes'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'content_panel_text_only') : ?>
-
                 <?php get_template_part('templates/components/content-panel-text-only'); ?>
-
               <?php endif; ?>
 
 
               <?php if (get_row_layout() == 'clients') : ?>
-
                 <?php get_template_part('templates/components/clients'); ?>
-
               <?php endif; ?>
 
-
             <?php endwhile; ?>
-
           <?php endif; ?>
 
         </div><!-- /.container -->
-
       </div><!-- /.section -->
-
     <?php endwhile; ?>
-
   <?php endif; ?>
-
 <?php endwhile; ?>
 
 <div class="section section-white">
@@ -166,23 +126,9 @@ while (have_posts()) : the_post(); ?>
         ?>
           <div class="col-sm-6 col-md-3 col-verticalSpacing">
             <a class="iconTile iconTile-alt" href="/content-topics/<?= $custom_topic->slug; ?>/" title="<?= $custom_topic->name;  ?> ">
-              <div class="iconTile_content js-matchHeight" style="height: 258px;">
+              <div class="iconTile_content js-matchHeight">
                 <div class="iconTile_icon">
-                <?php 
-                  if(get_field('new_icon')):
-                    echo get_field('new_icon');
-                  else:
-                    ?>
-                    
-                      <div class="u-scalingSvg">
-                        <svg class="u-scalingSvg_shape">
-                          <use xlink:href="#<?= get_field('icon', $custom_topic->taxonomy . '_' . $custom_topic->term_id); ?>"></use>
-                        </svg>
-                      </div>
-                    
-                    <?php
-                  endif;
-                ?>
+                  <?php echo get_field('new_icon',$custom_topic->taxonomy . '_' . $custom_topic->term_id); ?>
                 </div>
                 <!-- /.iconTile_icon -->
                 <h2 class="iconTile_title">
@@ -230,15 +176,11 @@ while (have_posts()) : the_post(); ?>
                 </h3>
                 <div class="collapseBlock_transformIcon">
                    <div class="transformIconPlus">
-                      <span class="transformIconPlus_icon transformIconPlus_icon-minus">
-                         <svg class="transformIconPlus_shape">
-                            <use xlink:href="#shape-minus"></use>
-                         </svg>
+                      <span class="transformIconPlus_icon transformIconPlus_icon-minus" style="opacity: 0;">
+                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
                       </span>
-                      <span class="transformIconPlus_icon transformIconPlus_icon-plus">
-                         <svg class="transformIconPlus_shape">
-                            <use xlink:href="#shape-plus"></use>
-                         </svg>
+                      <span class="transformIconPlus_icon transformIconPlus_icon-plus" style="opacity: 1;">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
                       </span>
                    </div>
                 </div>
