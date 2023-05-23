@@ -90,3 +90,16 @@
 		margin: 0 auto;
 	}
 }
+
+.contentPanel{
+	padding:1rem;
+	border-radius: 6px;
+}
+.contentPanel-textLeft{
+	background: #efefef;
+	.row {
+		@include media-breakpoint-up(lg) {
+			flex-direction: row-reverse;
+		}
+	}
+}

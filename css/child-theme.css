@@ -17489,6 +17489,20 @@ a {
   margin: 0 auto;
 }
 
+.contentPanel {
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.contentPanel-textLeft {
+  background: #efefef;
+}
+@media (min-width: 992px) {
+  .contentPanel-textLeft .row {
+    flex-direction: row-reverse;
+  }
+}
+
 /*404 Error Page START*/
 .error-page {
   text-align: center;
