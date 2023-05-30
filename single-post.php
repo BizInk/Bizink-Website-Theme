@@ -14,7 +14,6 @@ $container = get_theme_mod('understrap_container_type');
 ?>
 
 <div class="row">
-    <!-- Do the left sidebar check -->
     <main class="site-main" id="main">
 
         <section class="text-center bg navyblue-bg">
@@ -35,5 +34,5 @@ $container = get_theme_mod('understrap_container_type');
                 </div>
             </div>
         </section>
-
-        <?php get_footer();
+</div>
+<?php get_footer();
