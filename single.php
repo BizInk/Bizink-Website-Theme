@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
 				
 
-<section class="cta-section text-center bg" style="background-image: url(<?php if($url){ echo $url; } else { echo "https://bizinkonline.betatesting87.com/wp-content/uploads/2022/06/full-img.jpg"; }  ?>); background-repeat: no-repeat; background-size: cover;">
+<section class="cta-section text-center bg" style="background-image: url(<?php if($url){ echo $url; } else { echo get_template_directory_uri()."/images/full-img.jpg"; }  ?>); background-repeat: no-repeat; background-size: cover;">
 	<div class="container">
 		<div class="default-content">
 		</div>

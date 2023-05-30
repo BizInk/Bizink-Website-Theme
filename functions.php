@@ -81,6 +81,10 @@ function understrap_default_bootstrap_version($current_mod)
 }
 add_filter('theme_mod_understrap_bootstrap_version', 'understrap_default_bootstrap_version', 20);
 
+function bizink_excerpt_more( $more ) {
+  return '<a class="btn yellow-btn" href="'.get_the_permalink().'" rel="nofollow">'.__('Read More...','bizink').'</a>';
+}
+add_filter( 'excerpt_more', 'bizink_excerpt_more' );
 
 
 /**

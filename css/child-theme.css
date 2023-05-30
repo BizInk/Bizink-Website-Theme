@@ -17392,6 +17392,22 @@ a {
   background: #fff;
 }
 
+.title-purple {
+  color: #b665a8;
+}
+
+.title-white {
+  color: #fff;
+}
+
+.title-yellow {
+  color: #F7A800;
+}
+
+.title-blue {
+  color: #333b61;
+}
+
 .two-column {
   padding: 100px 0;
 }
@@ -18371,6 +18387,7 @@ a {
   height: 280px;
   -o-object-fit: cover;
   object-fit: cover;
+  border-radius: 40px;
 }
 .blog-grid-section p {
   max-width: 350px;
@@ -18587,6 +18604,18 @@ a {
   .woocommerce-info .web-list-section a.button {
     margin-top: 15px;
   }
+}
+
+.blog-pagenation .pagination {
+  justify-content: center;
+}
+.blog-pagenation .pagination .nav-links .page-numbers {
+  padding: 0.4rem 1rem;
+  border-radius: 50%;
+}
+.blog-pagenation .pagination .nav-links .page-numbers.current {
+  color: #fff;
+  background-color: #333b61;
 }
 
 .guide-sec {

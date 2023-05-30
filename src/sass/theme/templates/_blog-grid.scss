@@ -32,6 +32,7 @@
         height: 280px;
         -o-object-fit: cover;
         object-fit: cover;
+        border-radius: 40px;
     }
     p {
         max-width: 350px;
@@ -230,3 +231,20 @@
         margin-top: 15px;
     }
 }
+
+.blog-pagenation{
+    .pagination{
+        justify-content: center;
+        .nav-links{
+            .page-numbers{
+                padding:.4rem 1rem;
+                border-radius: 50%;
+            }
+            .page-numbers.current{
+                color: #fff;
+                background-color: #333b61;
+            }
+        }
+    }
+}
+
