@@ -32,6 +32,9 @@
 		@include media-breakpoint-down(lg) {
 			padding: 40px 0;
 		}
+		&.white-bg{
+			background: #fff;
+		}
 	}
 	.image {
 		padding: 0 30px;

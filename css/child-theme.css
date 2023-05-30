@@ -17428,6 +17428,9 @@ a {
     padding: 40px 0;
   }
 }
+.two-column.bg.white-bg {
+  background: #fff;
+}
 .two-column .image {
   padding: 0 30px;
 }
@@ -17729,7 +17732,6 @@ a {
 }
 
 .bussiness-list-section {
-  padding: 15px 0;
   background-position: 79% 98%;
   background-repeat: no-repeat;
 }

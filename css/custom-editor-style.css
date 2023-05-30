@@ -1156,4 +1156,20 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   font-weight: 500;
 }
 
+.title-purple {
+  color: #b665a8;
+}
+
+.title-white {
+  color: #fff;
+}
+
+.title-yellow {
+  color: #F7A800;
+}
+
+.title-blue {
+  color: #333b61;
+}
+
 /*# sourceMappingURL=custom-editor-style.css.map */

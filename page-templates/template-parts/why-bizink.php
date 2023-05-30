@@ -25,14 +25,18 @@ if( get_sub_field('image_position') == 'left' ) {
 		$image_position = 'left-image';
 		} elseif (get_sub_field('image_position') == 'right') {
 			$image_position = 'right-image'; 
-	}				
+	}
+$bgImage = get_sub_field('section_background_image');
+$mainImage = get_sub_field('whay_main_image');			
 ?>
-<section class="<?php echo $why_bizik_bg; ?> bussiness-list-section <?php echo $image_position; ?>" style="background-image: url(<?php if(get_sub_field('section_background_image')) { the_sub_field('section_background_image'); } ?>);">
+<section class="<?php echo $why_bizik_bg; ?> bussiness-list-section <?php echo $image_position; ?>" <?php if($bgImage): ?> style="background-image: url(<?php echo $bgImage; ?>);" <?php endif; ?>>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="image">
-					<img src="<?php if(get_sub_field('whay_main_image')) { the_sub_field('whay_main_image'); } ?>">
+					<?php if($mainImage): ?>
+					<img src="<?php echo $mainImage; ?>" alt="<?php echo the_sub_field('whay_main_title') ? the_sub_field('whay_main_title') : 'Why Bizink' ?>">
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="col-lg-6">
