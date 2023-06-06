@@ -3,7 +3,7 @@ Contributors: Bizink,Jayden Major
 Tags: Bizink, business content, marketing
 Requires at least: 5.6
 Tested up to: 6.2.2
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 Requires PHP: 7.4
 
 The Bizink Theme
@@ -13,6 +13,9 @@ The Bizink Theme
 The Bizink Theme
 
 == Changelog ==
+
+= 1.3.8 =
+* Pricing Table - Currency Type Fix
 
 = 1.3.7 =
 * Marketing Content Single

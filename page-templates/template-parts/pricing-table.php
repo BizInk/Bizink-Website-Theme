@@ -10,7 +10,7 @@
 		</ul>   
 <?php endif; ?>
 <?php } ?>
-<?php if( have_rows('add_types') ): ?>	
+<?php if( have_rows('add_types') ): ?>
 	<div class="container">
 		<div class="tab-content" id="myTabContent">
 			<?php while( have_rows('add_types') ): the_row(); ?>
@@ -28,7 +28,7 @@
 											<?php } else { ?>
 												<?php if(get_sub_field('popular_text')){ ?><p class="popular"><?php echo get_sub_field('popular_text'); ?></p><?php } ?>
 												<?php if(get_sub_field('title_text')){ ?><p class="title"><?php echo get_sub_field('title_text'); ?></p><?php } ?>
-												<?php if(get_sub_field('price')){ ?><p class="price">$<?php echo get_sub_field('price'); ?></p><?php } ?>
+												<?php if(get_sub_field('price')){ ?><p class="price"><?php echo get_sub_field('currency_type').get_sub_field('price'); ?></p><?php } ?>
 												<?php if(get_sub_field('time')){ ?><p class="time"><?php echo get_sub_field('time'); ?></p><?php } ?>
 												<?php if(get_sub_field('information_text')){ ?><p class="desc"><?php echo get_sub_field('information_text'); ?></p><?php } ?>
 												<?php if(get_sub_field('button')){ ?><a href="<?php echo get_sub_field('button')['url']; ?>" target="<?php echo get_sub_field('button')['target']; ?>" class="btn lightblue-btn"><?php echo get_sub_field('button')['title']; ?></a><?php } ?>

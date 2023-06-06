@@ -1,8 +1,8 @@
-<?
-
+<?php
 /**
  * Single blog post template
  */
+
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
@@ -24,7 +24,7 @@ $container = get_theme_mod('understrap_container_type');
       <!-- /.container -->
    </div>
 
-   <div class="section section-white">
+   <div class="section section-white mb-4">
       <div class="container">
          <div class="row">
             <div class="col-sm-9 basicContent marketing-content-field">
@@ -46,7 +46,7 @@ $container = get_theme_mod('understrap_container_type');
                   $file = get_field('social_media_post');
                   if ($file) :
                   ?>
-                     <a class="btn btn-blue" href="<?php echo $file['url']; ?>">Download Social Media Post</a>
+                     <a class="btn yellow-btn" href="<?php echo $file['url']; ?>">Download Social Media Post</a>
                   <?php
                   endif;
                   ?>
