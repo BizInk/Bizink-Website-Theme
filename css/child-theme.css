@@ -16459,6 +16459,12 @@ article .entry-footer a {
   color: #333b61;
 }
 
+#stripe-payment-data #wc-stripe-cc-form .form-row .wc-stripe-elements-field {
+  max-height: 4rem;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
 header {
   padding: 10px 0 0;
 }
@@ -18730,6 +18736,10 @@ a {
   background-color: #805fa9;
 }
 
+.site .section {
+  padding: 1rem;
+}
+
 .webinar-banner {
   padding-top: 10rem;
   padding-bottom: 10rem;
@@ -19139,6 +19149,12 @@ a {
   float: right;
   position: absolute;
   right: 0;
+}
+
+.sidebar-primary {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 1rem;
 }
 
 /*# sourceMappingURL=child-theme.css.map */

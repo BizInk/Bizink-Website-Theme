@@ -27,8 +27,10 @@ $container = get_theme_mod('understrap_container_type');
    <div class="section section-white mb-4">
       <div class="container">
          <div class="row">
-            <div class="col-sm-9 basicContent marketing-content-field">
-               <?php echo get_field('content'); ?>
+            <div class="col-sm-9 ">
+               <div class="basicContent marketing-content-field">
+                  <?php echo get_field('content'); ?>
+               </div>
             </div>
             <div class="col-sm-3 basicContent">
                <div class="marketing-content-buttons">
@@ -51,6 +53,11 @@ $container = get_theme_mod('understrap_container_type');
                   endif;
                   ?>
                </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
+               <button onclick="history.back()" class="btn btn-sml yellow-btn">Back</button>
             </div>
          </div>
       </div>
