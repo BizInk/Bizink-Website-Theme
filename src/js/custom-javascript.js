@@ -1,20 +1,19 @@
 // Add your custom JS here.
+jQuery(window).scroll(function () {
+  var fixedtop = jQuery("header");
 
-jQuery(document).ready(function ($) {
-  $(window).scroll(function () {
-    var fixedtop = $("header");
-
-    if ($(this).scrollTop() > 100) {
-      fixedtop.addClass("fixed");
-    } else {
-      fixedtop.removeClass("fixed");
-    }
-  });
+  if (jQuery(this).scrollTop() > 100) {
+    fixedtop.addClass("fixed");
+  } else {
+    fixedtop.removeClass("fixed");
+  }
 });
 
 if (window.matchMedia("(max-width: 991px)").matches) {
-  $(".navbar-nav").append(".my-account");
-} else {
+  jQuery(".navbar-nav").append(".my-account");
+}
+else {
+
 }
 
 jQuery(".logo-slider").slick({
@@ -74,13 +73,15 @@ jQuery(".scrollTop").click(function () {
 
 // Model JS
 jQuery(document).ready(function () {
-  jQuery("body").on("click", ".talk-to-us a, .talk-to-us", function () {
+  /*
+  jQuery("body").on("click", ".talk-to-us a, .talk-to-us",() => {
     jQuery("#talktous").modal("show");
   });
   jQuery("body").on("click", ".live-demo a, .live-demo", function () {
     jQuery(".select-demo-picker").hide();
     jQuery(".select-country-picker").fadeIn("slow").show();
   });
+  */
   jQuery("#btnausnz").click(function () {
     jQuery(".select-country-picker").hide();
     jQuery(".ausnz-container").fadeIn("slow").show();

@@ -193,5 +193,16 @@ $container = get_theme_mod('understrap_container_type');
   </div>
 </div>
 <?php wp_footer(); ?>
+<script defer type="text/javascript">
+jQuery(document).ready(function () {
+  jQuery("body").on("click", ".talk-to-us a, .talk-to-us",() => {
+    jQuery("#talktous").modal("show");
+  });
+  jQuery("body").on("click", ".live-demo a, .live-demo", function () {
+    jQuery(".select-demo-picker").hide();
+    jQuery(".select-country-picker").fadeIn("slow").show();
+  });
+});
+</script>
 </body>
 </html>
