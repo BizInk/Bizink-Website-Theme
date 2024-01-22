@@ -980,6 +980,11 @@ function custom_post_type_playbook()
 }
 add_action('init', 'custom_post_type_playbook', 0);
 
+/** Disable ACF Filtering */
+add_filter( 'acf/shortcode/allow_unsafe_html', function ( $allowed, $atts ) {
+  return true;
+}, 10, 2 );
+
 // Plugin Updater
 require 'plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
