@@ -981,7 +981,7 @@ function custom_post_type_playbook()
 add_action('init', 'custom_post_type_playbook', 0);
 
 /** Disable ACF Filtering */
-add_filter( 'acf/shortcode/allow_unsafe_html', function ( $allowed, $atts ) {
+add_filter( 'acf/the_field/allow_unsafe_html', function ( $allowed, $atts ) {
   return true;
 }, 10, 2 );
 
