@@ -1,0 +1,54 @@
+{
+    "key": "group_5fa853ed850b3",
+    "title": "Marketing Content - Social Posts Extra Fields",
+    "fields": [
+        {
+            "key": "field_5fa8540a0272c",
+            "label": "Social Post Type",
+            "name": "social_post_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "Social Post Type",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "marketing_content"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "types:social-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1716433858
+}

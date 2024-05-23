@@ -1,0 +1,91 @@
+{
+    "key": "group_5f39dbc357e32",
+    "title": "Marketing Content",
+    "fields": [
+        {
+            "key": "field_5f39dbe6811a9",
+            "label": "Content",
+            "name": "content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5f7cf35106021",
+            "label": "Download Doc",
+            "name": "download_doc",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "If relevant, add a document that users can download. If left blank, it won't show on the frontend.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "uploadedTo",
+            "min_size": "",
+            "max_size": 30,
+            "mime_types": "pdf,doc,docx,txt,png,jpg,jpeg,gif,xls,xlsx"
+        },
+        {
+            "key": "field_5fa08877263b0",
+            "label": "Social Media Post",
+            "name": "social_media_post",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "If relevant, add a social media post that users can download. If left blank, it won't show on the frontend.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "marketing_content"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "categories"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1716433856
+}
