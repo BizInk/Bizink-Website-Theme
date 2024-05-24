@@ -10188,6 +10188,7 @@
 	  jQuery("body").on("click", "#talktous .modal-header .close", function () {
 	    jQuery("#talktous").modal("toggle");
 	  });
+	  /*
 	  jQuery("body").on("click", ".collapseBlock a.collapseBlock_header", function () {
 	    if (jQuery(this).next().hasClass("showBlock")) {
 	      jQuery(this).next().removeClass("showBlock");
@@ -10203,6 +10204,7 @@
 	      jQuery(this).next().slideDown("fast").show();
 	    }
 	  });
+	  */
 	  jQuery("#accordion .panel-heading .panel-title a").click(function () {
 	    var collapseID = jQuery(this).attr("href");
 
