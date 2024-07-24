@@ -13,6 +13,7 @@ The Bizink Theme
 The Bizink Theme
 
 == Changelog ==
+
 = 1.4.4 =
 * Block Use Case Fix
 * Updated Updater
