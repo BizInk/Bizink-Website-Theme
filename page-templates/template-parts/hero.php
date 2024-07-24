@@ -10,29 +10,47 @@
 	<section class="hero-slider">
 		<?php while (have_rows('hero_slider')) : the_row();
 			$heroclass = '';
-			if (get_sub_field('slider_type') == 'hero section') {
-				$heroclass = 'hero-section';
-			} elseif (get_sub_field('slider_type') == 'hero style2') {
-				$heroclass = 'hero-section hero-section-style2 dark-text';
-			} elseif (get_sub_field('slider_type') == 'white text') {
-				$heroclass = 'hero-section hero-section-style2 white-text';
-			} elseif (get_sub_field('slider_type') == 'dark text') {
-				$heroclass = 'hero-section hero-section-style2 dark-text';
-			} elseif (get_sub_field('slider_type') == 'hero section style3') {
-				$heroclass = 'hero-section hero-section-style3 dark-text';
-			} elseif (get_sub_field('slider_type') == 'hero section style4') {
-				$heroclass = 'hero-section hero-section-style4';
-			} elseif (get_sub_field('slider_type') == 'no slider') {
-				$heroclass = 'hero-section bg';
+			$slider_type = get_sub_field('slider_type');
+			switch($slider_type){
+				case 'hero section':
+					$heroclass = 'hero-section';
+					break;
+				case 'hero style2':
+					$heroclass = 'hero-section hero-section-style2 dark-text';
+					break;
+				case 'white text':
+					$heroclass = 'hero-section hero-section-style2 white-text';
+					break;
+				case 'dark text':
+					$heroclass = 'hero-section hero-section-style2 dark-text';
+					break;
+				case 'hero section style3':
+					$heroclass = 'hero-section hero-section-style3 dark-text';
+					break;
+				case 'hero section style4':
+					$heroclass = 'hero-section hero-section-style4';
+					break;
+				case 'no slider':
+					$heroclass = 'hero-section bg';
+					break;
+				
 			}
+
 			$slider_overlay_color = "";
-			if (get_sub_field('slider_overlay_color') == 'whiteverlay') {
-				$slider_overlay_color = 'white-overlay';
-			} elseif (get_sub_field('slider_overlay_color') == 'darkoverlay') {
-				$slider_overlay_color = 'dark-overlay';
-			} elseif (get_sub_field('slider_overlay_color') == 'nooverlay') {
-				$slider_overlay_color = '';
+			$slider_overlay_color = get_sub_field('slider_overlay_color');
+
+			switch($slider_overlay_color){
+				case 'whiteverlay':
+					$slider_overlay_color = 'white-overlay';
+					break;
+				case 'darkoverlay':
+					$slider_overlay_color = 'dark-overlay';
+					break;
+				case 'nooverlay':
+					$slider_overlay_color = '';
+					break;
 			}
+
 		?>
 
 			<div class="<?php echo $heroclass; ?> <?php echo $slider_overlay_color; ?>" <?php if (get_sub_field('background_color_or_image') == 'color') { ?> style="background-color: <?php echo the_sub_field('select_background_color'); ?>;" <?php	} elseif (get_sub_field('background_color_or_image') == 'image') { ?> style="background-image: url(<?php echo the_sub_field('select_background_image'); ?>);" .. <?php } ?>>
@@ -42,21 +60,23 @@
 							<?php if (get_sub_field('title')) { ?>
 								<?php
 								$button_blue_class = '';
-								if (get_sub_field('set_title_color_lightblue')[0] == 'Yes') {
-									$button_blue_class =  'lightblue2';
-								} ?>
+								$set_title_color_lightblue = get_sub_field('set_title_color_lightblue');
+								if(!empty($set_title_color_lightblue)){
+									if ($set_title_color_lightblue == 'Yes' || $set_title_color_lightblue == 'yes' || $set_title_color_lightblue[0] == 'YES' || $set_title_color_lightblue[0] == 'yes') {
+										$button_blue_class =  'lightblue2';
+									}
+								}
+								?>
 								<h2 class="<?php echo $button_blue_class; ?>"><?php the_sub_field('title') ?></h2>
 							<?php } ?>
 							<?php if (get_sub_field('description')) { ?>
 								<div class="default-content">
 									<h3><?php the_sub_field('description') ?></h3>
 								</div>
-							<?php } ?>
-							<?php
+							<?php } 
+							
 							$link = get_sub_field('button');
-							$button_link_url = $link['url'];
-							$button_link_title = $link['title'];
-							$button_link_target = $link['target'] ? $link['target'] : '_self';
+							
 							?>
 							<?php
 							$button_color = '';
@@ -76,7 +96,10 @@
 								<a href="#" class="talk-to-us btn <?php echo $button_color; ?>"><?php _e('Book A Demo','bizink'); ?></a>
 								<?php
 							}
-							else{
+							else if(!empty($link)){
+								$button_link_url = $link['url'];
+								$button_link_title = $link['title'];
+								$button_link_target = $link['target'] ? $link['target'] : '_self';
 								?>
 								<a href="<?php echo esc_url($button_link_url); ?>" class="btn <?php echo $button_color; ?>"><?php echo esc_html($button_link_title ? $button_link_title : __('Book A Meeting','bizink')); ?></a>
 								<?php

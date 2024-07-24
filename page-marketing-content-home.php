@@ -32,69 +32,51 @@ while (have_posts()) : the_post(); ?>
     ?>
       <div <?php if ($bgImageUrl) : ?> style="background: url('<?= $bgImageUrl ?>') center / cover no-repeat;" <?php endif; ?> class="<?= $sectionClassesString; ?>">
         <div class="<?= $containerClassesString; ?>">
-          <?php if (have_rows('components')) : ?>
-            <?php while (have_rows('components')) : the_row(); ?>
-
-              <?php if (get_row_layout() == 'basic_text_content') : ?>
-                <?php get_template_part('templates/components/basic-text-content'); ?>
-              <?php endif; ?>
-
-              <?php if (get_row_layout() == 'jumbo') : ?>
-                <?php get_template_part('templates/components/jumbo'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'filler') : ?>
-                <?php get_template_part('templates/components/filler'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'heading') : ?>
-                <?php get_template_part('templates/components/heading'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'form_panel') : ?>
-                <?php get_template_part('templates/components/form-panel'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'content_panel') : ?>
-                <?php get_template_part('templates/components/content-panel'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'cta') : ?>
-                <?php get_template_part('templates/components/cta'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'quote_block') : ?>
-                <?php get_template_part('templates/components/quote-block'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'content_boxes') : ?>
-                <?php get_template_part('templates/components/content-boxes'); ?>
-              <?php endif; ?>
-
-              <?php if (get_row_layout() == 'blog_posts_in_content_boxes') : ?>
-                <?php get_template_part('templates/components/blog-posts-in-content-boxes'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'content_panel_text_only') : ?>
-                <?php get_template_part('templates/components/content-panel-text-only'); ?>
-              <?php endif; ?>
-
-
-              <?php if (get_row_layout() == 'clients') : ?>
-                <?php get_template_part('templates/components/clients'); ?>
-              <?php endif; ?>
-
-            <?php endwhile; ?>
-          <?php endif; ?>
-
+          <?php 
+          if (have_rows('components')):
+            while (have_rows('components')): 
+              the_row();
+              $layout = get_row_layout();
+              switch($layout){
+                case 'basic_text_content':
+                  get_template_part('templates/components/basic-text-content');
+                  break;
+                case 'jumbo':
+                  get_template_part('templates/components/jumbo');
+                  break;
+                case 'filler':
+                  get_template_part('templates/components/filler');
+                  break;
+                case 'heading':
+                  get_template_part('templates/components/heading');
+                  break;
+                case 'form_panel':
+                  get_template_part('templates/components/form-panel');
+                  break;
+                case 'content_panel':
+                  get_template_part('templates/components/content-panel');
+                  break;
+                case 'cta':
+                  get_template_part('templates/components/cta');
+                  break;
+                case 'quote_block':
+                  get_template_part('templates/components/quote-block');
+                  break;
+                case 'content_boxes':
+                  get_template_part('templates/components/content-boxes');
+                  break;
+                case 'blog_posts_in_content_boxes':
+                  get_template_part('templates/components/blog-posts-in-content-boxes');
+                  break;
+                case 'content_panel_text_only':
+                  get_template_part('templates/components/content-panel-text-only');
+                  break;
+                case 'clients':
+                  get_template_part('templates/components/clients');
+                  break;
+              }
+            endwhile;
+          endif; ?>
         </div><!-- /.container -->
       </div><!-- /.section -->
     <?php endwhile; ?>
@@ -105,7 +87,7 @@ while (have_posts()) : the_post(); ?>
   <div class="container">
     <div class="contentPanel">
       <div class="blockHeader">
-        <h2 class="blockHeader_title">Find Content By Topic</h2>
+        <h2 class="blockHeader_title"><?php _e('Find Content By Topic','bizink'); ?></h2>
       </div>
       <!-- /.blockHeader -->
       <div class="row">

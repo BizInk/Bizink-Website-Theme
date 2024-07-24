@@ -3,7 +3,7 @@ Contributors: Bizink,Jayden Major
 Tags: Bizink, business content, marketing
 Requires at least: 5.6
 Tested up to: 6.6.1
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 Requires PHP: 7.4
 
 The Bizink Theme
@@ -13,10 +13,13 @@ The Bizink Theme
 The Bizink Theme
 
 == Changelog ==
-
-= 1.4.3 =
+= 1.4.4 =
 * Block Use Case Fix
 * Updated Updater
+
+= 1.4.3 =
+* Fix Content Pack
+* General Bug Fixs
 
 = 1.4.2 =
 * ACF Filter Update - Real Fix

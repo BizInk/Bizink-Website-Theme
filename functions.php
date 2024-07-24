@@ -53,6 +53,18 @@ function theme_enqueue_styles()
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 
+// Shortcode for line break
+add_shortcode('br', 'br_cb');
+function br_cb(){
+  return '<br>';
+}
+
+// Shortcode for current year
+add_shortcode('current-year', 'current_year_cb');
+function current_year_cb(){
+  return date('Y');
+}
+
 /**
  * Overrides the theme_mod to default to Bootstrap 5
  *
