@@ -9,21 +9,21 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = get_theme_mod('understrap_container_type');
+$container = get_theme_mod( 'understrap_container_type' );
 
-if (is_front_page()) {
-	get_template_part('global-templates/hero');
+if ( is_front_page() ) {
+	get_template_part( 'global-templates/hero' );
 }
 ?>
 
 <!-- Archive Page -->
-<?php if(get_field('post_banner_image')) { ?>
+<?php if ( get_field( 'post_banner_image' ) ) { ?>
 <section class="full-img-section">
 	<div class="image">
-		<img src="<?php the_field('post_banner_image'); ?>" class="w-100">
+		<img src="<?php the_field( 'post_banner_image' ); ?>" class="w-100">
 	</div>
 </section>
 <?php } ?>
@@ -34,7 +34,7 @@ if (is_front_page()) {
 	<div class="container">
 		<div class="filter-wrap text-center ">
 			<h4>SORT BY:</h4>
-			<?php $terms_location = get_terms('location'); ?>
+			<?php $terms_location = get_terms( 'location' ); ?>
 			<div class="row justify-content-center category">
 				<div class="col-lg-3 col-md-4">
 					<select class="form-select" id="location">
@@ -46,7 +46,7 @@ if (is_front_page()) {
 					</select>
 				</div>
 				<div class="col-lg-3 col-md-4">
-					<?php $terms_partner = get_terms('partner'); ?>
+					<?php $terms_partner = get_terms( 'partner' ); ?>
 					<select class="form-select" id="partner">
 						<option value="">Partner</option>
 						<?php foreach ( $terms_partner as $term_partner ) { ?>
@@ -55,7 +55,7 @@ if (is_front_page()) {
 					</select>
 				</div>
 				<div class="col-lg-3 col-md-4">
-						<?php $terms_typework = get_terms('typework'); ?>
+						<?php $terms_typework = get_terms( 'typework' ); ?>
 					<select class="form-select" id="typeofwork">
 						<option value="">Type of Work</option>
 						<?php foreach ( $terms_typework as $term_typework ) { ?>
@@ -86,22 +86,23 @@ if (is_front_page()) {
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
 				<h2>FEATURE STORY</h2>
-				<?php $select_feature_stories = get_field('feature_blog'); ?>
-				<?php foreach($select_feature_stories as $post_id){ ?>
-				<h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title($post_id); ?></a></h3>
+				<?php $select_feature_stories = get_field( 'feature_blog' ); ?>
+				<?php foreach ( $select_feature_stories as $post_id ) { ?>
+				<h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h3>
 				<!-- <p>Mark Telford switched to bizink in 2017, orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. <a href="#">Read Mark’s story.</a>
 				</p> -->
-				<p><?php echo apply_filters('the_content', get_post_field('post_content', $post_id)); ?></p>
-				<?php  $tags = get_the_tags($post_id);
-				
-				 ?>
+				<p><?php echo apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ); ?></p>
+					<?php
+					$tags = get_the_tags( $post_id );
+
+					?>
 				<ul class="tags">
-				<?php foreach ($tags as $tag) { ?>
+					<?php foreach ( $tags as $tag ) { ?>
 					<li>
-						<h6><?php echo $tag->name ?></h6>
+						<h6><?php echo $tag->name; ?></h6>
 					</li>
 				
-				<?php  } ?>
+				<?php } ?>
 				</ul>
 				<?php } ?>	
 			</div>
@@ -118,22 +119,26 @@ if (is_front_page()) {
 	</div>
 	<div class="container">
 		<div class="story-slider">
-         <?php if( have_rows('sliderimage') ): ?>
-         	   <?php while( have_rows('sliderimage') ): the_row(); ?>
-         	   	<div class="slide">
+		<?php if ( have_rows( 'sliderimage' ) ) : ?>
+				<?php
+				while ( have_rows( 'sliderimage' ) ) :
+					the_row();
+					?>
+					<div class="slide">
 				<div class="row align-items-center">
 					<div class="col-md-4">
 						<div class="image">
-							<img src="<?php the_sub_field('slider_image'); ?>">
+							<img src="<?php the_sub_field( 'slider_image' ); ?>">
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h3> <?php the_sub_field('image_right_side_content'); ?>
+						<h3> <?php the_sub_field( 'image_right_side_content' ); ?>
 						</h3>
-						<?php $read_more_button = get_sub_field('read_more_button'); 
-							$read_more_link_url = $read_more_button['url'];
-    						$read_more_link_title  = $read_more_button['title'];
-    						$read_more_link_target = $read_more_button['target'] ? $read_more_button['target'] : '_self';
+						<?php
+						$read_more_button          = get_sub_field( 'read_more_button' );
+							$read_more_link_url    = $read_more_button['url'];
+							$read_more_link_title  = $read_more_button['title'];
+							$read_more_link_target = $read_more_button['target'] ? $read_more_button['target'] : '_self';
 
 						?>
 						<a href="<?php echo esc_url( $read_more_link_url ); ?>">
@@ -142,44 +147,9 @@ if (is_front_page()) {
 					</div>
 				</div>
 			</div>
-         	   	<?php endwhile; ?>
-         	<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
 			
-
-			<div class="slide">
-				<div class="row align-items-center">
-					<div class="col-md-4">
-						<div class="image">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/searchange.png">
-						</div>
-					</div>
-					<div class="col-md-8">
-						<h3> “Websites can be confusing. Bizink made it easy.”
-						</h3>
-						<a href="#">
-							Read the Seachange story
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="slide">
-				<div class="row align-items-center">
-					<div class="col-md-4">
-						<div class="image">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/searchange.png">
-						</div>
-					</div>
-					<div class="col-md-8">
-						<h3> “Websites can be confusing. Bizink made it easy.”
-						</h3>
-						<a href="#">
-							Read the Seachange story
-						</a>
-					</div>
-				</div>
-			</div>
-
 		</div>
 </section>
 <!-- -Story Slider END -->

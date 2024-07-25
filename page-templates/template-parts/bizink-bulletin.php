@@ -1,5 +1,3 @@
-<?php
-?>
 
 <section class="newsletter-sec py-5">
 	<div class="container py-5">
@@ -7,25 +5,25 @@
 			<div class="col-12">
 				<?php
 				$bulletin_title_color = '';
-				if (get_sub_field('bulletin_title_color') == 'purple') {
+				if ( get_sub_field( 'bulletin_title_color' ) == 'purple' ) {
 					$bulletin_title_color = 'title-purple';
-				} elseif (get_sub_field('bulletin_title_color') == 'white') {
+				} elseif ( get_sub_field( 'bulletin_title_color' ) == 'white' ) {
 					$bulletin_title_color = 'title-white';
-				} elseif (get_sub_field('bulletin_title_color') == 'yellow') {
+				} elseif ( get_sub_field( 'bulletin_title_color' ) == 'yellow' ) {
 					$bulletin_title_color = 'title-yellow';
 				}
 				?>
-				<h2 class="<?php echo $bulletin_title_color; ?>"><?php the_sub_field('bulletin_title'); ?></h2>
+				<h2 class="<?php echo $bulletin_title_color; ?>"><?php the_sub_field( 'bulletin_title' ); ?></h2>
 				<div class="content">
-					<?php the_sub_field('bulletin_description'); ?>
+					<?php the_sub_field( 'bulletin_description' ); ?>
 				</div>
-				<h3><?php _e('Bizink Bulletin - Weekly Newsletter','bizink'); ?></h3>
-				<span><?php _e('A weekly digest of marketing tips, inspiration and resources by Matt Wilkinson, founder of Bizink.','bizink'); ?></span>
+				<h3><?php _e( 'Bizink Bulletin - Weekly Newsletter', 'bizink' ); ?></h3>
+				<span><?php _e( 'A weekly digest of marketing tips, inspiration and resources by Matt Wilkinson, founder of Bizink.', 'bizink' ); ?></span>
 				<form>
 					<input type="email" name="email" placeholder="Add your email address">
-					<button type="submit" class="button"><?php _e('Signup »','bizink'); ?></button>
+					<button type="submit" class="button"><?php _e( 'Signup »', 'bizink' ); ?></button>
 				</form>
-				<img src="<?php the_sub_field('bulletin_image'); ?>">
+				<img src="<?php the_sub_field( 'bulletin_image' ); ?>">
 			</div>
 		</div>
 	</div>

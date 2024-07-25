@@ -1,17 +1,17 @@
-<?php
-?>
 
 <!-- Conditions: hero-section, hero-section-style2, hero-section-style3, hero-section-style4, dark-text, white-text -->
 <!-- Buttons: navyblue-btn, yellow-btn, lightblue-btn, purple-btn -->
 
 <!-- Hero Section START -->
 
-<?php if (have_rows('hero_slider')) : ?>
+<?php if ( have_rows( 'hero_slider' ) ) : ?>
 	<section class="hero-slider">
-		<?php while (have_rows('hero_slider')) : the_row();
-			$heroclass = '';
-			$slider_type = get_sub_field('slider_type');
-			switch($slider_type){
+		<?php
+		while ( have_rows( 'hero_slider' ) ) :
+			the_row();
+			$heroclass   = '';
+			$slider_type = get_sub_field( 'slider_type' );
+			switch ( $slider_type ) {
 				case 'hero section':
 					$heroclass = 'hero-section';
 					break;
@@ -33,13 +33,13 @@
 				case 'no slider':
 					$heroclass = 'hero-section bg';
 					break;
-				
+
 			}
 
-			$slider_overlay_color = "";
-			$slider_overlay_color = get_sub_field('slider_overlay_color');
+			$slider_overlay_color = '';
+			$slider_overlay_color = get_sub_field( 'slider_overlay_color' );
 
-			switch($slider_overlay_color){
+			switch ( $slider_overlay_color ) {
 				case 'whiteverlay':
 					$slider_overlay_color = 'white-overlay';
 					break;
@@ -51,68 +51,79 @@
 					break;
 			}
 
-		?>
+			?>
 
-			<div class="<?php echo $heroclass; ?> <?php echo $slider_overlay_color; ?>" <?php if (get_sub_field('background_color_or_image') == 'color') { ?> style="background-color: <?php echo the_sub_field('select_background_color'); ?>;" <?php	} elseif (get_sub_field('background_color_or_image') == 'image') { ?> style="background-image: url(<?php echo the_sub_field('select_background_image'); ?>);" .. <?php } ?>>
+			<div class="<?php echo $heroclass; ?> <?php echo $slider_overlay_color; ?>" 
+									<?php
+									if ( get_sub_field( 'background_color_or_image' ) == 'color' ) {
+										?>
+				style="background-color: <?php echo the_sub_field( 'select_background_color' ); ?>;" 
+										<?php
+									} elseif ( get_sub_field( 'background_color_or_image' ) == 'image' ) {
+										?>
+				style="background-image: url(<?php echo the_sub_field( 'select_background_image' ); ?>);" .. <?php } ?>>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 col-lg-6">
-							<?php if (get_sub_field('title')) { ?>
+							<?php if ( get_sub_field( 'title' ) ) { ?>
 								<?php
-								$button_blue_class = '';
-								$set_title_color_lightblue = get_sub_field('set_title_color_lightblue');
-								if(!empty($set_title_color_lightblue)){
-									if ($set_title_color_lightblue == 'Yes' || $set_title_color_lightblue == 'yes' || $set_title_color_lightblue[0] == 'YES' || $set_title_color_lightblue[0] == 'yes') {
-										$button_blue_class =  'lightblue2';
+								$button_blue_class         = '';
+								$set_title_color_lightblue = get_sub_field( 'set_title_color_lightblue' );
+								if ( ! empty( $set_title_color_lightblue ) ) {
+									if ( $set_title_color_lightblue == 'Yes' || $set_title_color_lightblue == 'yes' || $set_title_color_lightblue[0] == 'YES' || $set_title_color_lightblue[0] == 'yes' ) {
+										$button_blue_class = 'lightblue2';
 									}
 								}
 								?>
-								<h2 class="<?php echo $button_blue_class; ?>"><?php the_sub_field('title') ?></h2>
+								<h2 class="<?php echo $button_blue_class; ?>"><?php the_sub_field( 'title' ); ?></h2>
 							<?php } ?>
-							<?php if (get_sub_field('description')) { ?>
+							<?php if ( get_sub_field( 'description' ) ) { ?>
 								<div class="default-content">
-									<h3><?php the_sub_field('description') ?></h3>
+									<h3><?php the_sub_field( 'description' ); ?></h3>
 								</div>
-							<?php } 
-							
-							$link = get_sub_field('button');
-							
+								<?php
+							}
+
+							$link = get_sub_field( 'button' );
+
 							?>
 							<?php
 							$button_color = '';
-							if (get_sub_field('button_style') == 'navyblue') {
+							if ( get_sub_field( 'button_style' ) == 'navyblue' ) {
 								$button_color = 'navyblue-btn';
-							} elseif (get_sub_field('button_style') == 'lightblue') {
+							} elseif ( get_sub_field( 'button_style' ) == 'lightblue' ) {
 								$button_color = 'lightblue-btn';
-							} elseif (get_sub_field('button_style') == 'purple') {
+							} elseif ( get_sub_field( 'button_style' ) == 'purple' ) {
 								$button_color = 'purple-btn';
-							} elseif (get_sub_field('button_style') == 'yellow') {
+							} elseif ( get_sub_field( 'button_style' ) == 'yellow' ) {
 								$button_color = 'yellow-btn';
 							}
-							$button_popup = get_sub_field('button_href') ? get_sub_field('button_href') : 'link';
+							$button_popup = get_sub_field( 'button_href' ) ? get_sub_field( 'button_href' ) : 'link';
 
-							if($button_popup == 'modal'){
+							if ( $button_popup == 'modal' ) {
 								?>
-								<a href="#" class="talk-to-us btn <?php echo $button_color; ?>"><?php _e('Book A Demo','bizink'); ?></a>
+								<a href="#" class="talk-to-us btn <?php echo $button_color; ?>"><?php _e( 'Book A Demo', 'bizink' ); ?></a>
 								<?php
-							}
-							else if(!empty($link)){
-								$button_link_url = $link['url'];
-								$button_link_title = $link['title'];
+							} elseif ( ! empty( $link ) ) {
+								$button_link_url    = $link['url'];
+								$button_link_title  = $link['title'];
 								$button_link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<a href="<?php echo esc_url($button_link_url); ?>" class="btn <?php echo $button_color; ?>"><?php echo esc_html($button_link_title ? $button_link_title : __('Book A Meeting','bizink')); ?></a>
+								<a href="<?php echo esc_url( $button_link_url ); ?>" class="btn <?php echo $button_color; ?>"><?php echo esc_html( $button_link_title ? $button_link_title : __( 'Book A Meeting', 'bizink' ) ); ?></a>
 								<?php
 							}
 
-							if (have_rows('tags')) : ?>
+							if ( have_rows( 'tags' ) ) :
+								?>
 								<ul class="tags">
-									<?php while (have_rows('tags')) : the_row();
-										$image = get_sub_field('image');
-									?>
+									<?php
+									while ( have_rows( 'tags' ) ) :
+										the_row();
+										$image = get_sub_field( 'image' );
+										?>
 										<li>
-											<a href="<?php the_sub_field('tag_url'); ?>"></a>
-											<h6><?php the_sub_field('tag_title'); ?></h6>
+											<a href="<?php the_sub_field( 'tag_url' ); ?>"></a>
+											<h6><?php the_sub_field( 'tag_title' ); ?></h6>
 										</li>
 									<?php endwhile; ?>
 								</ul>

@@ -9,13 +9,13 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = get_theme_mod('understrap_container_type');
+$container = get_theme_mod( 'understrap_container_type' );
 
-if (is_front_page()) {
-	get_template_part('global-templates/hero');
+if ( is_front_page() ) {
+	get_template_part( 'global-templates/hero' );
 }
 ?>
 
@@ -24,7 +24,7 @@ if (is_front_page()) {
 		<div class="default-content">
 			<div class="row">
 				<div class="col">
-					<p><?php echo get_sub_field('body_page_content'); ?></p>
+					<p><?php echo get_sub_field( 'body_page_content' ); ?></p>
 				</div>
 			</div>
 		</div>
