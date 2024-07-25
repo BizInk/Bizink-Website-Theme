@@ -15,7 +15,7 @@ $select_case_studies = get_sub_field('select_case_studies');
 			<div class="row">
 				<?php
 				foreach($select_case_studies as $post_id){ ?>
-					<div class="col-lg-4">
+					<div class="col-sm-6 col-lg-4">
 						<a href="<?php echo get_the_permalink($post_id); ?>">
 						<div class="image">
 							<img src="<?php echo get_the_post_thumbnail_url($post_id,'full'); ?>">

@@ -23,7 +23,7 @@ $container = get_theme_mod('understrap_container_type');
     <div class="row">
 
       <div class="col-md-3">
-        <h5>CONTACT US</h5>
+        <h5><?php _e('CONTACT US','bizink'); ?></h5>
         <div class="contact-info">
 
           <?php
@@ -73,7 +73,7 @@ $container = get_theme_mod('understrap_container_type');
 
       <div class="col-md-3">
         <div class="newsletter-wrap">
-          <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
+          <h5><?php _e('SUBSCRIBE TO OUR NEWSLETTER','bizink'); ?></h5>
           <?php if (get_field('subscribe_to_newsletter_text', 'option')) { ?>
             <p><?php the_field('subscribe_to_newsletter_text', 'option'); ?></p>
           <?php } ?>
@@ -82,7 +82,7 @@ $container = get_theme_mod('understrap_container_type');
 
       <div class="col-md-3">
         <div class="social-media-wrap">
-          <h5>FOLLOW US ON:</h5>
+          <h5><?php _e('FOLLOW US ON:','bizink'); ?></h5>
           <ul>
             <?php if (get_field('twitter', 'option')) { ?>
               <li><a target="_blank" href="<?php the_field('twitter', 'option'); ?>"><i class="fa fa-twitter"></i></a></li>
@@ -152,40 +152,29 @@ $container = get_theme_mod('understrap_container_type');
         <div class="ausnz-container booking-container" style="display: none;">
           <h3><?php _e('Australia, New Zealand & Asia', 'bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region', 'bizink'); ?></button>
-          <!-- Start of Meetings Embed Script -->
-          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
-          <!-- End of Meetings Embed Script -->
         </div>
         <div class="usacn-container booking-container" style="display: none;">
           <h3><?php _e('USA and Canada', 'bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region', 'bizink'); ?></button>
-          <!-- Start of Meetings Embed Script -->
-          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
-          <!-- End of Meetings Embed Script -->
         </div>
         <div class="ukir-container booking-container" style="display: none;">
           <h3><?php _e('UK, Ireland & Europe', 'bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region', 'bizink'); ?></button>
-          <!-- Start of Meetings Embed Script -->
-          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           <div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/anthea-bizink/product-demo?embed=true"></div>
-          <!-- End of Meetings Embed Script -->
         </div>
         <div class="mideast-container booking-container" style="display: none;">
           <h3><?php _e('Africa & Middle East', 'bizink'); ?></h3>
           <button class="btn btn-primary back"><?php _e('Select a different region', 'bizink'); ?></button>
-          <!-- Start of Meetings Embed Script -->
-          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           <div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
-          <!-- End of Meetings Embed Script -->
         </div>
       </div>
     </div>
   </div>
 </div>
 <?php wp_footer(); ?>
+<script defer type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 <script defer type="text/javascript">
   // Model JS
   jQuery(document).ready(function() {

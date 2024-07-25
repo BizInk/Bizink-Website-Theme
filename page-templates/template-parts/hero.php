@@ -56,7 +56,7 @@
 			<div class="<?php echo $heroclass; ?> <?php echo $slider_overlay_color; ?>" <?php if (get_sub_field('background_color_or_image') == 'color') { ?> style="background-color: <?php echo the_sub_field('select_background_color'); ?>;" <?php	} elseif (get_sub_field('background_color_or_image') == 'image') { ?> style="background-image: url(<?php echo the_sub_field('select_background_image'); ?>);" .. <?php } ?>>
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-sm-12 col-lg-6">
 							<?php if (get_sub_field('title')) { ?>
 								<?php
 								$button_blue_class = '';
@@ -118,7 +118,7 @@
 								</ul>
 							<?php endif; ?>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-sm-12 col-lg-6">
 						</div>
 					</div>
 				</div>

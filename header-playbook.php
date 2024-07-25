@@ -24,27 +24,23 @@ $navbar_type       = get_theme_mod('understrap_navbar_type', 'offcanvas');
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+<body <?php body_class(); understrap_body_attributes(); ?>>
 	<?php do_action('wp_body_open'); ?>
 	<div class="site" id="page">
 
 		<!-- ******************* The Navbar Area ******************* -->
 		<header id="wrapper-navbar">
-
 			<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'understrap'); ?></a>
-
-			<?php //get_template_part('global-templates/navbar', $navbar_type . '-' . $bootstrap_version); 
-			?>
-		<div class="container">
-			<div class="playbook-header-wrap">
-				<div class="header-logo-wrap">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bizink-logo.png" class="img-fluid" alt="BizinkLogo">
-				</div>
-				<div class="header-btn-group">
-					<a href="https://scorecard.bizinkonline.com/marketing-performance-audit" target="_blank" class="btn navyblue-btn">Rank your performance</a>
-					<a href="https://bizinkonline.com/" target="" class="btn navyblue-btn">Visit Bizink</a>
+			<div class="container">
+				<div class="playbook-header-wrap">
+					<div class="header-logo-wrap">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/bizink-logo.png" class="img-fluid" alt="BizinkLogo">
+					</div>
+					<div class="header-btn-group">
+						<a href="https://scorecard.bizinkonline.com/marketing-performance-audit" target="_blank" class="btn navyblue-btn"><?php _e('Rank your performance', 'bizink'); ?></a>
+						<a href="https://bizinkonline.com/" target="" class="btn navyblue-btn"><?php _e('Visit Bizink', 'bizink'); ?></a>
+					</div>
 				</div>
 			</div>
-		</div>
 
 		</header><!-- #wrapper-navbar end -->

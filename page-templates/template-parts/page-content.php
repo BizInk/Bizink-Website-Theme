@@ -22,20 +22,14 @@ if (is_front_page()) {
 <section class="states-section bg light-gray-bg">
 	<div class="container">
 		<div class="default-content">
-			
-				<div class="row">
-					<div class="col-lg-12">
-						
-							
-							<p><?php echo get_sub_field('body_page_content'); ?></p>
-						
-					</div>
-				
+			<div class="row">
+				<div class="col">
+					<p><?php echo get_sub_field('body_page_content'); ?></p>
 				</div>
+			</div>
 		</div>
 	</div>
 </section>
-
 
 <?php
 get_footer();

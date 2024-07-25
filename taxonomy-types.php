@@ -28,11 +28,11 @@ $tax = $wp_query->get_queried_object();
           <table id="myTable" class="table table-bordered table-striped">
             <thead class="thead-dark">
               <tr>
-                <th>Title</th>
-                <th>Topics</th>
-                <th>Published Date</th>
+                <th><?php _e('Title', 'bizink'); ?></th>
+                <th><?php _e('Topics', 'bizink'); ?></th>
+                <th><?php _e('Published Date', 'bizink'); ?></th>
                 <?php if ($tax->name == "Social Posts") : ?>
-                  <th>Social Post Topic</th>
+                  <th><?php _e('Social Post Topic', 'bizink'); ?></th>
                 <?php endif; ?>
               </tr>
             </thead>
@@ -108,7 +108,7 @@ $tax = $wp_query->get_queried_object();
       </div>
     </div>
     <aside class="sidebar" role="complementary">
-      <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px;">Marketing Content Pack >></a>
+      <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px;"><?php _e('Marketing Content Pack &gt;&gt;', 'bizink'); ?></a>
       <br>
     </aside><!-- /.sidebar -->
   </div>

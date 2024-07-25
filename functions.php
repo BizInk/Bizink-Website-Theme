@@ -116,14 +116,14 @@ function bizink_acf_init(){
 }
 
 
-function wpb_custom_new_menu()
+function bizink_custom_new_menu()
 {
   register_nav_menu('my-custom-menu-one', __('Footer Menu One'));
   register_nav_menu('my-custom-menu-two', __('Footer Menu Two'));
   register_nav_menu('our-playbook-menu', __('Our Playbook'));
   register_nav_menu('my-account-menu', __('My Account'));
 }
-add_action('init', 'wpb_custom_new_menu');
+add_action('init', 'bizink_custom_new_menu');
 
 // Blog Filter Ajax Callback
 add_action('wp_ajax_filter_posts_callback', 'filter_posts_callback');

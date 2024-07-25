@@ -11,7 +11,7 @@ $tax = $wp_query->get_queried_object();
   <div class="container">
     <div class="jumbo jumbo-centered">
       <h2 class="jumbo_heading jumbo_heading-lg">
-        <span>Content Topic: <?= $tax->name; ?></span>
+        <span><?php _e('Content Topic', 'bizink'); ?>: <?= $tax->name; ?></span>
       </h2>
       <!-- /.jumbo_heading -->
     </div>
@@ -28,9 +28,9 @@ $tax = $wp_query->get_queried_object();
           <table id="myTable" class="table table-bordered table-striped">
             <thead class="thead-dark">
               <tr>
-                <th>Title</th>
-                <th>Type</th>
-                <th>Published Date</th>
+                <th><?php _e('Title', 'bizink'); ?></th>
+                <th><?php _e('Type', 'bizink'); ?></th>
+                <th><?php _e('Published Date', 'bizink'); ?></th>
               </tr>
             </thead>
             <tbody>
@@ -85,7 +85,7 @@ $tax = $wp_query->get_queried_object();
       </div>
     </div>
     <aside class="sidebar" role="complementary">
-      <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px">Marketing Content Pack >></a>
+      <a class="btn btn-primary btn-marketing" href="/marketing-content-home/" style="margin-top:97px"><?php _e('Marketing Content Pack &gt;&gt;', 'bizink'); ?></a>
       <br>
     </aside><!-- /.sidebar -->
   </div>

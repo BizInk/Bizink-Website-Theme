@@ -32,12 +32,12 @@ while (have_posts()) : the_post(); ?>
     ?>
       <div <?php if ($bgImageUrl) : ?> style="background: url('<?= $bgImageUrl ?>') center / cover no-repeat;" <?php endif; ?> class="<?= $sectionClassesString; ?>">
         <div class="<?= $containerClassesString; ?>">
-          <?php 
-          if (have_rows('components')):
-            while (have_rows('components')): 
+          <?php
+          if (have_rows('components')) :
+            while (have_rows('components')) :
               the_row();
               $layout = get_row_layout();
-              switch($layout){
+              switch ($layout) {
                 case 'basic_text_content':
                   get_template_part('templates/components/basic-text-content');
                   break;
@@ -87,7 +87,7 @@ while (have_posts()) : the_post(); ?>
   <div class="container">
     <div class="contentPanel">
       <div class="blockHeader">
-        <h2 class="blockHeader_title"><?php _e('Find Content By Topic','bizink'); ?></h2>
+        <h2 class="blockHeader_title"><?php _e('Find Content By Topic', 'bizink'); ?></h2>
       </div>
       <!-- /.blockHeader -->
       <div class="row">
@@ -110,7 +110,7 @@ while (have_posts()) : the_post(); ?>
             <a class="iconTile iconTile-alt" href="/content-topics/<?= $custom_topic->slug; ?>/" title="<?= $custom_topic->name;  ?> ">
               <div class="iconTile_content js-matchHeight">
                 <div class="iconTile_icon">
-                  <?php echo get_field('new_icon',$custom_topic->taxonomy . '_' . $custom_topic->term_id); ?>
+                  <?php echo get_field('new_icon', $custom_topic->taxonomy . '_' . $custom_topic->term_id); ?>
                 </div>
                 <!-- /.iconTile_icon -->
                 <h2 class="iconTile_title">

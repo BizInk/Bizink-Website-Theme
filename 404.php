@@ -13,7 +13,6 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-
 <section class="error-page">
 	<div class="container">
 		<div class="row">
@@ -24,13 +23,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php if(get_field('404_page_description', 'option')) { ?>
 					<?php the_field('404_page_description', 'option') ?>
 				<?php } ?>	
-				<a href="<?php echo site_url(); ?>" class="btn navyblue-btn">Back to Home</a>
+				<a href="<?php echo site_url(); ?>" class="btn navyblue-btn"><?php _e('Back to Home','bizink'); ?></a>
 			</div>
 		</div>
 	</div>
 </section>
-
-
 
 <?php
 get_footer();

@@ -38,7 +38,7 @@ $container = get_theme_mod('understrap_container_type');
                   $file = get_field('download_doc');
                   if ($file) :
                   ?>
-                     <a class="btn btn-primary" href="<?php echo $file['url']; ?>">Download Content</a>
+                     <a class="btn btn-primary" href="<?php echo $file['url']; ?>"><?php _e('Download Content','bizink'); ?></a>
                   <?php
                   endif;
                   ?>
@@ -48,7 +48,7 @@ $container = get_theme_mod('understrap_container_type');
                   $file = get_field('social_media_post');
                   if ($file) :
                   ?>
-                     <a class="btn yellow-btn" href="<?php echo $file['url']; ?>">Download Social Media Post</a>
+                     <a class="btn yellow-btn" href="<?php echo $file['url']; ?>"><?php _e('Download Social Media Post','bizink'); ?></a>
                   <?php
                   endif;
                   ?>
@@ -57,7 +57,7 @@ $container = get_theme_mod('understrap_container_type');
          </div>
          <div class="row">
             <div class="col">
-               <button onclick="history.back()" class="btn btn-sml yellow-btn">Back</button>
+               <button onclick="history.back()" class="btn btn-sml yellow-btn"><?php _e('Back','bizink'); ?></button>
             </div>
          </div>
       </div>

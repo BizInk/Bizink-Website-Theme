@@ -17293,17 +17293,11 @@ a {
   justify-content: center;
 }
 .services-box .services-inner-row .services-inner {
-  padding: 0 60px;
+  padding: 0 30px;
 }
 @media (max-width: 1199.98px) {
   .services-box .services-inner-row .services-inner {
-    width: 25%;
     margin-bottom: 60px;
-  }
-}
-@media (max-width: 991.98px) {
-  .services-box .services-inner-row .services-inner {
-    width: 50%;
   }
 }
 @media (max-width: 575.98px) {
