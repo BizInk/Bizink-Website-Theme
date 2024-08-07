@@ -1,4 +1,4 @@
-
+import { Modal } from "bootstrap";
 // Add your custom JS here.
 jQuery(window).scroll(function () {
   var fixedtop = jQuery("header");
@@ -103,7 +103,7 @@ jQuery(document).ready(function () {
     jQuery(".usacn-container").hide();
     jQuery(".ukir-container").hide();
   });
-  const talktousModel = new bootstrap.Modal('#talktous');
+  const talktousModel = new Modal('#talktous');
   jQuery("body").on("click", ".talk-to-us a, .talk-to-us", () => {
     //jQuery("#talktous").modal("show");
     talktousModel.show();
