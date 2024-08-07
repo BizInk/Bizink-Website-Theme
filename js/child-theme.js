@@ -7441,9 +7441,6 @@
 
 	// Model JS
 	jQuery(document).ready(function () {
-	  jQuery("body").on("click", ".talk-to-us a, .talk-to-us", () => {
-	    jQuery("#talktous").modal("show");
-	  });
 	  jQuery("body").on("click", ".live-demo a, .live-demo", function () {
 	    jQuery(".select-demo-picker").hide();
 	    jQuery(".select-country-picker").fadeIn("slow").show();
@@ -7475,8 +7472,14 @@
 	    jQuery(".usacn-container").hide();
 	    jQuery(".ukir-container").hide();
 	  });
+	  const talktousModel = new bootstrap.Modal('#talktous');
+	  jQuery("body").on("click", ".talk-to-us a, .talk-to-us", () => {
+	    //jQuery("#talktous").modal("show");
+	    talktousModel.show();
+	  });
 	  jQuery("body").on("click", "#talktous .modal-header .close", function () {
-	    jQuery("#talktous").modal("toggle");
+	    //jQuery("#talktous").modal("toggle");
+	    talktousModel.hide();
 	  });
 	  jQuery("body").on("click", ".collapseBlock a.collapseBlock_header", function () {
 	    if (jQuery(this).next().hasClass("showBlock")) {

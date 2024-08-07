@@ -31,6 +31,7 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'offcanvas' );
 		var homeurl = '<?php echo home_url( '/' ); ?>';
 		var styleurl = '<?php echo get_stylesheet_directory_uri(); ?>';
 	</script>
+	
 </head>
 
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
