@@ -26,8 +26,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 		} else {
 			?>
 				<div class="my-account">
-					<a href="/marketing-content-home" style="margin-right: 20px;">CONTENT PACK</a>
-					<a href="/my-account">MY ACCOUNT</a>
+					<a href="/marketing-content-home" style="margin-right: 20px;"><?php _e('CONTENT PACK','bizink'); ?></a>
+					<a href="/my-account"><?php _e('MY ACCOUNT','bizink'); ?></a>
 				</div>
 			<?php
 		}
