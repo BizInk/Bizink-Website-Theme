@@ -2,8 +2,8 @@
 Contributors: Bizink,Jayden Major
 Tags: Bizink, business content, marketing
 Requires at least: 5.6
-Tested up to: 6.6.2
-Stable tag: 1.5
+Tested up to: 6.7
+Stable tag: 1.5.1
 Requires PHP: 7.4
 
 The Bizink Theme
@@ -13,6 +13,9 @@ The Bizink Theme
 The Bizink Theme
 
 == Changelog ==
+
+= 1.5.1 =
+* Fix for the booking popup
 
 = 1.5 =
 * Bug Fixes - Mobile Menu
