@@ -116,30 +116,30 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </footer>
 
-<a href="javascript:" id="return-to-top" class="
 <?php
+$back_top_top_class = "";
 if ( get_field( 'scroll_to_top_button', 'option' ) == 'No' ) {
-													echo 'no-scroll';
+	$back_top_top_class = 'no-scroll';
 } elseif ( get_field( 'scroll_to_top_button', 'option' ) == 'Yes' ) {
-	echo 'yes-scroll';
+	$back_top_top_class = 'yes-scroll';
 }
 ?>
-												scrollTop" style="display: none;"></a>
+<a href="javascript:" id="return-to-top" class="scrollTop <?php echo $back_top_top_class; ?>" style="display: none;"></a>			
 </div>
 <!-- #page we need this extra closing tag here -->
 <div class="modal fade" id="talktous" tabindex="-1" role="dialog" aria-labelledby="talktous" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-	<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
+			</div>
 		</div>
-		<div class="modal-body">
-			<div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
-		</div>
-	</div>
 	</div>
 </div>
 <?php wp_footer(); ?>

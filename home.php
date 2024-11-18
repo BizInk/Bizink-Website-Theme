@@ -51,7 +51,7 @@ if ( is_front_page() ) {
 									echo get_the_post_thumbnail( $post->ID, 'large' );
 								else :
 									?>
-									<img src="<?php echo get_template_directory_uri(); ?>/images/full-img.jpg" alt="<?php the_title(); ?>">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/full-img.jpg" alt="<?php the_title(); ?>">
 								<?php endif; ?>
 							</a>
 						</div>

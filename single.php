@@ -22,19 +22,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php
 		while ( have_posts() ) {
 			the_post();
-			$url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+			$url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ), 'thumbnail' ) ?? get_stylesheet_directory_uri() . '/images/full-img.jpg';
+			$bgcss = "background-image: url(".$url."); background-repeat: no-repeat; background-size: cover;";
 			?>
-
-
-			<section class="cta-section text-center bg" style="background-image: url(
-			<?php
-			if ( $url ) {
-																							echo $url;
-			} else {
-				echo get_template_directory_uri() . '/images/full-img.jpg';
-			}
-			?>
-																						); background-repeat: no-repeat; background-size: cover;">
+			<section class="cta-section text-center bg" style="<?php echo $bgcss; ?>">
 				<div class="container">
 					<div class="default-content">
 					</div>
