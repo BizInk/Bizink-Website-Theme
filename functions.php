@@ -331,10 +331,12 @@ function gp130428_paginate_parent_children($parent = null)
 add_shortcode('gp130428_link_pages', 'gp130428_paginate_parent_children');
 
 /** Disable ACF Filtering */
-add_filter('acf/the_field/allow_unsafe_html','bizink_allow_unsafe_html');
-function bizink_allow_unsafe_html($allowed, $atts) {
-	return true;
-}
+add_filter( 'acf/shortcode/allow_unsafe_html', function ( $allowed, $atts ) {
+    if ( $atts['field'] === 'podcast_iframe' ) {
+        return true;
+    }
+    return $allowed;
+}, 10, 2 );
 
 add_filter('acf/settings/save_json', 'bizink_theme_json_save_point');
 function bizink_theme_json_save_point($path)
