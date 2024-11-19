@@ -1,4 +1,4 @@
-import { Modal } from "bootstrap";
+import { Modal,Dropdown } from "bootstrap";
 // Add your custom JS here.
 jQuery(window).scroll(function () {
   var fixedtop = jQuery("header");
@@ -10,10 +10,13 @@ jQuery(window).scroll(function () {
   }
 });
 
+/*
 if (window.matchMedia("(max-width: 991px)").matches) {
   jQuery(".navbar-nav").append(".my-account");
 } else {
+
 }
+*/
 
 jQuery(".logo-slider").slick({
   dots: true,

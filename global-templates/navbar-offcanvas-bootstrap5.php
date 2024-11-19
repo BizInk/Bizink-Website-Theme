@@ -44,20 +44,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<div class="<?php echo esc_attr( $container ); ?>">
 
 		<!-- Your site title as branding in the menu -->
-		<?php if ( ! has_custom_logo() ) { ?>
-
-			<?php if ( is_front_page() && is_home() ) : ?>
-
-				<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
-
+		<?php if ( ! has_custom_logo() ) { 
+			if ( is_front_page() && is_home() ) : ?>
+				<h1 class="navbar-brand mb-0">
+					<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+				</h1>
 			<?php else : ?>
-
 				<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-
-			<?php endif; ?>
-
-			<?php
-		} else {
+			<?php endif;
+		} 
+		else {
 			the_custom_logo();
 		}
 		?>

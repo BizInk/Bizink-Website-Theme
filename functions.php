@@ -20,8 +20,8 @@ function understrap_remove_scripts()
 	wp_dequeue_style('understrap-styles');
 	wp_deregister_style('understrap-styles');
 
-	wp_dequeue_script('understrap-scripts');
-	wp_deregister_script('understrap-scripts');
+	//wp_dequeue_script('understrap-scripts');
+	//wp_deregister_script('understrap-scripts');
 }
 add_action('wp_enqueue_scripts', 'understrap_remove_scripts', 20);
 
@@ -30,10 +30,9 @@ add_action('wp_enqueue_scripts', 'understrap_remove_scripts', 20);
  */
 function bizink_theme_enqueue_styles()
 {
-
 	// Get the theme data.
 	$the_theme = wp_get_theme();
-
+	$version   = $the_theme->get('Version');
 	$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 	// Grab asset urls.
 	$theme_styles  = "/css/child-theme{$suffix}.css";
@@ -41,8 +40,8 @@ function bizink_theme_enqueue_styles()
 
 	wp_enqueue_script('jquery');
 
-	wp_enqueue_style('bizink-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $the_theme->get('Version'));
-	wp_enqueue_script('bizink-scripts', get_stylesheet_directory_uri() . $theme_scripts, array('jquery'), $the_theme->get('Version'), true);
+	wp_enqueue_style('bizink-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $version);
+	wp_enqueue_script('bizink-scripts', get_stylesheet_directory_uri() . $theme_scripts, array('jquery'), $version, true);
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
@@ -140,7 +139,6 @@ function filter_posts_callback()
 {
 	global $post;
 	ob_start();
-	// $postsPerPage = 6;
 
 	$ppp  = (isset($_POST['ppp'])) ? $_POST['ppp'] : 3;
 	$page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
@@ -225,7 +223,7 @@ function filter_posts_callback()
 			if ($image) {
 				$images = $image;
 			} else {
-				$images = '/wp-content/uploads/2022/06/service3.png';
+				$images = get_template_directory_uri() . '/images/service3.png';
 			}
 
 			// Get Title
@@ -239,27 +237,17 @@ function filter_posts_callback()
 
 			// Content
 			$content = wp_trim_words(get_the_content(), 30, '...');
-
-			$html .= '<div class="col-lg-4 col-md-4">
-				<div class="blog-grid">
-					<div class="image">';
-			$html .= '<img src="' . $images . '">
-					</div>';
-			$html .= '<h3><a href="' . $url . '">' . $title . '</a></h3>
-					<div class="default-content">
-						<p>' . $content . '</p>
-					</div>
-					<ul class="tags">';
-			foreach ($posttags as $tag) {
-				$html .= '<li>
-								<a href="#">
-									<h6>' . $tag->name . '</h6>
-								</a>
-							</li>';
+			$html .= '<div class="col-lg-4 col-md-4"><div class="blog-grid"><div class="image">';
+			$html .= '<img src="' . $images . '"></div>';
+			$html .= '<h3><a href="' . $url . '">' . $title . '</a></h3><div class="default-content"><p>' . $content . '</p></div>';
+			if(!empty($posttags)){
+				$html .= '<ul class="tags">';
+				foreach ($posttags as $tag) {
+					$html .= '<li><a href="#"><h6>' . $tag->name . '</h6></a></li>';
+				}
+				$html .= '</ul>';
 			}
-			$html .= '</ul>
-				</div>
-			</div>';
+			$html .= '</div></div>';
 		}
 		wp_reset_postdata();
 	}
@@ -358,9 +346,6 @@ function bizink_theme_json_load_point($paths)
 require 'plugin-update-checker/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
 $myUpdateChecker = PucFactory::buildUpdateChecker('https://github.com/BizInk/Bizink-Website-Theme', __FILE__, 'Bizink-Website-Theme');
-// Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('master');
-// Using a private repository, specify the access token
 $myUpdateChecker->setAuthentication('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');

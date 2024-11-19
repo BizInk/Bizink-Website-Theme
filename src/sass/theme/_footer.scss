@@ -86,4 +86,8 @@ footer {
             text-align: $align-center;
         }
     }
+
+    .hs-form-field label:not(.hs-error-msg){
+        color: $white;
+    }
 }

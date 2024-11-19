@@ -62,36 +62,12 @@
 	content: "\e094";
 }
 
-@-webkit-keyframes lg-right-end {
-	0% {
-	left: 0;
-	}
-	50% {
-	left: -30px;
-	}
-	100% {
-	left: 0;
-	}
-}
-
 @keyframes lg-right-end {
 	0% {
 	left: 0;
 	}
 	50% {
 	left: -30px;
-	}
-	100% {
-	left: 0;
-	}
-}
-
-@-webkit-keyframes lg-left-end {
-	0% {
-	left: 0;
-	}
-	50% {
-	left: 30px;
 	}
 	100% {
 	left: 0;
@@ -111,13 +87,11 @@
 }
 
 .lg-outer.lg-right-end .lg-object {
-	-webkit-animation: lg-right-end 0.3s;
 	animation: lg-right-end 0.3s;
 	position: relative;
 }
 
 .lg-outer.lg-left-end .lg-object {
-	-webkit-animation: lg-left-end 0.3s;
 	animation: lg-left-end 0.3s;
 	position: relative;
 }
@@ -238,7 +212,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-thumb-outer.lg-grab .lg-thumb-item {
-	cursor: -webkit-grab;
 	cursor: -o-grab;
 	cursor: -ms-grab;
 	cursor: grab;
@@ -246,7 +219,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .lg-outer .lg-thumb-outer.lg-grabbing .lg-thumb-item {
 	cursor: move;
-	cursor: -webkit-grabbing;
 	cursor: -o-grabbing;
 	cursor: -ms-grabbing;
 	cursor: grabbing;
@@ -471,7 +443,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .lg-outer .lg-item.lg-complete.lg-zoomable .lg-img-wrap {
 	transform: translate3d(0, 0, 0);
-	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
@@ -479,7 +450,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	transform: scale3d(1, 1, 1);
 	transition: transform 0.3s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.15s !important;
 	transform-origin: 0 0;
-	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
@@ -809,7 +779,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer.lg-grab img.lg-object {
-	cursor: -webkit-grab;
 	cursor: -o-grab;
 	cursor: -ms-grab;
 	cursor: grab;
@@ -817,7 +786,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .lg-outer.lg-grabbing img.lg-object {
 	cursor: move;
-	cursor: -webkit-grabbing;
 	cursor: -o-grabbing;
 	cursor: -ms-grabbing;
 	cursor: grabbing;
@@ -936,12 +904,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-css3.lg-use-css3 .lg-item {
-	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 .lg-css3.lg-use-left .lg-item {
-	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
