@@ -79,8 +79,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="col-md-3">
 		<div class="newsletter-wrap">
 			<h5><?php _e( 'SUBSCRIBE TO OUR NEWSLETTER', 'bizink' ); ?></h5>
-			<?php if ( get_field( 'subscribe_to_newsletter_text', 'option' ) ) { ?>
-			<p><?php the_field( 'subscribe_to_newsletter_text', 'option' ); ?></p>
+			<?php 
+			$subscribe_to_newsletter_text = get_field( 'subscribe_to_newsletter_text', 'option' );
+			if ( $subscribe_to_newsletter_text ) { ?>
+			<p><?php echo $subscribe_to_newsletter_text; ?></p>
 			<?php } ?>
 		</div>
 		</div>
@@ -127,11 +129,11 @@ if ( get_field( 'scroll_to_top_button', 'option' ) == 'No' ) {
 <a href="javascript:" id="return-to-top" class="scrollTop <?php echo $back_top_top_class; ?>" style="display: none;"></a>			
 </div>
 <!-- #page we need this extra closing tag here -->
-<div class="modal fade" id="talktous" tabindex="-1" role="dialog" aria-labelledby="talktous" aria-hidden="true">
+<div class="modal fade" id="talktous" tabindex="-1" role="dialog" aria-labelledby="talktouslabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
+				<h5 class="modal-title" id="talktouslabel"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

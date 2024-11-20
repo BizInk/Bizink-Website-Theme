@@ -26,6 +26,7 @@ if ( get_sub_field( 'image_position' ) == 'left' ) {
 }
 $bgImage   = get_sub_field( 'section_background_image' );
 $mainImage = get_sub_field( 'whay_main_image' );
+$whay_main_title = get_sub_field( 'whay_main_title' ) ?? __( 'Why Bizink', 'bizink' );
 ?>
 <section class="<?php echo $why_bizik_bg; ?> bussiness-list-section <?php echo $image_position; ?>" 
 							<?php
@@ -36,15 +37,16 @@ $mainImage = get_sub_field( 'whay_main_image' );
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="image">
-					<?php if ( $mainImage ) : ?>
-						<img src="<?php echo $mainImage; ?>" alt="<?php echo the_sub_field( 'whay_main_title' ) ? the_sub_field( 'whay_main_title' ) : __( 'Why Bizink', 'bizink' ); ?>">
+					<?php if( $mainImage ): ?>
+						<img src="<?php echo $mainImage; ?>" alt="<?php echo $whay_main_title; ?>">
 					<?php endif; ?>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="success-list">
-					<?php if ( get_sub_field( 'whay_main_title' ) ) { ?>
-						<h2><?php the_sub_field( 'whay_main_title' ); ?></h2>
+					<?php
+					if ( $whay_main_title ) { ?>
+						<h2><?php echo $whay_main_title; ?></h2>
 					<?php } ?>
 					<?php if ( have_rows( 'text_content' ) ) : ?>
 						<ul class="purple-bg">

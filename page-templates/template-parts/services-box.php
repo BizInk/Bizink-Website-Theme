@@ -27,11 +27,14 @@ if ( get_sub_field( 'use_case_image_size' ) == 'largeimage' ) {
 	<div class="container-xxl">
 		<div class="row text-center">
 			<div class="col">
-				<?php if ( get_sub_field( 'marketing_title' ) ) { ?>
-					<h2 class="<?php echo $service_title_font_size; ?>"><?php the_sub_field( 'marketing_title' ); ?></h2>
-				<?php } ?>
-				<?php if ( get_sub_field( 'marketing_description' ) ) { ?>
-					<?php the_sub_field( 'marketing_description' ); ?>
+				<?php
+				$marketing_title = get_sub_field( 'marketing_title' );
+				if ( $marketing_title ) { ?>
+					<h2 class="<?php echo $service_title_font_size; ?>"><?php echo $marketing_title; ?></h2>
+				<?php }
+				$marketing_description = get_sub_field( 'marketing_description' );
+				if ( $marketing_description ) { ?>
+					<?php echo $marketing_description; ?>
 				<?php } ?>
 			</div>
 		</div>
@@ -40,23 +43,26 @@ if ( get_sub_field( 'use_case_image_size' ) == 'largeimage' ) {
 			if ( have_rows( 'use_cases_of_bizink' ) ) :
 				while ( have_rows( 'use_cases_of_bizink' ) ) :
 					the_row();
+					$use_case_title = get_sub_field( 'use_case_title' );
+					$use_case_description = get_sub_field( 'use_case_description' );
+					$use_case_button = get_sub_field( 'use_case_button' );
+					$use_case_image = get_sub_field( 'use_case_image' );
 					?>
 					<div class="col services-inner text-center <?php echo $use_case_image_size; ?>">
 						<?php
-						if ( get_sub_field( 'use_case_image' ) ) {
+						if ( $use_case_image ) {
 							?>
-							<img src="<?php the_sub_field( 'use_case_image' ); ?>" alt="<?php the_sub_field( 'use_case_title' ); ?>">
+							<img src="<?php echo $use_case_image; ?>" alt="<?php echo $use_case_title; ?>">
 							<?php
 						}
-						if ( get_sub_field( 'use_case_title' ) ) {
+						if ( $use_case_title ) {
 							?>
-							<h3><?php the_sub_field( 'use_case_title' ); ?></h3>
+							<h3><?php echo $use_case_title; ?></h3>
 							<?php
 						}
-						if ( get_sub_field( 'use_case_description' ) ) {
-							the_sub_field( 'use_case_description' );
+						if ( $use_case_description ) {
+							echo $use_case_description;
 						}
-						$use_case_button = get_sub_field( 'use_case_button' );
 						if ( $use_case_button ) {
 							?>
 							<a href="<?php echo $use_case_button['url']; ?>" class="btn lightblue-btn"><?php echo $use_case_button['title']; ?></a>

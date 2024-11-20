@@ -1,4 +1,5 @@
-import { Modal,Dropdown } from "bootstrap";
+import { Modal } from "bootstrap";
+
 // Add your custom JS here.
 jQuery(window).scroll(function () {
   var fixedtop = jQuery("header");
@@ -17,6 +18,31 @@ if (window.matchMedia("(max-width: 991px)").matches) {
 
 }
 */
+
+// #talktous
+  // data-bs-toggle="modal" data-bs-target="#exampleModal"
+  /*
+  jQuery("a.talk-to-us").data("bs-toggle", "modal");
+  jQuery("a.talk-to-us").data("bs-toggle", "#talktous");
+
+  jQuery(".talk-to-us .nav-link").click(() => {
+    console.log("talk-to-us a");
+  });
+  jQuery(".talk-to-us .nav-link").data("bs-toggle", "modal");
+  jQuery(".talk-to-us .nav-link").data("bs-target", "#talktous");
+ 
+  
+const talktousModel = new Modal('#talktous');
+jQuery("body").on("click", ".talk-to-us a, .talk-to-us", () => {
+  jQuery("#talktous").modal("show");
+  talktousModel.show();
+});
+jQuery("body").on("click", "#talktous .modal-header .close", function () {
+  jQuery("#talktous").modal("toggle");
+  talktousModel.hide();
+});
+  */
+
 
 jQuery(".logo-slider").slick({
   dots: true,
@@ -75,10 +101,21 @@ jQuery(".scrollTop").click(function () {
 
 // Model JS
 jQuery(document).ready(function () {
+  // data-bs-toggle="modal" data-bs-target="#exampleModal"
+
+  jQuery("a.talk-to-us").data("bs-toggle", "modal");
+  jQuery("a.talk-to-us").data("bs-target", "#talktous");
+  
+  jQuery(".talk-to-us .nav-link").data("bs-toggle", "modal");
+  jQuery(".talk-to-us .nav-link").data("bs-target", "#talktous");
+
+
   jQuery("body").on("click", ".live-demo a, .live-demo", function () {
     jQuery(".select-demo-picker").hide();
     jQuery(".select-country-picker").fadeIn("slow").show();
   });
+
+  /*
   jQuery("#btnausnz").click(function () {
     jQuery(".select-country-picker").hide();
     jQuery(".ausnz-container").fadeIn("slow").show();
@@ -99,23 +136,8 @@ jQuery(document).ready(function () {
     jQuery(".select-country-picker").fadeIn("slow").show();
     jQuery(".booking-container").hide();
   });
-  jQuery("#talktous").on("hidden.bs.modal", function () {
-    jQuery(".select-demo-picker").hide();
-    jQuery(".select-country-picker").show();
-    jQuery(".ausnz-container").hide();
-    jQuery(".usacn-container").hide();
-    jQuery(".ukir-container").hide();
-  });
-  const talktousModel = new Modal('#talktous');
-  jQuery("body").on("click", ".talk-to-us a, .talk-to-us", () => {
-    //jQuery("#talktous").modal("show");
-    talktousModel.show();
-  });
-  jQuery("body").on("click", "#talktous .modal-header .close", function () {
-    //jQuery("#talktous").modal("toggle");
-    talktousModel.hide();
-  });
-
+  
+  */
 
   jQuery("body").on(
     "click",
@@ -144,4 +166,5 @@ jQuery(document).ready(function () {
       jQuery(collapseID).hide().animate({ height: "0px" }, 500);
     }
   });
+
 });
