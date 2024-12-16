@@ -20,14 +20,22 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'offcanvas' ); // 
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="dns-prefetch" href="//js.hsforms.net" />
-	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-	<link rel="dns-prefetch" href="//fonts.gstatic.com" />
-	<link rel="dns-prefetch" href="//www.google-analytics.com" />
-	<link rel="dns-prefetch" href="//static.hsappstatic.net" />
-	<link rel="dns-prefetch" href="//meetings.bizinkonline.com" />
-	<link rel="dns-prefetch" href="//s3-us-west-2.amazonaws.com" />
-	<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+	<link rel="dns-prefetch" href="https://meetings.bizinkonline.com" />
+	<link rel="dns-prefetch" href="https://s3-us-west-2.amazonaws.com" />
+	<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+	<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://js.hsforms.net" />
+	<link rel="preconnect" href="https://static.hsappstatic.net" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/fonts/AvenirLTStd-Book.woff2' ); ?>" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/fonts/AvenirLTStd-Roman.woff2' ); ?>" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/fonts/AvenirLTStd-Black.woff2' ); ?>" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/fonts/fontawesome-webfont.woff2?v=4.7.0' ); ?>" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/fonts/MercuryDisplay-Bold.woff2' ); ?>" />
+	<link rel="prefetch" href="<?php echo home_url( '/wp-content/themes/bizink-website-theme/js/child-theme.min.js?v='.wp_get_theme()->get( 'Version' ) ); ?>" />
+	<link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" />
+	<link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" />
 	<link rel="prefetch" href="https://js.hsforms.net/forms/embed/v2.js?ver=11.1.75" />
 	<link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" />
 	<script type="text/javascript">

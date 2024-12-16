@@ -11865,6 +11865,9 @@
 
 	// Model JS
 	jQuery(document).ready(function () {
+
+	 jQuery('.cookie_banner .cookie_accept').click(function () { jQuery('.cookie_banner').addClass('hidden'); });
+	
 	  jQuery("body").on("click", ".live-demo a, .live-demo", function () {
 	    jQuery(".select-demo-picker").hide();
 	    jQuery(".select-country-picker").fadeIn("slow").show();

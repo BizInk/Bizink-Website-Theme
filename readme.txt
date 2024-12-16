@@ -17,6 +17,7 @@ The Bizink Theme
 = 1.5.6 =
 * GDPR Popup
 * Header, Footer Code
+* Added Gravity Forms
 
 = 1.5.5 =
 * Menu Fix

@@ -1,7 +1,5 @@
 <?php
-// Includes
-include_once './inc/Gravity-Forms-ACF-Field/acf-gravity_forms.php';
-require_once 'inc/cpt.php';
+include_once 'inc/Gravity-Forms-ACF-Field/acf-gravity_forms.php';
 
 /**
  * Understrap Child Theme functions and definitions
@@ -259,6 +257,8 @@ function filter_posts_callback()
 	);
 	wp_send_json($return);
 }
+
+require 'inc/cpt.php';
 
 function gp130428_paginate_parent_children($parent = null)
 {

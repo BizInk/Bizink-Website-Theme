@@ -15560,7 +15560,7 @@ header .navbar .navbar-nav li.button .nav-link:hover {
 }
 @media (min-width: 576px) {
   header .navbar .navbar-nav li ul li a {
-    min-height: 70px;
+    min-height: 50px;
   }
 }
 header .navbar .navbar-toggler {
@@ -15630,7 +15630,7 @@ header .offcanvas-header {
   }
   header .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
     font-size: 1.5rem;
-    letter-spacing: -0.5px;
+    letter-spacing: .5px;
     width: 150px;
     word-break: break-word;
     white-space: break-spaces;
@@ -18012,6 +18012,32 @@ a {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 1rem;
+}
+
+.cookie_banner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #333;
+  color: #000;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+  z-index: 9999;
+}
+.admin-bar .cookie_banner{
+  top: 32px;
+}
+.cookie_banner .cookie_text, .cookie_banner .cookie_text p, .cookie_banner .cookie_text a{
+  font-size: 1.4rem;
+}
+.cookie_banner.hidden{
+  display: none;
+}
+.cookie_banner .btn{
+  padding: 0.5rem 1.8rem;
+  font-size: 1.3rem;
 }
 
 /*# sourceMappingURL=child-theme.css.map */

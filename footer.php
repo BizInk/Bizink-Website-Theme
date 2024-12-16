@@ -151,5 +151,6 @@ if(function_exists('get_field')){
 }
 ?>
 <script defer type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+<?php require_once 'global-templates/cookie.php'; ?>
 </body>
 </html>

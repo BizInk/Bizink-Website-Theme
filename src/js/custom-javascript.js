@@ -102,6 +102,7 @@ jQuery(".scrollTop").click(function () {
 // Model JS
 jQuery(document).ready(function () {
   // data-bs-toggle="modal" data-bs-target="#exampleModal"
+  jQuery('.cookie_banner .cookie_accept').click(function () { jQuery('.cookie_banner').addClass('hidden'); });
 
   jQuery("a.talk-to-us").data("bs-toggle", "modal");
   jQuery("a.talk-to-us").data("bs-target", "#talktous");
