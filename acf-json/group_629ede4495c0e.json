@@ -21,6 +21,7 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Slide",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62a093402d6e0",
@@ -245,8 +246,7 @@
                     "save_other_choice": 0,
                     "parent_repeater": "field_629edfd8ae955"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -272,5 +272,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716433867
+    "modified": 1734178891
 }

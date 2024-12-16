@@ -42,6 +42,7 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a1f402c8ce6",
@@ -128,7 +129,7 @@
                                             {
                                                 "field": "field_62a1f40cc8ce7",
                                                 "operator": "==",
-                                                "value": "Image"
+                                                "value": "image"
                                             }
                                         ]
                                     ],
@@ -138,7 +139,6 @@
                                         "id": ""
                                     },
                                     "return_format": "url",
-                                    "preview_size": "thumbnail",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -147,6 +147,8 @@
                                     "max_height": "",
                                     "max_size": "",
                                     "mime_types": "",
+                                    "allow_in_bindings": 1,
+                                    "preview_size": "thumbnail",
                                     "parent_repeater": "field_62a33e7e073dd"
                                 },
                                 {
@@ -262,6 +264,8 @@
                                     "max": 0,
                                     "layout": "row",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_62a33e7e073dd",
                                     "sub_fields": [
                                         {
                                             "key": "field_62a339c45bbcb",
@@ -302,9 +306,7 @@
                                             "placeholder": "",
                                             "parent_repeater": "field_62a1f46ac8ceb"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_62a33e7e073dd"
+                                    ]
                                 },
                                 {
                                     "key": "field_62a71d628e264",
@@ -426,21 +428,18 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "yes": "Yes"
+                                        "Yes": "Yes"
                                     },
-                                    "default_value": [
-                                        "yes"
-                                    ],
-                                    "return_format": "value",
                                     "allow_custom": 0,
+                                    "default_value": [],
                                     "layout": "vertical",
                                     "toggle": 0,
+                                    "return_format": "value",
                                     "save_custom": 0,
                                     "custom_choice_button_text": "Add new choice",
                                     "parent_repeater": "field_62a33e7e073dd"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -547,6 +546,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a735545c5e6",
@@ -612,8 +612,7 @@
                                     "delay": 0,
                                     "parent_repeater": "field_62a7353e5c5e5"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_62bda07efa8fa",
@@ -750,6 +749,7 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a8527e8035c",
@@ -838,8 +838,7 @@
                                     "save_other_choice": 0,
                                     "parent_repeater": "field_62a852758035b"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -1050,6 +1049,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a86fd9b274c",
@@ -1072,8 +1072,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_62a86fceb274b"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -1160,6 +1159,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a877d96bb86",
@@ -1187,8 +1187,7 @@
                                     "mime_types": "",
                                     "parent_repeater": "field_62a877cd6bb85"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -1237,6 +1236,7 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62a87fa37fd24",
@@ -1394,6 +1394,8 @@
                                     "max": 0,
                                     "layout": "table",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_62a87ca47fd20",
                                     "sub_fields": [
                                         {
                                             "key": "field_62a887e25be42",
@@ -1416,9 +1418,7 @@
                                             "maxlength": "",
                                             "parent_repeater": "field_62a87fde7fd27"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_62a87ca47fd20"
+                                    ]
                                 },
                                 {
                                     "key": "field_62bae1ee44f3a",
@@ -1550,8 +1550,7 @@
                                     "save_other_choice": 0,
                                     "parent_repeater": "field_62a87ca47fd20"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -1582,6 +1581,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add new stats",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62ac4d88c1486",
@@ -1778,6 +1778,8 @@
                                     "max": 0,
                                     "layout": "block",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_62ac4d53c1485",
                                     "sub_fields": [
                                         {
                                             "key": "field_62ac53ecf4c61",
@@ -1868,9 +1870,7 @@
                                             "delay": 0,
                                             "parent_repeater": "field_62ac53dbf4c60"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_62ac4d53c1485"
+                                    ]
                                 },
                                 {
                                     "key": "field_62ac60ebc6be3",
@@ -1917,8 +1917,7 @@
                                     "save_other_choice": 0,
                                     "parent_repeater": "field_62ac4d53c1485"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -2782,6 +2781,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add New Tab",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62b1929a3b990",
@@ -2823,6 +2823,8 @@
                                     "max": 0,
                                     "layout": "block",
                                     "button_label": "Add Table",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_62b192873b98f",
                                     "sub_fields": [
                                         {
                                             "key": "field_62b1945979702",
@@ -2843,6 +2845,8 @@
                                             "max": 0,
                                             "layout": "block",
                                             "button_label": "Add Table Headings",
+                                            "rows_per_page": 20,
+                                            "parent_repeater": "field_62b1941f79701",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_62b194b679703",
@@ -3106,9 +3110,7 @@
                                                     "return_format": "array",
                                                     "parent_repeater": "field_62b1945979702"
                                                 }
-                                            ],
-                                            "rows_per_page": 20,
-                                            "parent_repeater": "field_62b1941f79701"
+                                            ]
                                         },
                                         {
                                             "key": "field_62b1971a7970b",
@@ -3129,6 +3131,8 @@
                                             "max": 0,
                                             "layout": "block",
                                             "button_label": "Add Table Row",
+                                            "rows_per_page": 20,
+                                            "parent_repeater": "field_62b1941f79701",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_62b1a0181e04e",
@@ -3149,6 +3153,8 @@
                                                     "max": 0,
                                                     "layout": "table",
                                                     "button_label": "Add Column Data",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_62b1971a7970b",
                                                     "sub_fields": [
                                                         {
                                                             "key": "field_62b1a0351e04f",
@@ -3269,13 +3275,9 @@
                                                             "maxlength": "",
                                                             "parent_repeater": "field_62b1a0181e04e"
                                                         }
-                                                    ],
-                                                    "rows_per_page": 20,
-                                                    "parent_repeater": "field_62b1971a7970b"
+                                                    ]
                                                 }
-                                            ],
-                                            "rows_per_page": 20,
-                                            "parent_repeater": "field_62b1941f79701"
+                                            ]
                                         },
                                         {
                                             "key": "field_62b584f876c14",
@@ -3378,12 +3380,9 @@
                                             "maxlength": "",
                                             "parent_repeater": "field_62b1941f79701"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_62b192873b98f"
+                                    ]
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3743,6 +3742,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62bbef2faaef6",
@@ -3808,8 +3808,7 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_62bbeedaaaef5"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_62bbf69a268f5",
@@ -3959,6 +3958,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62bbff328d3d4",
@@ -4028,8 +4028,7 @@
                                     "delay": 0,
                                     "parent_repeater": "field_62bbffd4e6991"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_62bea593dadd5",
@@ -4497,6 +4496,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62c7e0ad40e4e",
@@ -4566,8 +4566,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_62c7e0a540e4d"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -4798,6 +4797,7 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_62d1385924654",
@@ -4884,8 +4884,7 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_62d137db24653"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_62d13ba52465c",
@@ -5043,5 +5042,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716449032
+    "modified": 1734178889
 }

@@ -1,6 +1,6 @@
 {
     "key": "group_62a1caa193ecf",
-    "title": "Theme General Settings",
+    "title": "Theme Settings",
     "fields": [
         {
             "key": "field_62a1ce55dd594",
@@ -117,6 +117,46 @@
             "placement": "top",
             "endpoint": 0,
             "selected": 0
+        },
+        {
+            "key": "field_675d7bef8ca58",
+            "label": "Footer copyright text",
+            "name": "footer_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_675d7bef8ca58",
+            "label": "Footer copyright text",
+            "name": "footer_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "default_value": "",
+            "delay": 0
         },
         {
             "key": "field_62a1cef1cb747",
@@ -240,6 +280,26 @@
             "return_format": "array"
         },
         {
+            "key": "field_62bd3d43ac30a",
+            "label": "Title Text",
+            "name": "website_title_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Leave empty if not neeed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_62a1d131bcf6f",
             "label": "Contact No",
             "name": "contact_no",
@@ -258,6 +318,7 @@
             "max": 0,
             "layout": "table",
             "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_62a1d47d7f948",
@@ -301,8 +362,7 @@
                     "maxlength": "",
                     "parent_repeater": "field_62a1d131bcf6f"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         },
         {
             "key": "field_62bd3ce3ac306",
@@ -345,32 +405,13 @@
                 "lightblue2-bg": "Light Blue 2",
                 "darkpurple": "Dark Purple"
             },
+            "default_value": "",
+            "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value",
+            "allow_in_bindings": 1,
+            "layout": "horizontal",
             "save_other_choice": 0
-        },
-        {
-            "key": "field_62bd3d43ac30a",
-            "label": "Title Text",
-            "name": "website_title_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Leave empty if not neeed.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         },
         {
             "key": "field_62bd3f30ac30b",
@@ -1221,6 +1262,87 @@
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_675d8bc92bad2",
+            "label": "Scripts",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_675d8d482bad3",
+            "label": "Header Scripts",
+            "name": "header_scripts",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "HTML, CSS or JS that will be placed in the &lt;head&gt;",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_675d8d9b2bad5",
+            "label": "Before Page Scripts",
+            "name": "before_page_scripts",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "HTML, CSS or JS that will be placed in just after the &lt;body&gt; tag",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_675d8d772bad4",
+            "label": "Footer Scripts",
+            "name": "footer_scripts",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "HTML, CSS or JS that will be placed in just before the &lt;body&gt; tag",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -1241,5 +1363,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716433869
+    "modified": 1734185407
 }

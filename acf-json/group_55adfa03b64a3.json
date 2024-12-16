@@ -20,6 +20,8 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add new outer section",
+            "rows_per_page": 20,
+            "collapsed": "",
             "sub_fields": [
                 {
                     "key": "field_55adfb1d71f63",
@@ -315,9 +317,7 @@
                                         "default": "Default",
                                         "lgMargins": "Large margins"
                                     },
-                                    "default_value": {
-                                        "default": "default"
-                                    },
+                                    "default_value": "default",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -1707,6 +1707,8 @@
                                     "max": 4,
                                     "layout": "row",
                                     "button_label": "Add one more box",
+                                    "rows_per_page": 20,
+                                    "collapsed": "",
                                     "sub_fields": [
                                         {
                                             "key": "field_55b14f3b90f05",
@@ -1993,9 +1995,7 @@
                                             "disabled": 0,
                                             "parent_repeater": "field_55afa2aeb7dc8"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "collapsed": ""
+                                    ]
                                 }
                             ],
                             "min": "",
@@ -2192,9 +2192,7 @@
                     ],
                     "parent_repeater": "field_55adfa2f71f61"
                 }
-            ],
-            "rows_per_page": 20,
-            "collapsed": ""
+            ]
         }
     ],
     "location": [
@@ -2235,5 +2233,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716433864
+    "modified": 1734178890
 }

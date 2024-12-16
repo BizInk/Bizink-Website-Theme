@@ -144,7 +144,12 @@ if ( get_field( 'scroll_to_top_button', 'option' ) == 'No' ) {
 		</div>
 	</div>
 </div>
-<?php wp_footer(); ?>
+<?php 
+wp_footer(); 
+if(function_exists('get_field')){
+	echo get_field('footer_scripts', 'option') ?: '';
+}
+?>
 <script defer type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 </body>
 </html>
