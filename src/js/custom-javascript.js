@@ -106,6 +106,7 @@ jQuery(document).ready(function () {
 
   console.log("document ready");
   console.log(Cookies);
+  
   if(Cookies.get('cookie_consent') == 'true'){
     jQuery('.cookie_banner').addClass('hidden');
   }
