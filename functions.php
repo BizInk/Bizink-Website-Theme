@@ -42,6 +42,7 @@ function bizink_theme_enqueue_styles()
 	wp_enqueue_style('bizink-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $version);
 
 	wp_enqueue_script('jquery');
+	wp_enqueue_script('slick', get_stylesheet_directory_uri() . '/js/slick.min.js', array('jquery'), $version, array());
 	wp_enqueue_script('bizink-scripts', get_stylesheet_directory_uri() . $theme_scripts, array('jquery'), $version, array());
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');

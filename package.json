@@ -68,5 +68,8 @@
     "sass": "^1.44.0",
     "terser": "^5.10.0",
     "understrap": "github:understrap/understrap#develop"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.5"
   }
 }

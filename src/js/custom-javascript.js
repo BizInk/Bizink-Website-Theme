@@ -1,5 +1,6 @@
-import { Modal } from "bootstrap";
+//import { Modal } from "bootstrap";
 import Cookies from 'js-cookie';
+//import 'slick-carousel';
 
 // Add your custom JS here.
 jQuery(window).scroll(function () {
@@ -102,7 +103,9 @@ jQuery(".scrollTop").click(function () {
 
 // Model JS
 jQuery(document).ready(function () {
-  // data-bs-toggle="modal" data-bs-target="#exampleModal"
+
+  console.log("document ready");
+  console.log(Cookies);
   if(Cookies.get('cookie_consent') == 'true'){
     jQuery('.cookie_banner').addClass('hidden');
   }
@@ -114,14 +117,7 @@ jQuery(document).ready(function () {
   });
 
   jQuery('.cookie_settings_save').click(function () { 
-		jQuery('.cookie_banner').addClass('hidden');
-		Cookies.remove('hubspotutk');
-    Cookies.remove('tk_ai');
-    Cookies.remove('__hstc');
-    Cookies.remove('_reb2buid');
-    Cookies.remove('hs_login_email');
-    Cookies.remove('_ga');
-    Cookies.remove('_ga_2Z5VXNJ6LB');
+		
     if(jQuery('#cookie_settings_form #analytics_cookies').is(":checked")){
       Cookies.set('cookie_consent_analytics', 'true', { expires: 30 });
     }
@@ -129,6 +125,15 @@ jQuery(document).ready(function () {
       Cookies.set('cookie_consent_analytics', 'false', { expires: 30 });
     }
     Cookies.set('cookie_consent', 'true', { expires: 30 });
+    jQuery('.cookie_banner').addClass('hidden');
+
+		Cookies.remove('hubspotutk');
+    Cookies.remove('tk_ai');
+    Cookies.remove('__hstc');
+    Cookies.remove('_reb2buid');
+    Cookies.remove('hs_login_email');
+    Cookies.remove('_ga');
+    Cookies.remove('_ga_2Z5VXNJ6LB');
 	});
 
   jQuery("a.talk-to-us").data("bs-toggle", "modal");

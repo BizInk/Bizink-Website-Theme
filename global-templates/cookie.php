@@ -13,8 +13,12 @@ if (function_exists('get_field')) {
     $policy_link_text = get_field('view_policy_page_text', 'option') ?: $cookie_link_text;
     $settings_text = get_field('cookie_settings_button_text', 'option') ?: $settings_text;
 }
+$hidden = "";
+if (isset($_COOKIE['cookie_consent']) && $_COOKIE['cookie_consent'] == 'true') {
+    $hidden = "hidden";
+}
 ?>
-<div class="cookie_banner">
+<div class="cookie_banner <?php echo $hidden; ?>">
     <div class="container">
         <div class="row">
             <div class="col col-md-8 cookie_text">

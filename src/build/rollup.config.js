@@ -9,6 +9,7 @@ const { nodeResolve } = require( '@rollup/plugin-node-resolve' );
 const commonjs = require( '@rollup/plugin-commonjs' );
 const multi = require( '@rollup/plugin-multi-entry' );
 const replace = require( '@rollup/plugin-replace' );
+const Cookies = require('js-cookie')
 
 /**
  * Internal dependencies
@@ -21,10 +22,10 @@ let bsSrcFile = 'bootstrap.js';
 let fileDest = 'child-theme';
 let globals = {
 	jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
-	'@popperjs/core': 'Popper',
+	'@popperjs/core': 'Popper'
 };
 
-const external = [ 'jquery' ];
+const external = [ 'jquery','Cookies' ];
 
 const plugins = [
 	babel( {
