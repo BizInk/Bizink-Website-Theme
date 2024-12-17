@@ -134,9 +134,7 @@ if ( get_field( 'scroll_to_top_button', 'option' ) == 'No' ) {
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="talktouslabel"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
-				<button type="button" class="close" data-dismiss="talktous" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<div class="meetings-iframe-container" data-src="https://meetings.bizinkonline.com/meetings/matt-bizink/bizink-product-demo?embed=true"></div>
