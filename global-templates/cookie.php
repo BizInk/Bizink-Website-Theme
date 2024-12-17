@@ -31,20 +31,29 @@ if (function_exists('get_field')) {
         </div>
     </div>
 </div>
-<div class="modal fade  modal-dialog-centered" id="cookie_settings" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cookie_settings_Label" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="cookie_settings" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cookie_settings_Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="cookie_settings_Label"><?php _e('Cookie Settings','bizink'); ?></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p><?php _e('Here you can configure your cookie settings.','bizink'); ?></p>
-        
+        <p><?php echo $cookie_text; ?></p>
+        <form id="cookie_settings_form" action="GET" class="cookie_settings_form">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="necessary_cookies" name="necessary_cookies" checked disabled>
+                <label class="form-check-label" for="necessary_cookies"><?php _e('Necessary Cookies','bizink'); ?></label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="analytics_cookies" name="analytics_cookies" checked>
+                <label class="form-check-label" for="analytics_cookies"><?php _e('Analytics Cookies','bizink'); ?></label>
+            </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php _e('Close','bizink'); ?></button>
-        <button type="button" class="btn btn-primary"><?php _e('Save Settings','bizink'); ?></button>
+        <button type="button" class="btn btn-secondary cookie_settings_close" data-bs-dismiss="modal"><?php _e('Close','bizink'); ?></button>
+        <button type="button" class="btn btn-primary cookie_settings_save" data-bs-dismiss="modal"><?php _e('Save Settings','bizink'); ?></button>
       </div>
     </div>
   </div>
