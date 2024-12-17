@@ -1,4 +1,4 @@
-//import { Modal } from "bootstrap";
+import { Modal } from "bootstrap";
 import Cookies from 'js-cookie';
 //import 'slick-carousel';
 
@@ -103,9 +103,6 @@ jQuery(".scrollTop").click(function () {
 
 // Model JS
 jQuery(document).ready(function () {
-
-  console.log("document ready");
-  console.log(Cookies);
   
   if(Cookies.get('cookie_consent') == 'true'){
     jQuery('.cookie_banner').addClass('hidden');
