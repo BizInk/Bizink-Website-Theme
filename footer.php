@@ -134,7 +134,7 @@ if ( get_field( 'scroll_to_top_button', 'option' ) == 'No' ) {
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="talktouslabel"><?php _e( 'Talk To Us', 'bizink' ); ?></h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-dismiss="talktous" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>

@@ -11291,10 +11291,10 @@
 	    api.remove('_ga');
 	    api.remove('_ga_2Z5VXNJ6LB');
 	  });
-	  jQuery("a.talk-to-us").data("bs-toggle", "modal");
-	  jQuery("a.talk-to-us").data("bs-target", "#talktous");
-	  jQuery(".talk-to-us .nav-link").data("bs-toggle", "modal");
-	  jQuery(".talk-to-us .nav-link").data("bs-target", "#talktous");
+	  jQuery("a.talk-to-us").attr("data-bs-toggle", "modal");
+	  jQuery("a.talk-to-us").attr("data-bs-target", "#talktous");
+	  jQuery(".talk-to-us .nav-link").attr("data-bs-toggle", "modal");
+	  jQuery(".talk-to-us .nav-link").attr("data-bs-target", "#talktous");
 	  jQuery("body").on("click", ".live-demo a, .live-demo", function () {
 	    jQuery(".select-demo-picker").hide();
 	    jQuery(".select-country-picker").fadeIn("slow").show();
