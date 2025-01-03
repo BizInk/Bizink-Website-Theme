@@ -48,10 +48,7 @@ $tax = $wp_query->get_queried_object();
               );
               $loop = new WP_Query($args);
               if ($loop->have_posts()) {
-                while ($loop->have_posts()) : $loop->the_post();
-                  $geo = get_post_meta($post->ID, 'geot_options', true)["country_code"];
-                  if (in_array(geot_country_code(), $geo) || empty($geo)) :
-              ?>
+                while ($loop->have_posts()) : $loop->the_post(); ?>
                     <tr>
                       <td><a href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>">
                           <?= get_the_title(); ?>
@@ -75,7 +72,6 @@ $tax = $wp_query->get_queried_object();
                       <td><?= get_the_date('M d, Y'); ?></td>
                     </tr>
               <?php
-                  endif;
                 endwhile;
               }
               ?>
