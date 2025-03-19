@@ -14,6 +14,9 @@ The Bizink Theme
 
 == Changelog ==
 
+= 1.6.1 =
+* Menu Update
+
 = 1.6 =
 * Popup Update
 
