@@ -2781,8 +2781,8 @@ input[type="button"].btn-block {
 	list-style: none;
 	background-color: #fff;
 	background-clip: padding-box;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 0.25rem; }
+	border: 1px solid #858aa0;
+	border-radius: 0.35rem; }
 
 .dropdown-menu-left {
 	right: auto;
@@ -2858,15 +2858,6 @@ input[type="button"].btn-block {
 	margin-top: 0;
 	margin-left: 0.125rem; }
 
-.dropright .dropdown-toggle::after {
-	display: inline-block;
-	margin-left: 0.255em;
-	vertical-align: 0.255em;
-	content: "";
-	border-top: 0.3em solid transparent;
-	border-right: 0;
-	border-bottom: 0.3em solid transparent;
-	border-left: 0.3em solid; }
 
 .dropright .dropdown-toggle:empty::after {
 	margin-left: 0; }

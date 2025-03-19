@@ -37,37 +37,19 @@ header {
     .navbar-nav {
       padding: 0;
       .dropdown {
-        position: static;
         &.menu-item-has-children {
           &:hover {
             .dropdown-toggle + .dropdown-menu {
               left: 0;
               font-size: 2rem;
               display: flex;
-              width: 100%;
+              flex-direction: column;
               min-width: auto;
-              padding: 35px 20% 0;
+              padding: 2rem;
               border-top: 1px solid $gray;
-              @include media-breakpoint-down(xl) {
-                padding: 35px 8% 0;
-              }
               @include media-breakpoint-down(lg) {
-                padding: 0 10px 10px;
                 display: none;
                 border-top: none;
-              }
-              &:after {
-                width: 100%;
-                height: auto;
-                content: "";
-                background-color: #ffff;
-                position: absolute;
-                left: 0;
-                top: 0;
-                display: block;
-                z-index: -1;
-                height: 290%;
-                box-shadow: 0px 10px 3px -9px #ccc;
               }
               &.show {
                 @include media-breakpoint-down(lg) {
@@ -83,17 +65,15 @@ header {
             font-size: 1.5rem;
             display: none;
           }
-          width: 100%;
           min-width: auto;
           border: none;
-          height: 160%;
           .dropdown-item {
             font-size: 2rem;
+            min-width:250px;
             @include media-breakpoint-down(lg) {
               font-size: 1.5rem;
             }
             @include media-breakpoint-up(md) {
-              border-bottom: 1px solid $gray;
               padding: 10px 0;
             }
             font-family: $font-avenir-lt;
@@ -112,41 +92,10 @@ header {
           &.show {
             font-size: 2rem;
             display: flex;
-            width: 100%;
             min-width: auto;
-            padding: 35px 20% 0;
             border-top: 1px solid $gray;
-            @include media-breakpoint-down(xl) {
-              padding: 35px 8% 0;
-              overflow-x: hidden;
-            }
-            @include media-breakpoint-down(lg) {
-              padding: 0 10px 10px;
-              display: block;
-              border-top: none;
-            }
-            &:after {
-              width: 100%;
-              height: auto;
-              content: "";
-              background-color: #ffff;
-              position: absolute;
-              left: 0;
-              top: 0;
-              display: block;
-              z-index: -1;
-              height: 290%;
-            }
           }
           li {
-            flex: 0 0 23%;
-            max-width: 23%;
-            margin-right: 30px;
-            @include media-breakpoint-down(lg) {
-              flex: 0 0 100%;
-              max-width: 100%;
-              margin-right: 0;
-            }
             .dropdown-menu {
               display: block;
             }
@@ -314,9 +263,7 @@ header {
   }
 
   header .navbar .navbar-nav .dropdown .dropdown-menu li {
-    flex: 0 0 23%;
-    max-width: 20%;
-    margin-right: 11px;
+    min-width: 200px;
   }
 }
 
