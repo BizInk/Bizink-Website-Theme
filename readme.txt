@@ -2,8 +2,8 @@
 Contributors: Bizink,Jayden Major
 Tags: Bizink, business content, marketing
 Requires at least: 5.6
-Tested up to: 6.7.2
-Stable tag: 1.6.1
+Tested up to: 6.8.2
+Stable tag: 1.6.2
 Requires PHP: 7.4
 
 The Bizink Theme
@@ -13,6 +13,11 @@ The Bizink Theme
 The Bizink Theme
 
 == Changelog ==
+
+= 1.6.2 =
+* Update updater
+* Links to external Website open in a new tab
+* Woocommerce Template Update
 
 = 1.6.1 =
 * Menu Update

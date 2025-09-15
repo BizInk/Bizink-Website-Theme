@@ -85,7 +85,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 									<?php
 									if ( get_field( 'website_url' ) ) {
 										?>
-										<li><b><?php _e( 'Website URL', 'bizink' ); ?> :</b> <a href="<?php the_field( 'website_url' ); ?>"><?php the_field( 'website_url' ); ?></a></li><?php } ?>
+										<li><b><?php _e( 'Website URL', 'bizink' ); ?> :</b> <a target="_blank" href="<?php the_field( 'website_url' ); ?>"><?php the_field( 'website_url' ); ?></a></li><?php } ?>
 									<?php
 									if ( get_field( 'location' ) ) {
 										?>
