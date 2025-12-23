@@ -16,6 +16,7 @@ The Bizink Theme
 
 = 1.6.3 =
 * Header Nav only shows when logged in
+* Woocommerce Template Update - Replace Understrap
 
 = 1.6.2 =
 * Update updater
