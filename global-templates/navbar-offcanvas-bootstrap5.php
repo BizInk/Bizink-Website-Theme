@@ -27,9 +27,9 @@ $container = get_theme_mod('understrap_container_type');
 		?>
 			<div class="my-account">
 				<?php if (is_user_logged_in()): ?>
-					<a href="<?php home_url('/marketing-content-home'); ?>" style="margin-right: 20px;"><?php _e('CONTENT PACK', 'bizink'); ?></a>
+					<a href="<?php echo esc_url(home_url('/marketing-content-home')); ?>" style="margin-right: 20px;"><?php _e('CONTENT PACK', 'bizink'); ?></a>
 				<?php endif; ?>
-				<a href="<?php home_url('/my-account'); ?>"><?php _e('MY ACCOUNT', 'bizink'); ?></a>
+				<a href="<?php echo esc_url(home_url('/my-account')); ?>"><?php _e('MY ACCOUNT', 'bizink'); ?></a>
 			</div>
 		<?php
 		}
