@@ -343,6 +343,167 @@ function bizink_theme_json_load_point($paths)
 	return $paths;
 }
 
+/**
+ * 1. Tell WooCommerce to treat our custom template as a checkout page.
+ *    This ensures WC loads its checkout scripts, form handlers, and payment gateways.
+ */
+add_filter( 'woocommerce_is_checkout', function( $is_checkout ) {
+    if ( is_page_template( 'page-templates/sbc-checkout-template.php' ) ) {
+        return true;
+    }
+    return $is_checkout;
+} );
+
+
+/**
+ * 2. Suppress the payment-section fragment for our SBC page.
+ *
+ *    WooCommerce replaces #payment on every update_order_review AJAX call
+ *    (including every billing field change), which destroys our Stripe form.
+ *    Payment methods never change while filling billing details, so we can
+ *    safely drop that fragment for our page.  The order-review fragment is
+ *    still returned (and handled by our JS ajaxComplete handler).
+ *
+ *    Detection: our JS adds a hidden field 'sbc_checkout_page=1' to the
+ *    checkout form. WC serialises the entire form into $_POST['post_data']
+ *    on every update_order_review AJAX call, so we can read it here without
+ *    any referer/URL guesswork (which can emit PHP notices and corrupt JSON).
+ */
+add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) {
+    if ( empty( $_POST['post_data'] ) ) { return $fragments; }
+    $form_data = array();
+    parse_str( wp_unslash( $_POST['post_data'] ), $form_data );
+    if ( ! empty( $form_data['sbc_checkout_page'] ) ) {
+        // Drop the payment fragment — Stripe stays mounted, no disruption
+        unset( $fragments['.woocommerce-checkout-payment'] );
+    }
+    return $fragments;
+}, 25 );
+
+
+/**
+ * 4. Re-key WC's order-review fragment so it targets our custom wrapper.
+ *
+ *    The Bizink theme uses custom markup (.co-summary-product etc.) and its CSS
+ *    hides .woocommerce-checkout-review-order-table, so WC's default fragment
+ *    key either finds nothing or hides the content. Instead we:
+ *      a) Change the fragment key to #sbc-order-review-wrap (no theme CSS conflict)
+ *      b) Wrap the fragment HTML in <div id="sbc-order-review-wrap"> so the ID
+ *         survives each replaceWith — the wrapper persists without JS re-wrapping.
+ */
+add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) {
+    if ( ! is_page_template( 'page-templates/sbc-checkout-template.php' ) ) {
+        return $fragments;
+    }
+    $key = '.woocommerce-checkout-review-order-table';
+    if ( isset( $fragments[ $key ] ) ) {
+        $fragments['#sbc-order-review-wrap'] =
+            '<div id="sbc-order-review-wrap">' . $fragments[ $key ] . '</div>';
+        unset( $fragments[ $key ] );
+    }
+    return $fragments;
+}, 20 );
+
+
+/**
+ * 5. AJAX handler: swap the plan variation when the user picks a different plan.
+ *
+ *    Strategy: mutate the existing cart item in-place rather than remove+add.
+ *    This bypasses WC Subscriptions' add-to-cart validation which can block
+ *    re-adding a subscription variation if it considers one already present.
+ */
+add_action( 'wp_ajax_sbc_switch_plan',        'bizink_sbc_switch_plan' );
+add_action( 'wp_ajax_nopriv_sbc_switch_plan', 'bizink_sbc_switch_plan' );
+
+function bizink_sbc_switch_plan() {
+
+    check_ajax_referer( 'sbc_switch_plan', 'nonce' );
+
+    $product_id = intval( $_POST['product_id'] );
+    $var_id     = intval( $_POST['var_id'] );
+
+    if ( ! $product_id || ! $var_id ) {
+        wp_send_json_error( array( 'message' => 'Invalid parameters' ) );
+        return;
+    }
+
+    // Build the variation attributes array from available variations
+    $product   = wc_get_product( $product_id );
+    $var_attrs = array();
+
+    if ( $product && $product->is_type( 'variable' ) ) {
+        foreach ( $product->get_available_variations() as $v ) {
+            if ( (int) $v['variation_id'] === $var_id ) {
+                $var_attrs = $v['attributes'];
+                break;
+            }
+        }
+    }
+
+    $variation_product = wc_get_product( $var_id );
+    if ( ! $variation_product ) {
+        wp_send_json_error( array( 'message' => 'Variation not found', 'var_id' => $var_id ) );
+        return;
+    }
+
+    // -- Preferred path: mutate the existing cart item in-place -------------
+    // This avoids WC Subscriptions' add-to-cart validation entirely.
+    $updated  = false;
+    $cart_key = null;
+
+    foreach ( WC()->cart->get_cart() as $key => $item ) {
+        if ( (int) $item['product_id'] === $product_id ) {
+            WC()->cart->cart_contents[ $key ]['variation_id'] = $var_id;
+            WC()->cart->cart_contents[ $key ]['variation']    = $var_attrs;
+            WC()->cart->cart_contents[ $key ]['data']         = $variation_product;
+            $cart_key = $key;
+            $updated  = true;
+            break;
+        }
+    }
+
+    // -- Fallback: remove old item and add fresh -----------------------------
+    if ( ! $updated ) {
+        foreach ( WC()->cart->get_cart() as $key => $item ) {
+            if ( (int) $item['product_id'] === $product_id ) {
+                WC()->cart->remove_cart_item( $key );
+                break;
+            }
+        }
+        $cart_key = WC()->cart->add_to_cart( $product_id, 1, $var_id, $var_attrs );
+        $updated  = ! empty( $cart_key );
+    }
+
+    if ( $updated ) {
+        // Recalculate totals from the mutated cart contents.
+        WC()->cart->calculate_totals();
+
+        // WC only writes the 'cart' key to the session at PHP shutdown via
+        // WC_Cart_Session::save_cart_data_to_session(). If we call save_data()
+        // before shutdown, the DB still has the old cart. Fix: push the updated
+        // cart and totals into the session data manually before saving.
+        WC()->session->set( 'cart',        WC()->cart->get_cart_for_session() );
+        WC()->session->set( 'cart_totals', WC()->cart->get_totals() );
+        WC()->session->save_data();
+
+        wp_send_json_success( array(
+            'cartKey' => $cart_key,
+            'var_id'  => $var_id,
+            'total'   => WC()->cart->get_total( 'edit' ),
+            'method'  => $updated ? 'mutate' : 'add',
+        ) );
+    } else {
+        $notices = wc_get_notices( 'error' );
+        wc_clear_notices();
+        wp_send_json_error( array(
+            'message' => 'Could not switch variation',
+            'notices' => $notices,
+            'var_id'  => $var_id,
+            'attrs'   => $var_attrs,
+        ) );
+    }
+}
+
 // Plugin Updater
 require 'plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;

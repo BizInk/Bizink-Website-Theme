@@ -268,5 +268,33 @@ header {
 }
 
 .admin-bar .offcanvas-end {
-    top: 32px;
+  top: 32px;
+}
+
+.cookie_banner{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #333;
+  color: #000;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+  z-index: 9999;
+}
+.cookie_banner .cookie_text, .cookie_banner .cookie_text p, .cookie_banner .cookie_text a{
+  font-size: 1.4rem;
+}
+.cookie_banner.hidden{
+  display: none;
+}
+.cookie_banner .btn{
+  padding: 0.5rem 1.8rem;
+  font-size: 1.3rem;
+}
+
+#cookie_settings .modal-footer .btn{
+  padding: 0.5rem 1.8rem;
+  font-size: 1.3rem;
 }

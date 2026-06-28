@@ -17967,7 +17967,7 @@ a {
 
 .cookie_banner{
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   background-color: #fff;
@@ -17976,9 +17976,6 @@ a {
   font-size: 1.4rem;
   padding: 0.8rem;
   z-index: 9999;
-}
-.admin-bar .cookie_banner{
-  top: 32px;
 }
 .cookie_banner .cookie_text, .cookie_banner .cookie_text p, .cookie_banner .cookie_text a{
   font-size: 1.4rem;
