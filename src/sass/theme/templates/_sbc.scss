@@ -1,0 +1,1069 @@
+/* =============================================================================
+   sbc-page.css  —  SmartBizCalcs standalone checkout page
+   Scoped inside .sbc-page — no conflicts with theme or Elementor.
+   Upload to: /wp-content/themes/YOUR-CHILD-THEME/css/sbc-page.css
+
+   Colour palette (matches HTML mockup):
+     --brand:       #1a6fc4   medium blue
+     --brand-dark:  #0d4f96   dark blue
+     --brand-light: #eff6ff   light blue tint
+     --green:       #10b981   trust / success
+     --amber:       linear-gradient(135deg,#f59e0b,#d97706)  "Most Popular"
+   ============================================================================= */
+
+/* ── Reset / base ─────────────────────────────────────────────────────────── */
+.sbc-page *,
+.sbc-page *::before,
+.sbc-page *::after { box-sizing: border-box; }
+
+.sbc-page {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    color: #1f2937;
+    background: #f3f4f6;
+    min-height: 100vh;
+}
+
+/* ── Layout helpers ───────────────────────────────────────────────────────── */
+.sbc-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Page header ──────────────────────────────────────────────────────────── */
+.sbc-page-header {
+    background: linear-gradient(135deg, #0d4f96 0%, #1a6fc4 100%);
+    color: #fff;
+    padding: 28px 0 32px;
+}
+
+.sbc-breadcrumb {
+    font-size: 12px;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 12px;
+}
+.sbc-breadcrumb a { color: rgba(255,255,255,.75); text-decoration: none; }
+.sbc-breadcrumb a:hover { color: #fff; }
+
+.sbc-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.sbc-page-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.sbc-badge-sale {
+    background: #dc2626;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: .5px;
+}
+
+.sbc-badge-trial {
+    background: rgba(255,255,255,.15);
+    color: rgba(255,255,255,.95);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.4);
+}
+
+.sbc-page-subtitle {
+    color: rgba(255,255,255,.75);
+    font-size: 14px;
+    margin: 0;
+    max-width: 600px;
+}
+
+/* ── Main 2-column grid ───────────────────────────────────────────────────── */
+.sbc-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0 48px;
+}
+
+.sbc-col-side {
+    position: sticky;
+    top: 24px;
+}
+
+/* ── Panel (Step cards) ───────────────────────────────────────────────────── */
+.sbc-panel {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.sbc-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.sbc-step-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1a6fc4;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sbc-panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #1f2937;
+}
+
+/* ── Trial banner ─────────────────────────────────────────────────────────── */
+.sbc-trial-banner {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #065f46;
+    margin-bottom: 20px;
+}
+.sbc-trial-banner .bi { font-size: 18px; flex-shrink: 0; color: #10b981; }
+
+/* ── Plan cards ───────────────────────────────────────────────────────────── */
+.sbc-plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.sbc-plan-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .18s, box-shadow .18s;
+    background: #fff;
+}
+
+.sbc-plan-card:hover {
+    border-color: #1a6fc4;
+    box-shadow: 0 4px 18px rgba(26,111,196,.13);
+}
+
+.sbc-plan-card.sbc-selected {
+    border-color: #1a6fc4;
+    box-shadow: 0 4px 18px rgba(26,111,196,.18);
+    background: #eff6ff;
+}
+
+.sbc-plan-popular-badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.sbc-plan-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.sbc-plan-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.sbc-plan-sub {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.sbc-plan-radio {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all .18s;
+    flex-shrink: 0;
+    font-size: 11px;
+}
+
+.sbc-plan-radio.sbc-checked,
+.sbc-plan-card.sbc-selected .sbc-plan-radio {
+    background: #1a6fc4;
+    border-color: #1a6fc4;
+    color: #fff;
+}
+
+.sbc-plan-price-row { margin-bottom: 6px; }
+
+.sbc-plan-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a6fc4;
+    line-height: 1.1;
+}
+
+.sbc-plan-period {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.sbc-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.sbc-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 3px 0;
+    color: #374151;
+}
+
+.sbc-feature-list .bi-check-circle-fill { color: #10b981; font-size: 13px; }
+.sbc-feature-list .bi-x-circle         { color: #d1d5db; font-size: 13px; }
+.sbc-feature-list .sbc-dim             { color: #9ca3af; }
+
+/* ── Setup fee line (inside plan card) ───────────────────────────────────── */
+.sbc-plan-setup-fee {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #6b7280;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 8px 0 12px;
+}
+.sbc-plan-setup-fee .bi { color: #1a6fc4; font-size: 12px; }
+
+/* ── Hidden WC variation form — must never show ───────────────────────────── */
+.sbc-wc-hidden-form {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+/* ── Setup note ───────────────────────────────────────────────────────────── */
+.sbc-setup-note {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ── WC info notices (coupon / login — shown in their repositioned slots) ─── */
+.sbc-checkout-wrap .woocommerce-info {
+    background: #fff !important;
+    border: 1px solid #e5e7eb !important;
+    border-left-color: #e5e7eb !important;
+    border-radius: 8px !important;
+    padding: 9px 14px !important;
+    margin-bottom: 10px !important;
+    font-size: 13px !important;
+    color: #4b5563 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: none !important;
+}
+
+.sbc-checkout-wrap .woocommerce-info::before { display: none !important; }
+
+.sbc-checkout-wrap .woocommerce-info a.showlogin,
+.sbc-checkout-wrap .woocommerce-info a.showcoupon {
+    color: #1a6fc4 !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+}
+
+.sbc-checkout-wrap .woocommerce-info a.showlogin:hover,
+.sbc-checkout-wrap .woocommerce-info a.showcoupon:hover {
+    color: #0d4f96 !important;
+}
+
+/* ── "Already a customer?" — injected inline into billing h3 by JS ─────────
+   JS appends <span class="sbc-login-inline"> to the h3, then moves the
+   .login form to just after the h3. The span sits at the far right.
+*/
+.sbc-login-inline {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6b7280;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sbc-login-inline a {
+    color: #1a6fc4 !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+
+.sbc-login-inline a:hover { color: #0d4f96 !important; text-decoration: underline !important; }
+
+/* Login form when expanded */
+.sbc-checkout-wrap .login {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.sbc-checkout-wrap .login p { font-size: 13px; color: #4b5563; }
+
+.sbc-checkout-wrap .login .form-row { margin-bottom: 8px; }
+
+.sbc-checkout-wrap .login .button,
+.sbc-checkout-wrap .login button[type="submit"] {
+    background: #1a6fc4 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 7px !important;
+    padding: 8px 18px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+.sbc-checkout-wrap .login .button:hover { background: #0d4f96 !important; }
+
+/* ── Coupon form ─────────────────────────────────────────────────────────── */
+.sbc-checkout-wrap .checkout_coupon {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+}
+
+.sbc-checkout-wrap .checkout_coupon p { font-size: 13px; color: #4b5563; margin-bottom: 8px; }
+
+.sbc-checkout-wrap .checkout_coupon input#coupon_code {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.sbc-checkout-wrap .checkout_coupon .button,
+.sbc-checkout-wrap .checkout_coupon button[type="submit"] {
+    background: #1a6fc4 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 7px !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+.sbc-checkout-wrap .checkout_coupon .button:hover { background: #0d4f96 !important; }
+
+/* ── WooCommerce checkout form styling ────────────────────────────────────── */
+
+/* Hide WC's duplicate order table and "Your order" heading */
+.sbc-checkout-wrap .woocommerce-checkout-review-order-table,
+.sbc-checkout-wrap .shop_table.woocommerce-checkout-review-order-table,
+.sbc-checkout-wrap h3#order_review_heading { display: none !important; }
+
+/* Hide WC's col-2 (additional fields moved via JS) */
+.sbc-checkout-wrap #customer_details .col-2 { display: none !important; }
+
+/* ── Step 2: Your Details panel ──────────────────────────────────────────── */
+.sbc-checkout-wrap #customer_details {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Hide WC's auto-generated billing heading (JS injects our own) */
+.sbc-checkout-wrap .woocommerce-billing-fields > h3 { display: none !important; }
+
+/* Step 2 header — injected by JS at top of #customer_details */
+.sbc-step2-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.sbc-step2-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    flex: 1;
+}
+
+/* "Already a customer?" right-aligned in step2 header */
+.sbc-login-inline {
+    margin-left: auto;
+    font-size: 13px;
+    color: #6b7280;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.sbc-login-inline a,
+.sbc-login-inline .sbc-showlogin-link {
+    color: #1a6fc4 !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+.sbc-login-inline a:hover { color: #0d4f96 !important; text-decoration: underline; }
+
+/* Login form — hidden initially, JS slides it open */
+.sbc-checkout-wrap .login {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    display: none;
+}
+.sbc-checkout-wrap .login p { font-size: 13px; color: #4b5563; }
+.sbc-checkout-wrap .login .button,
+.sbc-checkout-wrap .login button[type="submit"] {
+    background: #1a6fc4 !important; color: #fff !important;
+    border: none !important; border-radius: 7px !important;
+    padding: 8px 18px !important; font-size: 13px !important;
+    font-weight: 600 !important; cursor: pointer !important;
+}
+
+/* ── "Your plan" / variation selectors — hide any WC Subscriptions injected selectors ── */
+.sbc-checkout-wrap select[name^="attribute_"],
+.sbc-checkout-wrap .woocommerce-checkout-variation,
+.sbc-checkout-wrap .wcs-checkout-variation,
+.sbc-checkout-wrap .wc-subscription-note,
+.sbc-checkout-wrap table.variations,
+.sbc-checkout-wrap .variation-radios,
+.sbc-checkout-wrap .wcs_checkout_variation_selector { display: none !important; }
+
+/* ── WC form fields ──────────────────────────────────────────────────────── */
+/* Override WC's two-column float layout — all fields full width */
+.sbc-checkout-wrap .form-row-first,
+.sbc-checkout-wrap .form-row-last {
+    float: none !important;
+    width: 100% !important;
+    clear: both !important;
+    margin-right: 0 !important;
+}
+
+.sbc-checkout-wrap .woocommerce-billing-fields__field-wrapper,
+.sbc-checkout-wrap .woocommerce-billing-fields {
+    overflow: visible !important; /* clear float context */
+}
+
+.sbc-checkout-wrap .form-row { margin-bottom: 12px; }
+
+.sbc-checkout-wrap .form-row input[type="text"],
+.sbc-checkout-wrap .form-row input[type="email"],
+.sbc-checkout-wrap .form-row input[type="tel"],
+.sbc-checkout-wrap .form-row input[type="password"],
+.sbc-checkout-wrap .form-row select,
+.sbc-checkout-wrap .form-row textarea {
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color .18s, box-shadow .18s;
+    background: #fff;
+    color: #1f2937;
+}
+
+/* ── select2 overrides (WooCommerce replaces Country/Region with a select2 widget) ────
+   The .select2-container lives inside .sbc-checkout-wrap.
+   The .select2-dropdown is appended directly to <body> so needs a global selector.
+   ──────────────────────────────────────────────────────────────────────────────────── */
+
+/* The visible "field" box */
+.sbc-checkout-wrap .select2-container--default .select2-selection--single {
+    height: auto !important;
+    min-height: 42px !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* The selected text inside the field */
+.sbc-checkout-wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 14px !important;
+    color: #1f2937 !important;
+    line-height: 1.5 !important;
+    padding: 8px 36px 8px 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* The chevron arrow */
+.sbc-checkout-wrap .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100% !important;
+    top: 0 !important;
+    right: 8px !important;
+}
+
+/* Focus / open states */
+.sbc-checkout-wrap .select2-container--default.select2-container--focus .select2-selection--single,
+.sbc-checkout-wrap .select2-container--default.select2-container--open .select2-selection--single {
+    border-color: #1a6fc4 !important;
+    box-shadow: 0 0 0 3px rgba(26,111,196,.1) !important;
+    outline: none !important;
+}
+
+/* Dropdown list — appended to <body> so scoped globally (not inside .sbc-checkout-wrap) */
+.select2-container--default .select2-results__option {
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+    color: #1f2937 !important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #1a6fc4 !important;
+    color: #fff !important;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    font-size: 14px !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+}
+
+/* Native select fallback (for fields that don't use select2) */
+.sbc-checkout-wrap .form-row select {
+    height: auto !important;
+    min-height: 42px !important;
+    padding: 8px 12px !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+}
+
+/* Dropdown options — separate rule so font-size is correct */
+.sbc-checkout-wrap .form-row select option {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    display: block;
+    line-height: normal;
+    padding: 4px 0;
+}
+
+.sbc-checkout-wrap .form-row input:focus,
+.sbc-checkout-wrap .form-row select:focus,
+.sbc-checkout-wrap .form-row textarea:focus {
+    border-color: #1a6fc4;
+    box-shadow: 0 0 0 3px rgba(26,111,196,.1);
+    outline: none;
+}
+
+.sbc-checkout-wrap .form-row label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ── Step 3: Payment panel ───────────────────────────────────────────────── */
+.sbc-checkout-wrap #order_review {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+/* Step 3 header (injected by JS) */
+.sbc-step3-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.sbc-step3-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* ── Payment methods — 2-column tile grid ────────────────────────────────── */
+.sbc-checkout-wrap #payment { background: transparent; }
+
+.sbc-checkout-wrap #payment ul.payment_methods {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 4px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Each tile — equal width, never stacked */
+.sbc-checkout-wrap #payment ul.payment_methods > li.wc_payment_method {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    float: none !important;
+    clear: none !important;
+    border: 2px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    padding: 0 !important;
+    background: #fff !important;
+    cursor: pointer !important;
+    transition: border-color .18s, background .15s !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.sbc-checkout-wrap #payment ul.payment_methods > li.wc_payment_method:hover {
+    border-color: #93c5fd !important;
+}
+
+.sbc-checkout-wrap #payment ul.payment_methods > li.wc_payment_method.sbc-tile-active,
+.sbc-checkout-wrap #payment ul.payment_methods > li.wc_payment_method:has(input:checked) {
+    border-color: #1a6fc4 !important;
+    background: #eff6ff !important;
+}
+
+/* Tile label — icon stacked above text, centred */
+.sbc-checkout-wrap #payment ul.payment_methods > li > label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 20px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    min-height: 88px !important;
+    width: 100% !important;
+    line-height: 1.3 !important;
+    user-select: none !important;
+}
+
+/* Payment logos inside label */
+.sbc-checkout-wrap #payment ul.payment_methods > li > label img {
+    height: 28px !important;
+    width: auto !important;
+    max-width: 80px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+/* Hide the radio button — tile border shows selection */
+.sbc-checkout-wrap #payment ul.payment_methods input[type="radio"] {
+    display: none !important;
+}
+
+/* ── Payment detail box — full-width wrap below the tile row ───────────────
+   JS moves .payment_box elements from inside each <li> into a
+   .sbc-payment-details-wrap div placed after the tile <ul>, full width.
+   This runs at setTimeout(0) so boxes are empty when moved — Stripe then
+   mounts its card form directly into the wrap rather than a hidden <li>.
+*/
+
+/* Safety: hide any payment_box that JS hasn't moved yet (avoids flash) */
+.sbc-checkout-wrap #payment li.wc_payment_method .payment_box {
+    display: none !important;
+}
+
+/* Full-width container below the tiles */
+.sbc-payment-details-wrap {
+    margin: 12px 0 16px;
+}
+
+.sbc-payment-details-wrap .payment_box {
+    background: #f9fafb;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13px;
+    color: #4b5563;
+    /* display controlled entirely by JS show()/hide() */
+}
+
+.sbc-payment-details-wrap .payment_box .form-row { margin-bottom: 8px; }
+
+.sbc-payment-details-wrap .wc-stripe-elements-field,
+.sbc-payment-details-wrap .stripe-card-element,
+.sbc-payment-details-wrap .__PrivateStripeElement {
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: #fff;
+    min-height: 40px;
+}
+
+/* ── Additional information (order notes) — moved below payment by JS ──────── */
+.sbc-checkout-wrap .woocommerce-additional-fields {
+    padding: 14px 0 0;
+    border-top: 1px solid #f3f4f6;
+    margin-bottom: 14px;
+}
+
+.sbc-checkout-wrap .woocommerce-additional-fields h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 8px;
+}
+
+.sbc-checkout-wrap .woocommerce-additional-fields textarea {
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    width: 100%;
+    resize: vertical;
+    min-height: 76px;
+    background: #fff;
+    color: #1f2937;
+}
+
+.sbc-checkout-wrap .woocommerce-additional-fields textarea:focus {
+    border-color: #1a6fc4;
+    box-shadow: 0 0 0 3px rgba(26,111,196,.1);
+    outline: none;
+}
+
+/* ── "Have a coupon?" — standalone panel between billing and payment (placed by JS) ── */
+.sbc-coupon-section {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    padding: 14px 20px;
+    margin-bottom: 20px;
+}
+
+/* The coupon notice link inside our panel */
+.sbc-coupon-section .woocommerce-info {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    font-size: 14px !important;
+    color: #4b5563 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.sbc-coupon-section .woocommerce-info::before { display: none !important; }
+.sbc-coupon-section .woocommerce-info a.showcoupon {
+    color: #1a6fc4 !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+}
+
+/* Coupon form — hidden initially; WC's slideToggle opens it */
+.sbc-checkout-wrap .checkout_coupon {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    margin-bottom: 0;
+    display: none; /* hidden by default */
+}
+.sbc-checkout-wrap .checkout_coupon p { font-size: 13px; color: #4b5563; margin-bottom: 8px; }
+.sbc-checkout-wrap .checkout_coupon input#coupon_code {
+    border: 1.5px solid #d1d5db;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.sbc-checkout-wrap .checkout_coupon .button,
+.sbc-checkout-wrap .checkout_coupon button[type="submit"] {
+    background: #1a6fc4 !important; color: #fff !important;
+    border: none !important; border-radius: 7px !important;
+    padding: 8px 18px !important; font-size: 13px !important;
+    font-weight: 600 !important; cursor: pointer !important;
+}
+
+/* ── "Have a coupon?" — old in-payment wrapper (no longer used — kept for safety) ── */
+.sbc-coupon-in-payment { display: none !important; }
+
+/* ── Place Order button ───────────────────────────────────────────────────── */
+.sbc-checkout-wrap .place-order { margin-top: 4px; }
+
+.sbc-checkout-wrap #place_order,
+.sbc-checkout-wrap button[type="submit"]#place_order {
+    background: linear-gradient(135deg, #1a6fc4, #0d4f96) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    transition: transform .15s, box-shadow .15s !important;
+    letter-spacing: .3px;
+    box-shadow: 0 4px 14px rgba(26,111,196,.35) !important;
+    display: block !important;
+}
+
+.sbc-checkout-wrap #place_order:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(26,111,196,.45) !important;
+}
+
+/* Trust note below button */
+.sbc-checkout-wrap .place-order::after {
+    content: '🔒  SSL secured  ·  Cancel anytime';
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 8px;
+}
+
+/* ── Right column: Order summary card ────────────────────────────────────── */
+.sbc-summary-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.sbc-summary-head {
+    background: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sbc-summary-head h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.sbc-summary-free-badge {
+    background: rgba(16,185,129,.1);
+    border: 1px solid rgba(16,185,129,.3);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: #065f46;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.sbc-summary-body { padding: 16px 20px; }
+
+.sbc-summary-plan-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.sbc-summary-plan-name { font-weight: 600; font-size: 14px; color: #1f2937; }
+.sbc-summary-plan-sub  { font-size: 12px; color: #6b7280; margin-top: 2px; }
+.sbc-summary-price     { font-weight: 700; color: #1a6fc4; white-space: nowrap; font-size: 14px; }
+
+.sbc-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #4b5563;
+    padding: 4px 0;
+}
+
+.sbc-summary-row.sbc-discount { color: #065f46; }
+.sbc-summary-row.sbc-summary-setup-fee { color: #4b5563; }
+.sbc-summary-row.sbc-summary-setup-fee .bi { color: #1a6fc4; font-size: 12px; margin-right: 3px; }
+
+.sbc-due-today { font-weight: 700; color: #10b981; font-size: 15px; }
+.sbc-after-trial-note { font-size: 11px; color: #9ca3af; margin: 6px 0 0; }
+
+.sbc-divider { border: none; border-top: 1px solid #f3f4f6; margin: 12px 0; }
+
+.sbc-trust-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.sbc-trust-list li {
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 5px 0 !important;
+}
+
+.sbc-trust-list li::before { display: none !important; content: none !important; }
+
+.sbc-trust-list .bi { color: #10b981; font-size: 14px; flex-shrink: 0; }
+
+.sbc-pay-logos-wrap { text-align: center; }
+.sbc-pay-logos-label { font-size: 11px; color: #9ca3af; margin-bottom: 6px; }
+.sbc-pay-logos { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.sbc-pay-badge {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    color: #4b5563;
+}
+
+/* ── Testimonial ──────────────────────────────────────────────────────────── */
+.sbc-testimonial {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 18px 20px;
+}
+
+.sbc-stars { color: #f59e0b; font-size: 15px; margin-bottom: 8px; }
+
+.sbc-testimonial p {
+    font-size: 13px;
+    color: #4b5563;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 8px;
+}
+
+.sbc-testimonial-author {
+    font-size: 12px;
+    color: #9ca3af;
+    font-weight: 600;
+}
+.sbc-page .co-coupon-row
+{    display: none !important;
+}
+.sbc-page #customer_details .col-sm-7 {
+    width: 100% !important;
+
+}
+.sbc-page #order_review .co-product-thumb {
+    display: none !important;
+}
+.sbc-page .woocommerce-privacy-policy-text {
+    font-size: 13px;
+  }
+  ul.co-trust-list {
+    list-style: none !important;
+
+  }
+   ul.co-trust-list li i{
+   margin-right: 6px;}
+   .sbc-page ul.co-trust-list { display: none !important;}
+   
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .sbc-grid { grid-template-columns: 1fr; }
+    .sbc-col-side { position: static; order: -1; }
+}
+
+@media (max-width: 580px) {
+    .sbc-plans { grid-template-columns: 1fr; }
+    .sbc-panel { padding: 18px; }
+    .sbc-page-title { font-size: 22px; }
+}

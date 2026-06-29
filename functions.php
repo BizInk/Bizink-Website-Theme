@@ -44,9 +44,23 @@ function bizink_theme_enqueue_styles()
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('slick', get_stylesheet_directory_uri() . '/js/slick.min.js', array('jquery'), $version, array());
 	wp_enqueue_script('bizink-scripts', get_stylesheet_directory_uri() . $theme_scripts, array('jquery'), $version, array());
+	wp_localize_script('bizink-scripts', 'sbcConfig', array(
+		'currency'    => $currency,
+		'productId'   => $sbc_product_id,
+		'ajaxUrl'     => admin_url('admin-ajax.php'),
+		'nonce'       => wp_create_nonce('sbc_switch_plan'),
+		'initialPlan' => $active_plan,
+		'plans'       => array(
+			'pro'  => array('label' => 'SmartBizCalcs – PRO',  'price' => $plans['pro']['price'],  'setupFee' => $plans['pro']['setup_fee'],  'varId' => $plans['pro']['var_id'],  'attrVal' => $plans['pro']['attr_val']),
+			'plus' => array('label' => 'SmartBizCalcs – PLUS', 'price' => $plans['plus']['price'], 'setupFee' => $plans['plus']['setup_fee'], 'varId' => $plans['plus']['var_id'], 'attrVal' => $plans['plus']['attr_val']),
+		),
+	));
+
+
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+	wp_enqueue_style('bootstrap-icons', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
 
 	// Custom JS
 	wp_enqueue_script('ajax_custom_script', get_stylesheet_directory_uri() . '/js/custom-post.js');
@@ -242,7 +256,7 @@ function filter_posts_callback()
 			$html .= '<div class="col-lg-4 col-md-4"><div class="blog-grid"><div class="image">';
 			$html .= '<img src="' . $images . '"></div>';
 			$html .= '<h3><a href="' . $url . '">' . $title . '</a></h3><div class="default-content"><p>' . $content . '</p></div>';
-			if(!empty($posttags)){
+			if (!empty($posttags)) {
 				$html .= '<ul class="tags">';
 				foreach ($posttags as $tag) {
 					$html .= '<li><a href="#"><h6>' . $tag->name . '</h6></a></li>';
@@ -321,12 +335,12 @@ function gp130428_paginate_parent_children($parent = null)
 add_shortcode('gp130428_link_pages', 'gp130428_paginate_parent_children');
 
 /** Disable ACF Filtering */
-add_filter( 'acf/shortcode/allow_unsafe_html', function ( $allowed, $atts ) {
-    if ( $atts['field'] === 'podcast_iframe' ) {
-        return true;
-    }
-    return $allowed;
-}, 10, 2 );
+add_filter('acf/shortcode/allow_unsafe_html', function ($allowed, $atts) {
+	if ($atts['field'] === 'podcast_iframe') {
+		return true;
+	}
+	return $allowed;
+}, 10, 2);
 
 add_filter('acf/settings/save_json', 'bizink_theme_json_save_point');
 function bizink_theme_json_save_point($path)
@@ -347,12 +361,12 @@ function bizink_theme_json_load_point($paths)
  * 1. Tell WooCommerce to treat our custom template as a checkout page.
  *    This ensures WC loads its checkout scripts, form handlers, and payment gateways.
  */
-add_filter( 'woocommerce_is_checkout', function( $is_checkout ) {
-    if ( is_page_template( 'page-templates/sbc-checkout-template.php' ) ) {
-        return true;
-    }
-    return $is_checkout;
-} );
+add_filter('woocommerce_is_checkout', function ($is_checkout) {
+	if (is_page_template('page-templates/sbc-checkout-template.php')) {
+		return true;
+	}
+	return $is_checkout;
+});
 
 
 /**
@@ -369,16 +383,18 @@ add_filter( 'woocommerce_is_checkout', function( $is_checkout ) {
  *    on every update_order_review AJAX call, so we can read it here without
  *    any referer/URL guesswork (which can emit PHP notices and corrupt JSON).
  */
-add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) {
-    if ( empty( $_POST['post_data'] ) ) { return $fragments; }
-    $form_data = array();
-    parse_str( wp_unslash( $_POST['post_data'] ), $form_data );
-    if ( ! empty( $form_data['sbc_checkout_page'] ) ) {
-        // Drop the payment fragment — Stripe stays mounted, no disruption
-        unset( $fragments['.woocommerce-checkout-payment'] );
-    }
-    return $fragments;
-}, 25 );
+add_filter('woocommerce_update_order_review_fragments', function ($fragments) {
+	if (empty($_POST['post_data'])) {
+		return $fragments;
+	}
+	$form_data = array();
+	parse_str(wp_unslash($_POST['post_data']), $form_data);
+	if (! empty($form_data['sbc_checkout_page'])) {
+		// Drop the payment fragment — Stripe stays mounted, no disruption
+		unset($fragments['.woocommerce-checkout-payment']);
+	}
+	return $fragments;
+}, 25);
 
 
 /**
@@ -391,18 +407,18 @@ add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) 
  *      b) Wrap the fragment HTML in <div id="sbc-order-review-wrap"> so the ID
  *         survives each replaceWith — the wrapper persists without JS re-wrapping.
  */
-add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) {
-    if ( ! is_page_template( 'page-templates/sbc-checkout-template.php' ) ) {
-        return $fragments;
-    }
-    $key = '.woocommerce-checkout-review-order-table';
-    if ( isset( $fragments[ $key ] ) ) {
-        $fragments['#sbc-order-review-wrap'] =
-            '<div id="sbc-order-review-wrap">' . $fragments[ $key ] . '</div>';
-        unset( $fragments[ $key ] );
-    }
-    return $fragments;
-}, 20 );
+add_filter('woocommerce_update_order_review_fragments', function ($fragments) {
+	if (! is_page_template('page-templates/sbc-checkout-template.php')) {
+		return $fragments;
+	}
+	$key = '.woocommerce-checkout-review-order-table';
+	if (isset($fragments[$key])) {
+		$fragments['#sbc-order-review-wrap'] =
+			'<div id="sbc-order-review-wrap">' . $fragments[$key] . '</div>';
+		unset($fragments[$key]);
+	}
+	return $fragments;
+}, 20);
 
 
 /**
@@ -412,100 +428,103 @@ add_filter( 'woocommerce_update_order_review_fragments', function( $fragments ) 
  *    This bypasses WC Subscriptions' add-to-cart validation which can block
  *    re-adding a subscription variation if it considers one already present.
  */
-add_action( 'wp_ajax_sbc_switch_plan',        'bizink_sbc_switch_plan' );
-add_action( 'wp_ajax_nopriv_sbc_switch_plan', 'bizink_sbc_switch_plan' );
+add_action('wp_ajax_sbc_switch_plan',        'bizink_sbc_switch_plan');
+add_action('wp_ajax_nopriv_sbc_switch_plan', 'bizink_sbc_switch_plan');
 
-function bizink_sbc_switch_plan() {
+function bizink_sbc_switch_plan()
+{
 
-    check_ajax_referer( 'sbc_switch_plan', 'nonce' );
+	check_ajax_referer('sbc_switch_plan', 'nonce');
 
-    $product_id = intval( $_POST['product_id'] );
-    $var_id     = intval( $_POST['var_id'] );
+	$product_id = intval($_POST['product_id']);
+	$var_id     = intval($_POST['var_id']);
 
-    if ( ! $product_id || ! $var_id ) {
-        wp_send_json_error( array( 'message' => 'Invalid parameters' ) );
-        return;
-    }
+	if (! $product_id || ! $var_id) {
+		wp_send_json_error(array('message' => 'Invalid parameters'));
+		return;
+	}
 
-    // Build the variation attributes array from available variations
-    $product   = wc_get_product( $product_id );
-    $var_attrs = array();
+	// Build the variation attributes array from available variations
+	$product   = wc_get_product($product_id);
+	$var_attrs = array();
 
-    if ( $product && $product->is_type( 'variable' ) ) {
-        foreach ( $product->get_available_variations() as $v ) {
-            if ( (int) $v['variation_id'] === $var_id ) {
-                $var_attrs = $v['attributes'];
-                break;
-            }
-        }
-    }
+	if ($product && $product->is_type('variable')) {
+		foreach ($product->get_available_variations() as $v) {
+			if ((int) $v['variation_id'] === $var_id) {
+				$var_attrs = $v['attributes'];
+				break;
+			}
+		}
+	}
 
-    $variation_product = wc_get_product( $var_id );
-    if ( ! $variation_product ) {
-        wp_send_json_error( array( 'message' => 'Variation not found', 'var_id' => $var_id ) );
-        return;
-    }
+	$variation_product = wc_get_product($var_id);
+	if (! $variation_product) {
+		wp_send_json_error(array('message' => 'Variation not found', 'var_id' => $var_id));
+		return;
+	}
 
-    // -- Preferred path: mutate the existing cart item in-place -------------
-    // This avoids WC Subscriptions' add-to-cart validation entirely.
-    $updated  = false;
-    $cart_key = null;
+	// -- Preferred path: mutate the existing cart item in-place -------------
+	// This avoids WC Subscriptions' add-to-cart validation entirely.
+	$updated  = false;
+	$cart_key = null;
 
-    foreach ( WC()->cart->get_cart() as $key => $item ) {
-        if ( (int) $item['product_id'] === $product_id ) {
-            WC()->cart->cart_contents[ $key ]['variation_id'] = $var_id;
-            WC()->cart->cart_contents[ $key ]['variation']    = $var_attrs;
-            WC()->cart->cart_contents[ $key ]['data']         = $variation_product;
-            $cart_key = $key;
-            $updated  = true;
-            break;
-        }
-    }
+	foreach (WC()->cart->get_cart() as $key => $item) {
+		if ((int) $item['product_id'] === $product_id) {
+			WC()->cart->cart_contents[$key]['variation_id'] = $var_id;
+			WC()->cart->cart_contents[$key]['variation']    = $var_attrs;
+			WC()->cart->cart_contents[$key]['data']         = $variation_product;
+			$cart_key = $key;
+			$updated  = true;
+			break;
+		}
+	}
 
-    // -- Fallback: remove old item and add fresh -----------------------------
-    if ( ! $updated ) {
-        foreach ( WC()->cart->get_cart() as $key => $item ) {
-            if ( (int) $item['product_id'] === $product_id ) {
-                WC()->cart->remove_cart_item( $key );
-                break;
-            }
-        }
-        $cart_key = WC()->cart->add_to_cart( $product_id, 1, $var_id, $var_attrs );
-        $updated  = ! empty( $cart_key );
-    }
+	// -- Fallback: remove old item and add fresh -----------------------------
+	if (! $updated) {
+		foreach (WC()->cart->get_cart() as $key => $item) {
+			if ((int) $item['product_id'] === $product_id) {
+				WC()->cart->remove_cart_item($key);
+				break;
+			}
+		}
+		$cart_key = WC()->cart->add_to_cart($product_id, 1, $var_id, $var_attrs);
+		$updated  = ! empty($cart_key);
+	}
 
-    if ( $updated ) {
-        // Recalculate totals from the mutated cart contents.
-        WC()->cart->calculate_totals();
+	if ($updated) {
+		// Recalculate totals from the mutated cart contents.
+		WC()->cart->calculate_totals();
 
-        // WC only writes the 'cart' key to the session at PHP shutdown via
-        // WC_Cart_Session::save_cart_data_to_session(). If we call save_data()
-        // before shutdown, the DB still has the old cart. Fix: push the updated
-        // cart and totals into the session data manually before saving.
-        WC()->session->set( 'cart',        WC()->cart->get_cart_for_session() );
-        WC()->session->set( 'cart_totals', WC()->cart->get_totals() );
-        WC()->session->save_data();
+		// WC only writes the 'cart' key to the session at PHP shutdown via
+		// WC_Cart_Session::save_cart_data_to_session(). If we call save_data()
+		// before shutdown, the DB still has the old cart. Fix: push the updated
+		// cart and totals into the session data manually before saving.
+		WC()->session->set('cart',        WC()->cart->get_cart_for_session());
+		WC()->session->set('cart_totals', WC()->cart->get_totals());
+		WC()->session->save_data();
 
-        wp_send_json_success( array(
-            'cartKey' => $cart_key,
-            'var_id'  => $var_id,
-            'total'   => WC()->cart->get_total( 'edit' ),
-            'method'  => $updated ? 'mutate' : 'add',
-        ) );
-    } else {
-        $notices = wc_get_notices( 'error' );
-        wc_clear_notices();
-        wp_send_json_error( array(
-            'message' => 'Could not switch variation',
-            'notices' => $notices,
-            'var_id'  => $var_id,
-            'attrs'   => $var_attrs,
-        ) );
-    }
+		wp_send_json_success(array(
+			'cartKey' => $cart_key,
+			'var_id'  => $var_id,
+			'total'   => WC()->cart->get_total('edit'),
+			'method'  => $updated ? 'mutate' : 'add',
+		));
+	} else {
+		$notices = wc_get_notices('error');
+		wc_clear_notices();
+		wp_send_json_error(array(
+			'message' => 'Could not switch variation',
+			'notices' => $notices,
+			'var_id'  => $var_id,
+			'attrs'   => $var_attrs,
+		));
+	}
 }
 
 // Plugin Updater
 require 'plugin-update-checker/plugin-update-checker.php';
+
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
 $myUpdateChecker = PucFactory::buildUpdateChecker('https://github.com/BizInk/Bizink-Website-Theme', __FILE__, 'bizink-website-theme');
 $myUpdateChecker->setBranch('master');
